@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* .main-container {
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
+    display: grid;
+
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 
+    "top-container"
+    "display-container";
+
+    border: 5px solid paleturquoise;
+} */
+
+
+
+.display-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 100px 1fr 40px;
+    grid-template-areas:
+    "top-container top-container" 
+    "note-menu todo-container-title"
+    "note-menu priority-container"
+    "todo-container-footer todo-container-footer";
+    border: 5px solid paleturquoise;
+
+}
+
+
+.note-menu{
+    grid-area: note-menu;
+    height: 100%;
+    background-color: royalblue;
+}
+
+
+.top-container {
+    border: 1px solid red;
+    grid-area: top-container;
+    display: flex;
+    background-color: violet;
+}
+
+.top-container-spacing {
+    flex: 1;
+}
+
+.brand-container {
+    border: 1px solid green;
+    width: 250px;
+}
+
+
+.hamburger-menu {
+    border: 1px solid teal;
+    width: 70px;
+    display: none; /*display: block when display is below 600px */ 
+}
+
+
+
+
+
+
+.todo-container-title{
+
+    display: grid;
+    grid-area: todo-container-title;
+    background-color: slateblue;
+    border: 1px solid red;
+    
+}
+.priority-buttons{
+    display: grid;
+    border: 1px solid blue;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+
+}
+
+.priority-buttons > button{
+    height: 25px;
+}
+
+.tab-title{
+    padding: 10px;
+    align-self: center;
+}
+
+.todo-container-footer{
+
+    display: grid;
+    grid-area: todo-container-footer;
+    background-color: slateblue;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.priority-container{
+    
+    height: 100%;
+    width: 100%;
+    /* overflow: hidden; */
+    border: 3px solid red;
+    background-color: darkcyan;
+
+    display: grid;
+    grid-area: priority-container;
+    /* grid-template-rows: repeat(4, 300px); */
+    grid-template-rows: 1fr;
+    overflow: auto;
+    
+
+}
+
+.vertical-scroll{
+    overflow: auto;
+    border: 5px solid blue;
+}
+
+
+
+
+
+
+
+.overdue-container,
+.due-soon-container,
+.upcoming-container,
+.complete-container{
+
+    display: grid;
+    border: 4px solid gold;
+    height: 320px;
+    width: 100%;
+    background-color: indigo;
+    align-items: center;
+    
+    overflow: auto;
+
+}
+
+.scrollable-container{
+
+    display: grid;
+    column-gap: 10px;
+    /* height: 400px; */
+    grid-auto-flow: column; /*This was what i wanted to do*/
+    
+    border: 4px solid brown;
+
+}
+
+.todo-container{
+    width: 300px;
+    height: 220px;
+    border: 5px solid pink;
+    flex-shrink: 0;
+    
+}
+
+
+
+
+
+
+/* Mobile version */
+
+@media screen and (max-width: 600px) {
+    
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .display-container {
+        border: 1px solid blue;
+        grid-area: display-container;
+        display: grid;
+        /* grid-template-rows: 100px 100px 1fr 90px; */
+        grid-template-columns: 1fr 300px;
+        grid-template-areas: 
+        "top-container top-container" 
+        "todo-container-title todo-container-title"
+        "priority-container priority-container"
+        "todo-container-footer todo-container-footer";
+    
+    
+    
+    }
+
+    .note-menu {
+        position: absolute;
+        display: grid;
+        justify-self: end;
+        align-self: end;
+        grid-row: 2/4;
+        grid-column: 2/3;
+        /* height: 90%; */
+        display: none;
+        width: 150px;
+    }
+
+    .menu-active { /*triggers when hamburger menu is clicked*/
+        display: grid;
+    }
+}
