@@ -10,6 +10,8 @@ import projecTabObject from "./projectTab";
 
 import notesTabObject from "./allNotesTab";
 
+import domAction from "./domActivities"
+
 
 
 // console.log('test');
@@ -42,14 +44,6 @@ import notesTabObject from "./allNotesTab";
 
 // })
 
-
-const currentDate = new Date();
-
-const day = currentDate.getDate();
-
-const month = currentDate.getMonth();
-
-const year = currentDate.getFullYear();
 
 
 
