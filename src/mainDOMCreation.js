@@ -25,7 +25,7 @@ function mainDomModule (){
 
             const brandHeader = document.createElement('h1');
 
-            brandHeader.textContent = 'SageNotes';
+            brandHeader.textContent = 'SageEntries';
 
             brandContainer.append(brandHeader);
 

@@ -8,7 +8,7 @@ function allNotesTab (){
 
     console.log('NOTES TAB');
 
-    console.log(notesArray);
+    // console.log(notesArray);
 
     return notesArray;
 
