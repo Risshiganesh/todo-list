@@ -19,9 +19,12 @@ import createNotesDOM from "./allNotesDOMCreation";
 
 import populateTodoCollection from "./populateDOMTodoCollection";
 
-let recentCollectionContainerFn = '';
+import appendNotesObject from "./populateDOMNoteCollection";
 
-let recentCollectionContainerArg = '';
+// Because displaying todoCollection in high priority is the default
+let recentCollectionContainerFn = populateTodoCollection;
+
+let recentCollectionContainerArg = 'high';
 
 function domActivitiesModule (){
 
@@ -334,9 +337,12 @@ function domActivitiesModule (){
             //everytime submit button is clicked fresh dropdown is created 
             mainDomModule.existingProjectOptions();
 
-            recentCollectionContainerFn(recentCollectionContainerArg)
+            if (selectNote.checked) {
+                appendNotesObject();
+                return;
+            }
 
-            console.log(recentCollectionContainerFn);
+            recentCollectionContainerFn(recentCollectionContainerArg);
 
 
         }
@@ -454,6 +460,7 @@ function domActivitiesModule (){
 
         recentCollectionContainerFn = populateTodoCollection;
         recentCollectionContainerArg = 'high';
+        console.log('LOOPING')
 
         // console.log(recentCollectionContainerFn);
     });
@@ -474,6 +481,7 @@ function domActivitiesModule (){
 
         recentCollectionContainerFn = populateTodoCollection;
         recentCollectionContainerArg = 'medium';
+        console.log('LOOPING')
     });
 
 
@@ -493,10 +501,11 @@ function domActivitiesModule (){
 
         recentCollectionContainerFn = populateTodoCollection;
         recentCollectionContainerArg = 'low';
+        console.log('LOOPING')
     });
    }
 
-   changePriority();
+//    changePriority();
 
 export default domActivitiesModule;
 
