@@ -4,13 +4,34 @@ import "./style.css";
 
 // import projectModule from "./create-projects";
 
+import createMainDOM from "./mainDOMCreation";
+
+import createTodoDOM from "./allTodoDOMCreation"
+
+import createFormDOM from "./formDOMCreation";
+
 import todosTabObject from "./allTodosTab";
 
 import projecTabObject from "./projectTab";
 
 import notesTabObject from "./allNotesTab";
 
-import domAction from "./domActivities"
+import domAction from "./domActivities";
+
+
+
+// All modules should start here
+
+// HOMEPAGE
+createMainDOM();
+
+// Loads todo first
+createTodoDOM();
+
+// Attaches all eventlisteners to HOMEPAGE
+domAction();
+
+
 
 
 

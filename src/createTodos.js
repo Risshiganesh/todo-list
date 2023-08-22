@@ -4,8 +4,9 @@ function todoModule (){
 
     // Factory function to create notes
 
-    function todoFactory (title,desc,dueDate,remindIn,priority,notes,status,project){
-        return {title,desc,dueDate,remindIn,priority,notes,status,project}
+    function todoFactory (title,desc,dueDate,remindIn,priority,status,project){
+        
+        return {title,desc,dueDate,remindIn,priority,status,project}
     }
 
     // This is where unsorted todo arrays are stored
@@ -13,8 +14,8 @@ function todoModule (){
 
 
     // this is the function that will be used to create Todos
-    function createTodo (title,desc,dueDate,remindIn,priority,notes,status,project= 'none'){
-        const newToDo = todoFactory(title,desc,dueDate,remindIn,priority,notes,status,project);
+    function createTodo (title,desc,dueDate,remindIn,priority,status,project = 'none'){
+        const newToDo = todoFactory(title,desc,dueDate,remindIn,priority,status,project);
         todoArray.push(newToDo);
         return;
     }
@@ -33,11 +34,11 @@ function todoModule (){
 
     for (let index = 1; index <= 10; index++) {
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`blah blah blah`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`pending`,'project2');
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`blah blah blah`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project2');
 
-        createTodo(`title${index}`,`desc${index}`,'',index,`low`,`blah blah blah`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,'',index,`low`,`pending`,'project2');
 
 
    
@@ -46,9 +47,9 @@ function todoModule (){
 
     for (let index = 1; index <= 5; index++) {
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`mamaaaa oooouu`,`complete`,'project1test');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`complete`,'project1test');
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`medium`,`mamaaaa oooouu`,`pending`,'project1test');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`medium`,`pending`,'project1test');
 
    
         

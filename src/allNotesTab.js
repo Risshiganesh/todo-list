@@ -6,6 +6,8 @@ function allNotesTab (){
 
     const notesArray = sortingMethods.noteSorter(cloneTodoArray);
 
+    console.log('NOTES TAB');
+
     console.log(notesArray);
 
     return notesArray;
@@ -14,7 +16,6 @@ function allNotesTab (){
 
 }
 
-console.log('NOTES TAB');
 allNotesTab();
 
 export default allNotesTab;
