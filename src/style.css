@@ -187,11 +187,11 @@ body{
 
 }
 
+
 .scrollable-container{
 
     display: grid;
     column-gap: 10px;
-    /* height: 400px; */
     grid-auto-flow: column; /*This was what i wanted to do*/
     
     border: 4px solid brown;
@@ -214,6 +214,9 @@ body{
     
 }
 
+
+
+
 .project-todo-container {
     position: fixed;
     width: 100%;
@@ -223,14 +226,54 @@ body{
     display: grid;
     justify-items: center;
     align-items: center;
+    z-index: 2;
 }
 
 .project-todos{
 
     border: 3px solid cyan;
-    width: 400px;
-    height: 700px;
+    width: 350px;
+    height: 500px;
     background-color: slateblue;
+    overflow: auto;
+
+}
+
+.todo-status-container{
+
+    border: 2px solid fuchsia;
+    overflow: auto;
+    /* height: 350px; */
+
+}
+
+.overdue-todos,
+.due-soon-todos,
+.upcoming-todos,
+.complete-todos{
+
+    display: grid;
+    border: 4px solid gold;
+    /* height: 320px; */
+    width: 100%;
+    background-color: rgb(56, 56, 255);
+    align-items: start;
+    justify-items: center;
+    
+    /* overflow: auto; */
+
+}
+
+
+.scrollable-todo-container{
+
+    display: grid;
+    row-gap: 10px;
+    /* height: 400px; */
+    grid-auto-flow: row; /*This was what i wanted to do*/
+    color: white;
+    
+    border: 4px solid brown;
 
 }
 

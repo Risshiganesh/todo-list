@@ -32,15 +32,34 @@ let recentCollectionContainerArg = 'high';
 
 function domActivitiesModule (){
 
+    const mainContainer = document.querySelector('.main-container');
+
+    mainContainer.addEventListener('click',function(e){
+
+        
+
+        if(menu.classList.contains("menu-active")){
+            menu.classList.remove("menu-active");
+            console.log('hamburgerrrr-remove')
+            return;
+        }
+
+    })
+
 
     // hamburger button
     const hamburgerButton = document.querySelector('.hamburger-menu');
 
     const menu = document.querySelector('.note-menu');
 
+    menu.addEventListener('click',function(e){
+        e.stopPropagation();
+    })
 
-    hamburgerButton.addEventListener('click',function(){
-        
+
+    hamburgerButton.addEventListener('click',function(e){
+
+        e.stopPropagation();
         console.log('hamburger')
 
         if(!menu.classList.contains("menu-active")){

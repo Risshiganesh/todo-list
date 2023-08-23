@@ -172,7 +172,7 @@ function appendProjectObjects(priority){
 
                                                         const titleArray = ['OVERDUE','DUE SOON','UPCOMING','COMPLETED'];
 
-                                                        const classArray = ['overdue-container','due-soon-container','upcoming-container','complete-container'];
+                                                        const classArray = ['overdue-todos','due-soon-todos','upcoming-todos','complete-todos'];
 
 
                                                         priorityArray.forEach(priority => {
@@ -226,7 +226,7 @@ function appendProjectObjects(priority){
                                                         
                                                                                 const statusContainer = document.createElement('div');
                                                         
-                                                                                statusContainer.classList.add('status-container');
+                                                                                statusContainer.classList.add('todo-status-container');
                                                                         
                                                                                 projectTodos.append(statusContainer);
                                                                         
@@ -246,7 +246,7 @@ function appendProjectObjects(priority){
                                                                         
                                                                                         const scrollableContainer = document.createElement('div');
                                                                         
-                                                                                        scrollableContainer.classList.add('scrollable-container');
+                                                                                        scrollableContainer.classList.add('scrollable-todo-container');
                                                                         
                                                                                         dueStatusContainer.append(scrollableContainer);
                                                         
