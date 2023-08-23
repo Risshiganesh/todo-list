@@ -139,7 +139,7 @@ function appendTodoObjects(priority){
 
                                         const todoPrioritytDiv = document.createElement('div');
 
-                                        todoPrioritytDiv.classList.add('todo-project-div');
+                                        todoPrioritytDiv.classList.add('todo-priority-div');
 
                                         todoPrioritytDiv.textContent = object.priority;
 

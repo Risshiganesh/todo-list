@@ -4,7 +4,7 @@ import todoModule from "./createTodos";
 
 import projectModule from "./createProjects";
 
-import notesObject from "./allNotesTab"
+import notesObject from "./allNotesTab";
 
 
 import todoObject from "./allTodosTab";
@@ -13,11 +13,15 @@ import projectObject from "./projectTab";
 
 import mainDomModule from "./formDOMCreation";
 
-import createTodoDOM from "./allTodoDOMCreation"
+import createTodoDOM from "./allTodoDOMCreation";
+
+import createProjectDOM from "./projectsDOMCreation";
 
 import createNotesDOM from "./allNotesDOMCreation";
 
 import populateTodoCollection from "./populateDOMTodoCollection";
+
+import appendProjectObjects from "./populateDOMProjectCollection";
 
 import appendNotesObject from "./populateDOMNoteCollection";
 
@@ -410,10 +414,19 @@ function domActivitiesModule (){
 
     allTodosTab.addEventListener('click',function(){
 
+        console.log('TO DO LIST');
         createTodoDOM();
-        console.log('GDGDGDGDGG')
 
     });
+
+    const allProjectsTab = document.querySelector('.all-projects-tab')
+
+    allProjectsTab.addEventListener('click',function(){
+
+        console.log('PROJECTS TAB');
+        createProjectDOM()
+
+    })
 
 
     const allNotesTab = document.querySelector('.all-notes-tab');
@@ -434,7 +447,7 @@ function domActivitiesModule (){
 
  // PRIORITY BUTTON - TODOS
 
- function changePriority(){
+ function changeTodoPriority(){
     const highPriorityButton = document.querySelector('.high-priority');
     const mediumPriorityButton = document.querySelector('.medium-priority');
     const lowPriorityButton = document.querySelector('.low-priority');
@@ -445,8 +458,6 @@ function domActivitiesModule (){
 
 
     highPriorityButton.addEventListener('click',function(){
-
-        console.log('TEST22133')
         
         const priorityButtons = document.querySelector('.priority-buttons');
   
@@ -505,9 +516,82 @@ function domActivitiesModule (){
     });
    }
 
+
+
+
+   function changeProjectPriority(){
+    const highPriorityButton = document.querySelector('.high-priority');
+    const mediumPriorityButton = document.querySelector('.medium-priority');
+    const lowPriorityButton = document.querySelector('.low-priority');
+
+    if (!highPriorityButton||!mediumPriorityButton||!lowPriorityButton) {
+        return;
+    }
+
+
+    highPriorityButton.addEventListener('click',function(){
+        
+        const priorityButtons = document.querySelector('.priority-buttons');
+  
+        priorityButtons.querySelectorAll('*').forEach(element => {
+            element.classList.remove('chosen-priority')
+        });
+
+        highPriorityButton.classList.add('chosen-priority');
+
+        appendProjectObjects('high');
+
+        recentCollectionContainerFn = appendProjectObjects;
+        recentCollectionContainerArg = 'high';
+        console.log('LOOPING')
+
+        // console.log(recentCollectionContainerFn);
+    });
+
+    
+
+    mediumPriorityButton.addEventListener('click',function(){
+        
+        const priorityButtons = document.querySelector('.priority-buttons');
+        
+        priorityButtons.querySelectorAll('*').forEach(element => {
+            element.classList.remove('chosen-priority')
+        });
+
+        mediumPriorityButton.classList.add('chosen-priority');
+
+        appendProjectObjects('medium');
+
+        recentCollectionContainerFn = appendProjectObjects;
+        recentCollectionContainerArg = 'medium';
+        console.log('LOOPING')
+    });
+
+
+   
+    lowPriorityButton.addEventListener('click',function(){
+
+        const priorityButtons = document.querySelector('.priority-buttons');
+
+        priorityButtons.querySelectorAll('*').forEach(element => {
+            
+            element.classList.remove('chosen-priority')
+        });
+
+        lowPriorityButton.classList.add('chosen-priority');
+
+        appendProjectObjects('low');
+
+        recentCollectionContainerFn = appendProjectObjects;
+        recentCollectionContainerArg = 'low';
+        console.log('LOOPING')
+    });
+   }
+
+
 //    changePriority();
 
 export default domActivitiesModule;
 
-export {changePriority};
+export {changeTodoPriority, changeProjectPriority};
 

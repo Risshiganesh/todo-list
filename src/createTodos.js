@@ -34,11 +34,11 @@ function todoModule (){
 
     for (let index = 1; index <= 10; index++) {
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`pending`,'project 2');
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project 2');
 
-        createTodo(`title${index}`,`desc${index}`,'',index,`low`,`pending`,'project2');
+        createTodo(`title${index}`,`desc${index}`,'',index,`low`,`pending`,'project 2');
 
 
    

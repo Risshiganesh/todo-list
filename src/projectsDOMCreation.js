@@ -1,8 +1,10 @@
-import populateTodoCollection from "./populateDOMTodoCollection";
+// import populateTodoCollection from "./populateDOMTodoCollection";
 
-import { changeTodoPriority } from "./domActivities";
+import appendProjectObjects from "./populateDOMProjectCollection";
 
-function allTodoDOMModule (){
+import { changeProjectPriority } from "./domActivities";
+
+function projectDOMModule (){
 
     const displayContainer = document.querySelector('.display-container');
 
@@ -31,37 +33,37 @@ function allTodoDOMModule (){
     
 
 
-    const todoContainerTitle = document.createElement('div');
+    const projectContainerTitle = document.createElement('div');
 
-    todoContainerTitle.classList.add('todo-container-title');
+    projectContainerTitle.classList.add('todo-container-title');
 
-    displayContainer.append(todoContainerTitle);
+    displayContainer.append(projectContainerTitle);
 
         const tabTitle = document.createElement('div');
 
         tabTitle.classList.add('tab-title');
 
-        todoContainerTitle.append(tabTitle);
+        projectContainerTitle.append(tabTitle);
 
-            const todoHeader = document.createElement('h1');
+            const projectHeader = document.createElement('h1');
 
-            todoHeader.textContent = 'To-dos';
+            projectHeader.textContent = 'Projects';
 
-            tabTitle.append(todoHeader);
+            tabTitle.append(projectHeader);
 
 
-            const todoParagraph = document.createElement('p');
+            const projectParagraph = document.createElement('p');
 
-            todoParagraph.textContent = 'Your collection of todos are displayed here';
+            projectParagraph.textContent = 'Your collection of Projects are displayed here';
 
-            tabTitle.append(todoParagraph);
+            tabTitle.append(projectParagraph);
 
         
         const priorityButtons = document.createElement('div');
 
         priorityButtons.classList.add('priority-buttons');
 
-        todoContainerTitle.append(priorityButtons);
+        projectContainerTitle.append(priorityButtons);
 
             const highPriority = document.createElement('button');
 
@@ -104,36 +106,16 @@ function allTodoDOMModule (){
 
     displayContainer.append(collectionContainer);
 
-    populateTodoCollection('high');
+    // populateTodoCollection('high');
+    appendProjectObjects('high');
 
-    changeTodoPriority();
+    changeProjectPriority();
     
     // domAction()
-
-
-
-
-
-   
-
-
-       
-
-
-                
-               
-
-
-
-        
-
-
-
-
 
     
     
 }
 
 
-export default allTodoDOMModule;
+export default projectDOMModule;
