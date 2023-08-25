@@ -83,8 +83,14 @@ function todoModule (){
             // console.log(todo.title);
             // console.log(oldDetails.title)
 
-            if (todo.title === oldDetails.oldTitle && todo.desc === oldDetails.oldDesc && todo.dueDate === oldDetails.oldDue && todo.remindIn === oldDetails.oldReminder && todo.priority === oldDetails.oldPriority && todo.status === oldDetails.oldStatus && todo.project === oldDetails.oldProject) {
-                console.log("GREAT!!!");
+            if (todo.title === oldDetails.title && 
+                todo.desc === oldDetails.desc && 
+                todo.dueDate === oldDetails.dueDate && 
+                todo.remindIn === oldDetails.remindIn && 
+                todo.priority === oldDetails.priority && 
+                todo.status === oldDetails.status && 
+                todo.project === oldDetails.project) {
+
 
                 todo.title = newDetails.newTitle;
                 todo.desc = newDetails.newDesc;

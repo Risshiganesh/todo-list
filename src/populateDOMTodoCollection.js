@@ -3,6 +3,8 @@ import todoModule from "./createTodos";
 // for selection options
 import projectObjects from './projectTab'
 
+// import { updateTodoItem } from "./domActivities";
+
 
 // POPULATE TODO COLLECTION CONTAINER
 
@@ -243,7 +245,7 @@ function appendTodoObjects(priority){
 
                                                 todoDisplayPriority.setAttribute('type','button');
 
-                                                todoDisplayPriority.setAttribute('id','todo-priority');
+                                                todoDisplayPriority.setAttribute('id','todo-display-priority');
 
                                                 todoDisplayPriority.textContent = object.priority;
 
@@ -288,9 +290,9 @@ function appendTodoObjects(priority){
 
                                                 const projectsDropDown = document.createElement('select');
 
-                                                projectsDropDown.setAttribute('name','project-choices');
+                                                projectsDropDown.setAttribute('name','project-display-choices');
                     
-                                                projectsDropDown.setAttribute('id','project-choices');
+                                                projectsDropDown.setAttribute('id','project-display-choices');
                     
                                                 projectsDropDown.classList.add('form-input');
                     
@@ -345,7 +347,7 @@ function appendTodoObjects(priority){
 
                                                 todoDisplayStatus.setAttribute('type','button');
 
-                                                todoDisplayStatus.setAttribute('id','todo-status');
+                                                todoDisplayStatus.setAttribute('id','todo-display-status');
 
                                                 todoDisplayStatus.textContent = object.status;
 
@@ -392,51 +394,61 @@ function appendTodoObjects(priority){
 
                                                 todoDisplay.append(todoUpdate);
 
-                                                
 
-                                                todoUpdate.addEventListener('click',function(){
-                                                    let oldDetails = {
-                                                        oldTitle: object.title,
-                                                        oldDesc: object.desc,
-                                                        oldDue: object.dueDate,
-                                                        oldReminder: object.remindIn,
-                                                        oldPriority: object.priority,
-                                                        oldStatus: object.status,
-                                                        oldProject: object.project,
-                                                    } 
+                                                function updateTodoItem (){
+
+                                                    const todoUpdateBtn = document.querySelector('#todo-update');
+
+                                                    todoUpdateBtn.addEventListener('click',function(){
+
+                                                    const newTodoTitle = document.querySelector('#todo-display-title')
+                                                    const newTodoDesc = document.querySelector('#todo-display-desc');
+                                                    const newTodoDue = document.querySelector('#todo-display-date');
+                                                    const newTodoReminder = document.querySelector('#todo-display-remind-in');
+                                                    const newTodoPriority = document.querySelector('#todo-display-priority');
+                                                    const newTodoStatus = document.querySelector('#todo-display-status');
+                                                    const newTodoProject = document.querySelector('#project-display-choices');
+                                                    
+                                                    
     
                                                     let newDetails = {
-                                                        newTitle: todoDisplayTitle.value,
-                                                        newDesc: todoDescTextArea.value,
-                                                        newDue: todoDisplayDate.value,
-                                                        newReminder: todoDisplayRemindIn.value,
-                                                        newPriority: todoDisplayPriority.value,
-                                                        newStatus: todoDisplayStatus.value,
-                                                        newProject: projectsDropDown.value, 
-                                                        // change the project thing
+                                                        newTitle: newTodoTitle.value,
+                                                        newDesc: newTodoDesc.value,
+                                                        newDue: newTodoDue.value,
+                                                        newReminder: newTodoReminder.value,
+                                                        newPriority: newTodoPriority.value,
+                                                        newStatus: newTodoStatus.value,
+                                                        newProject: newTodoProject.value,
                                                     }
                                                     
-                                                    todoModule.updateTodo(oldDetails,newDetails);
+                                                    todoModule.updateTodo(object,newDetails);
 
-                                                    // console.log('testttt')
+                                                    });
 
 
-                                                    // updateTodo() - create updateTodo function in createTodo module.
+                                                }
+
+                                                updateTodoItem(object);
+                                                
+
+                                                
+                                                
+
+
+
+                                                // const todoDisplayContainer = document.querySelector('.todo-display-container');
+
+                                                // const todoDisplay = document.querySelector('.todo-display');
+
+
+
+                                                todoDisplayContainer.addEventListener('click',function(){
+                                                    todoDisplayContainer.remove();
                                                 })
 
-
-
-
-
-
-
-                                            todoDisplayContainer.addEventListener('click',function(){
-                                                todoDisplayContainer.remove();
-                                            })
-
-                                            todoDisplay.addEventListener('click',function(e){
-                                                e.stopPropagation();
-                                            })
+                                                todoDisplay.addEventListener('click',function(e){
+                                                    e.stopPropagation();
+                                                })
 
 
                                     });
@@ -464,47 +476,47 @@ function appendTodoObjects(priority){
     }
 
 
-    function existingProjectOptions () {
+    // function existingProjectOptions () {
 
-        // console.log(unprocessedProject.title);
+    //     // console.log(unprocessedProject.title);
 
-            const unprocessedProject = projectObjects().unprocessedProjectArray
+    //         const unprocessedProject = projectObjects().unprocessedProjectArray
 
-            const optionsNode = document.querySelectorAll('option');
+    //         const optionsNode = document.querySelectorAll('option');
 
-            if(optionsNode){
+    //         if(optionsNode){
 
-                optionsNode.forEach(option => {
-                    option.remove();
-                });
+    //             optionsNode.forEach(option => {
+    //                 option.remove();
+    //             });
 
-            }
+    //         }
 
-            const option0 = document.createElement('option');
+    //         const option0 = document.createElement('option');
 
-            option0.textContent = 'Choose one';
+    //         option0.textContent = 'Choose one';
 
-            option0.value = object.project;
+    //         option0.value = object.project;
 
-            projectsDropDown.append(option0);
+    //         projectsDropDown.append(option0);
 
 
-            unprocessedProject.forEach(object => {
-                // console.log(object.title);
+    //         unprocessedProject.forEach(object => {
+    //             // console.log(object.title);
 
-                const projectOption = document.createElement('option');
+    //             const projectOption = document.createElement('option');
 
-                projectOption.textContent = object.title;
+    //             projectOption.textContent = object.title;
 
-                projectOption.value = object.title;
+    //             projectOption.value = object.title;
 
-                projectsDropDown.append(projectOption);
-            });
+    //             projectsDropDown.append(projectOption);
+    //         });
 
 
             
 
-    }
+    // }
 
 
 

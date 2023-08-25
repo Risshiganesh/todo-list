@@ -607,10 +607,45 @@ function domActivitiesModule (){
     });
    }
 
+   function updateTodoItem (object){
+
+        const todoUpdateBtn = document.querySelector('#todo-update');
+
+        todoUpdateBtn.addEventListener('click',function(){
+
+        const newTodoTitle = document.querySelector('#todo-display-title')
+        const newTodoDesc = document.querySelector('#todo-display-desc');
+        const newTodoDue = document.querySelector('#todo-display-date');
+        const newTodoReminder = document.querySelector('#todo-display-remind-in');
+        const newTodoPriority = document.querySelector('#todo-display-priority');
+        const newTodoStatus = document.querySelector('#todo-display-status');
+        const newTodoProject = document.querySelector('#project-display-choices');
+        
+        
+
+        let newDetails = {
+            newTitle: newTodoTitle.value,
+            newDesc: newTodoDesc.value,
+            newDue: newTodoDue.value,
+            newReminder: newTodoReminder.value,
+            newPriority: newTodoPriority.value,
+            newStatus: newTodoStatus.value,
+            newProject: newTodoProject.value,
+        }
+        
+        todoModule.updateTodo(object,newDetails);
+
+        });
+
+
+    }
+
+   
+
 
 //    changePriority();
 
 export default domActivitiesModule;
 
-export {changeTodoPriority, changeProjectPriority};
+export {changeTodoPriority, changeProjectPriority,updateTodoItem};
 
