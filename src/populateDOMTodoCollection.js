@@ -1,4 +1,7 @@
 import todoObject from "./allTodosTab";
+import todoModule from "./createTodos";
+// for selection options
+import projectObjects from './projectTab'
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -146,6 +149,299 @@ function appendTodoObjects(priority){
                                         todoContainer.append(todoPrioritytDiv);
 
 
+                                    // SEND TO A SEPARATE MODULE 
+                                    todoContainer.addEventListener('click',function(){
+
+                                        const mainContainer = document.querySelector('.main-container');
+
+                                        const todoDisplayContainer = document.createElement('div');
+
+                                        todoDisplayContainer.classList.add('todo-display-container');
+
+                                        mainContainer.append(todoDisplayContainer);
+
+
+                                            const todoDisplay = document.createElement('div');
+
+                                            todoDisplay.classList.add('todo-display');
+
+                                            todoDisplayContainer.append(todoDisplay);
+
+
+
+                                                const todoDisplayTitle = document.createElement('input');
+
+                                                todoDisplayTitle.setAttribute('placeholder','Title');
+
+                                                todoDisplayTitle.setAttribute('id','todo-display-title');
+
+                                                todoDisplayTitle.value = object.title;
+
+                                                todoDisplay.append(todoDisplayTitle);
+
+
+                                                const todoDescTextArea = document.createElement('textarea');
+
+                                                todoDescTextArea.setAttribute('name','');
+
+                                                todoDescTextArea.setAttribute('id','todo-display-desc');
+
+                                                todoDescTextArea.setAttribute('placeholder','Description')
+
+                                                todoDescTextArea.setAttribute('cols','30');
+
+                                                todoDescTextArea.setAttribute('rows','10');
+
+                                                todoDescTextArea.setAttribute('required','');
+
+                                                todoDescTextArea.value = object.desc;
+
+                                                todoDescTextArea.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDescTextArea);
+
+
+                                                const todoDisplayDate = document.createElement('input');
+
+                                                todoDisplayDate.setAttribute('type','date');
+
+                                                todoDisplayDate.setAttribute('id','todo-display-date');
+
+                                                todoDisplayDate.value = object.dueDate;
+
+                                                todoDisplayDate.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDisplayDate);
+
+                                                const lineBreak1 = document.createElement('br');                                               
+                                                todoDisplay.append(lineBreak1);
+
+
+                                                const todoDisplayRemindIn = document.createElement('input');
+
+                                                todoDisplayRemindIn.setAttribute('type','number');
+
+                                                todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
+
+                                                console.log(object.dueDate);
+
+                                                todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
+
+                                                todoDisplayRemindIn.value = object.remindIn;
+
+                                                todoDisplayRemindIn.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDisplayRemindIn);
+
+                                                const lineBreak2 = document.createElement('br');
+                                                todoDisplay.append(lineBreak2);
+
+
+                                                const todoDisplayPriority = document.createElement('button');
+
+                                                todoDisplayPriority.setAttribute('value',object.priority);
+
+                                                todoDisplayPriority.setAttribute('type','button');
+
+                                                todoDisplayPriority.setAttribute('id','todo-priority');
+
+                                                todoDisplayPriority.textContent = object.priority;
+
+                                                todoDisplayPriority.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDisplayPriority);
+
+                                                todoDisplayPriority.addEventListener('click', function(){
+
+                                                    
+                                                    console.log(todoDisplayPriority.value)
+
+                                                    // Add classes for different priorities (different colours)
+
+                                                    if (todoDisplayPriority.value === 'low'){
+                                                        todoDisplayPriority.value = 'medium';
+                                                        todoDisplayPriority.textContent = 'Medium';
+
+                                                        return;
+                                                    }
+
+                                                    if (todoDisplayPriority.value === 'medium'){
+                                                        todoDisplayPriority.value = 'high';
+                                                        todoDisplayPriority.textContent = 'High';
+
+                                                        return;
+                                                    }
+
+                                                    if (todoDisplayPriority.value === 'high'){
+                                                        todoDisplayPriority.value = 'low';
+                                                        todoDisplayPriority.textContent = 'Low';
+
+                                                        return;
+                                                    }
+
+
+                                                });
+
+                                                const lineBreak3 = document.createElement('br');
+                                                todoDisplay.append(lineBreak3);
+
+
+                                                const projectsDropDown = document.createElement('select');
+
+                                                projectsDropDown.setAttribute('name','project-choices');
+                    
+                                                projectsDropDown.setAttribute('id','project-choices');
+                    
+                                                projectsDropDown.classList.add('form-input');
+                    
+                                                todoDisplay.append(projectsDropDown);
+
+
+
+
+                                                        const unprocessedProject = projectObjects().unprocessedProjectArray
+
+                                                        const optionsNode = document.querySelectorAll('option');
+                                            
+                                                        if(optionsNode){
+                                            
+                                                            optionsNode.forEach(option => {
+                                                                option.remove();
+                                                            });
+                                            
+                                                        }
+                                            
+                                                        const option0 = document.createElement('option');
+                                            
+                                                        option0.textContent = object.project;
+                                            
+                                                        option0.value = object.project;
+                                            
+                                                        projectsDropDown.append(option0);
+                                            
+                                            
+                                                        unprocessedProject.forEach(obj => {
+                                                            // console.log(object.title);
+                                            
+                                                            const projectOption = document.createElement('option');
+                                            
+                                                            projectOption.textContent = obj.title;
+                                            
+                                                            projectOption.value = obj.title;
+                                            
+                                                            projectsDropDown.append(projectOption);
+                                                        });
+
+
+
+                                                const lineBreak4 = document.createElement('br');
+                                                todoDisplay.append(lineBreak4);
+
+                                                // create line break 
+
+                                                const todoDisplayStatus = document.createElement('button');
+
+                                                todoDisplayStatus.setAttribute('value',object.status);
+
+                                                todoDisplayStatus.setAttribute('type','button');
+
+                                                todoDisplayStatus.setAttribute('id','todo-status');
+
+                                                todoDisplayStatus.textContent = object.status;
+
+                                                todoDisplayStatus.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDisplayStatus);
+
+                                                todoDisplayStatus.addEventListener('click', function(){
+
+                                                    // Add classes for different priorities (different colours)
+
+                                                    if (todoDisplayStatus.value === 'pending'){
+                                                        todoDisplayStatus.value = 'complete';
+                                                        todoDisplayStatus.textContent = 'Complete';
+
+                                                        return;
+                                                    }
+
+                                                    if (todoDisplayStatus.value === 'complete'){
+                                                        todoDisplayStatus.value = 'pending';
+                                                        todoDisplayStatus.textContent = 'Pending';
+
+                                                        return;
+                                                    }
+
+
+                                                });
+
+                                                const lineBreak5 = document.createElement('br');
+                                                todoDisplay.append(lineBreak5);
+
+
+                                                const todoUpdate = document.createElement('button');
+
+                                                todoUpdate.setAttribute('value','');
+
+                                                todoUpdate.setAttribute('type','button');
+
+                                                todoUpdate.setAttribute('id','todo-update');
+
+                                                todoUpdate.textContent = 'Update';
+
+                                                todoUpdate.classList.add('todo-update');
+
+                                                todoDisplay.append(todoUpdate);
+
+                                                
+
+                                                todoUpdate.addEventListener('click',function(){
+                                                    let oldDetails = {
+                                                        oldTitle: object.title,
+                                                        oldDesc: object.desc,
+                                                        oldDue: object.dueDate,
+                                                        oldReminder: object.remindIn,
+                                                        oldPriority: object.priority,
+                                                        oldStatus: object.status,
+                                                        oldProject: object.project,
+                                                    } 
+    
+                                                    let newDetails = {
+                                                        newTitle: todoDisplayTitle.value,
+                                                        newDesc: todoDescTextArea.value,
+                                                        newDue: todoDisplayDate.value,
+                                                        newReminder: todoDisplayRemindIn.value,
+                                                        newPriority: todoDisplayPriority.value,
+                                                        newStatus: todoDisplayStatus.value,
+                                                        newProject: projectsDropDown.value, 
+                                                        // change the project thing
+                                                    }
+                                                    
+                                                    todoModule.updateTodo(oldDetails,newDetails);
+
+                                                    // console.log('testttt')
+
+
+                                                    // updateTodo() - create updateTodo function in createTodo module.
+                                                })
+
+
+
+
+
+
+
+                                            todoDisplayContainer.addEventListener('click',function(){
+                                                todoDisplayContainer.remove();
+                                            })
+
+                                            todoDisplay.addEventListener('click',function(e){
+                                                e.stopPropagation();
+                                            })
+
+
+                                    });
+
+
                                         
 
                                 });
@@ -166,6 +462,54 @@ function appendTodoObjects(priority){
         }
 
     }
+
+
+    function existingProjectOptions () {
+
+        // console.log(unprocessedProject.title);
+
+            const unprocessedProject = projectObjects().unprocessedProjectArray
+
+            const optionsNode = document.querySelectorAll('option');
+
+            if(optionsNode){
+
+                optionsNode.forEach(option => {
+                    option.remove();
+                });
+
+            }
+
+            const option0 = document.createElement('option');
+
+            option0.textContent = 'Choose one';
+
+            option0.value = object.project;
+
+            projectsDropDown.append(option0);
+
+
+            unprocessedProject.forEach(object => {
+                // console.log(object.title);
+
+                const projectOption = document.createElement('option');
+
+                projectOption.textContent = object.title;
+
+                projectOption.value = object.title;
+
+                projectsDropDown.append(projectOption);
+            });
+
+
+            
+
+    }
+
+
+
+
+
 
 }
 

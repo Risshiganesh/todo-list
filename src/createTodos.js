@@ -54,12 +54,63 @@ function todoModule (){
    
         
     }
+    
+    // oldDetails
+    // newDetails
+    // newTitle,newDesc,newDueDate,newRemindIn,newPriority,newStatus,newProject
+
+    function updateTodo (oldDetails,newDetails){
+
+        todoArray.forEach(todo => {
+
+            // oldTitle: object.title,
+            // oldDesc: object.desc,
+            // oldDue: object.dueDate,
+            // oldReminder: object.remindIn,
+            // oldPriority: object.priority,
+            // oldStatus: object.status,
+            // oldProject: object.project,
+
+
+            // newTitle: todoDisplayTitle.value,
+            // newDesc: todoDescTextArea.value,
+            // newDue: todoDisplayDate.value,
+            // newReminder: todoDisplayRemindIn.value,
+            // newPriority: todoDisplayPriority.value,
+            // newStatus: todoDisplayStatus.value,
+            // newProject: projectsDropDown.value, 
+
+            // console.log(todo.title);
+            // console.log(oldDetails.title)
+
+            if (todo.title === oldDetails.oldTitle && todo.desc === oldDetails.oldDesc && todo.dueDate === oldDetails.oldDue && todo.remindIn === oldDetails.oldReminder && todo.priority === oldDetails.oldPriority && todo.status === oldDetails.oldStatus && todo.project === oldDetails.oldProject) {
+                console.log("GREAT!!!");
+
+                todo.title = newDetails.newTitle;
+                todo.desc = newDetails.newDesc;
+                todo.dueDate = newDetails.newDue;
+                todo.remindIn = newDetails.newReminder;
+                todo.priority = newDetails.newPriority;
+                todo.status = newDetails.newStatus;
+                todo.project = newDetails.newProject;
+
+            }
+            
+            
+            
+        });
+
+        // console.log(newDetails.newProject)
+
+
+
+    }
 
     
 
     // End of test objects
 
-    return {todoArray, createTodo};
+    return {todoArray, createTodo, updateTodo};
 
 
 }
