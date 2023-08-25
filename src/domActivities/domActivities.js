@@ -1,29 +1,29 @@
 // All DOM Activities are centralised here except DOM Creation
 
-import todoModule from "./createTodos";
+import todoModule from "../createTodos";
 
-import projectModule from "./createProjects";
+import projectModule from "../createProjects";
 
-import notesObject from "./allNotesTab";
+import notesObject from "../tabObjects/allNotesTab";
 
 
-import todoObject from "./allTodosTab";
+import todoObject from "../tabObjects/allTodosTab";
 
-import projectObject from "./projectTab";
+import projectObject from "../tabObjects/allProjectsTab";
 
-import mainDomModule from "./formDOMCreation";
+import mainDomModule from "../domCreation/formDOMCreation";
 
-import createTodoDOM from "./allTodoDOMCreation";
+import createTodoDOM from "../domCreation/allTodoDOMCreation";
 
-import createProjectDOM from "./projectsDOMCreation";
+import createProjectDOM from "../domCreation/projectsDOMCreation";
 
-import createNotesDOM from "./allNotesDOMCreation";
+import createNotesDOM from "../domCreation/allNotesDOMCreation";
 
-import populateTodoCollection from "./populateDOMTodoCollection";
+import populateTodoCollection from "../domCreation/populateDOMTodoCollection";
 
-import appendProjectObjects from "./populateDOMProjectCollection";
+import appendProjectObjects from "../domCreation/populateDOMProjectCollection";
 
-import appendNotesObject from "./populateDOMNoteCollection";
+import appendNotesObject from "../domCreation/populateDOMNoteCollection";
 
 // Because displaying todoCollection in high priority is the default
 let recentCollectionContainerFn = populateTodoCollection;

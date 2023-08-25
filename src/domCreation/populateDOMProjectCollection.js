@@ -1,4 +1,4 @@
-import projectObject from "./projectTab";
+import projectObject from "../tabObjects/allProjectsTab";
 
 
 // POPULATE TODO COLLECTION CONTAINER

@@ -1,5 +1,5 @@
 // for selection options
-import projectObjects from './projectTab'
+import projectObjects from '../tabObjects/allProjectsTab'
 
 function formDomModule (){
 

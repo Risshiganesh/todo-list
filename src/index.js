@@ -4,19 +4,20 @@ import "./style.css";
 
 // import projectModule from "./create-projects";
 
-import createMainDOM from "./mainDOMCreation";
+import createMainDOM from "./domCreation/mainDOMCreation";
 
-import createTodoDOM from "./allTodoDOMCreation"
+import createTodoDOM from "./domCreation/allTodoDOMCreation"
 
-import createFormDOM from "./formDOMCreation";
+// import createFormDOM from "./formDOMCreation";
 
-import todosTabObject from "./allTodosTab";
+// import todosTabObject from "./allTodosTab";
 
-import projecTabObject from "./projectTab";
+// import projecTabObject from "./projectTab";
 
-import notesTabObject from "./allNotesTab";
+// import notesTabObject from "./allNotesTab";
 
-import domAction from "./domActivities";
+import domAction from "./domActivities/domActivities";
+
 
 
 

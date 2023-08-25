@@ -1,6 +1,6 @@
-import todoModule from "./createTodos";
+import todoModule from "../createTodos";
 
-import projectModule from "./createProjects";
+import projectModule from "../createProjects";
 
 function sortingModule (){
 

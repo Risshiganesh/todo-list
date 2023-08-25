@@ -1,5 +1,5 @@
 
-import sortingMethods from './sortingMethods'
+import sortingMethods from '../domActivities/sortingMethods'
 
 function allTodosTab (){
 

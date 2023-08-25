@@ -1,6 +1,6 @@
 import populateTodoCollection from "./populateDOMTodoCollection";
 
-import { changeTodoPriority } from "./domActivities";
+import { changeTodoPriority } from "../domActivities/domActivities";
 
 function allTodoDOMModule (){
 

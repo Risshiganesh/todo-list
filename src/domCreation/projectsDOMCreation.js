@@ -2,7 +2,7 @@
 
 import appendProjectObjects from "./populateDOMProjectCollection";
 
-import { changeProjectPriority } from "./domActivities";
+import { changeProjectPriority } from "../domActivities/domActivities";
 
 function projectDOMModule (){
 

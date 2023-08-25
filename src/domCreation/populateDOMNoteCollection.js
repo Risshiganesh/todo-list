@@ -1,4 +1,4 @@
-import notesObject from "./allNotesTab"
+import notesObject from "../tabObjects/allNotesTab"
 
 function appendNotesObject(){
             

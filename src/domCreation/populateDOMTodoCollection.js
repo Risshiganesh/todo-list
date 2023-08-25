@@ -1,7 +1,7 @@
-import todoObject from "./allTodosTab";
-import todoModule from "./createTodos";
+import todoObject from "../tabObjects/allTodosTab";
+import todoModule from "../createTodos";
 // for selection options
-import projectObjects from './projectTab'
+import projectObjects from '../tabObjects/allProjectsTab'
 
 // import { updateTodoItem } from "./domActivities";
 
