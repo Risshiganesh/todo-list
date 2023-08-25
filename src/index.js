@@ -6,7 +6,7 @@ import "./style.css";
 
 import createMainDOM from "./domCreation/mainDOMCreation";
 
-import createTodoDOM from "./domCreation/allTodoDOMCreation"
+
 
 // import createFormDOM from "./formDOMCreation";
 
@@ -18,6 +18,8 @@ import createTodoDOM from "./domCreation/allTodoDOMCreation"
 
 import domAction from "./domActivities/domActivities";
 
+import createTodoDOM from "./domCreation/allTodoDOMCreation"
+
 
 
 
@@ -26,11 +28,13 @@ import domAction from "./domActivities/domActivities";
 // HOMEPAGE
 createMainDOM();
 
+// Attaches all eventlisteners to HOMEPAGE
+domAction();
+
 // Loads todo first
 createTodoDOM();
 
-// Attaches all eventlisteners to HOMEPAGE
-domAction();
+
 
 
 

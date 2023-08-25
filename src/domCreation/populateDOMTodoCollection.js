@@ -1,9 +1,10 @@
 import todoObject from "../tabObjects/allTodosTab";
 import todoModule from "../createTodos";
 // for selection options
-import projectObjects from '../tabObjects/allProjectsTab'
+import projectObjects from '../tabObjects/allProjectsTab';
 
-// import { updateTodoItem } from "./domActivities";
+// doesn't work because of circular dependency
+import updateTodoItem  from '../domActivities/updateTodoDOM';
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -395,137 +396,23 @@ function appendTodoObjects(priority){
                                                 todoDisplay.append(todoUpdate);
 
 
-                                                function updateTodoItem (){
-
-                                                    const todoUpdateBtn = document.querySelector('#todo-update');
-
-                                                    todoUpdateBtn.addEventListener('click',function(){
-
-                                                    const newTodoTitle = document.querySelector('#todo-display-title')
-                                                    const newTodoDesc = document.querySelector('#todo-display-desc');
-                                                    const newTodoDue = document.querySelector('#todo-display-date');
-                                                    const newTodoReminder = document.querySelector('#todo-display-remind-in');
-                                                    const newTodoPriority = document.querySelector('#todo-display-priority');
-                                                    const newTodoStatus = document.querySelector('#todo-display-status');
-                                                    const newTodoProject = document.querySelector('#project-display-choices');
-                                                    
-                                                    
-    
-                                                    let newDetails = {
-                                                        newTitle: newTodoTitle.value,
-                                                        newDesc: newTodoDesc.value,
-                                                        newDue: newTodoDue.value,
-                                                        newReminder: newTodoReminder.value,
-                                                        newPriority: newTodoPriority.value,
-                                                        newStatus: newTodoStatus.value,
-                                                        newProject: newTodoProject.value,
-                                                    }
-                                                    
-                                                    todoModule.updateTodo(object,newDetails);
-
-                                                    });
-
-
-                                                }
-
                                                 updateTodoItem(object);
-                                                
-
-                                                
-                                                
-
-
-
-                                                // const todoDisplayContainer = document.querySelector('.todo-display-container');
-
-                                                // const todoDisplay = document.querySelector('.todo-display');
-
-
-
-                                                todoDisplayContainer.addEventListener('click',function(){
-                                                    todoDisplayContainer.remove();
-                                                })
-
-                                                todoDisplay.addEventListener('click',function(e){
-                                                    e.stopPropagation();
-                                                })
-
-
+                                            
                                     });
-
-
-                                        
 
                                 });
                                 
                             }
 
                 }
-
-
-
-
                 
             }
-
-            
-
 
         }
 
     }
 
-
-    // function existingProjectOptions () {
-
-    //     // console.log(unprocessedProject.title);
-
-    //         const unprocessedProject = projectObjects().unprocessedProjectArray
-
-    //         const optionsNode = document.querySelectorAll('option');
-
-    //         if(optionsNode){
-
-    //             optionsNode.forEach(option => {
-    //                 option.remove();
-    //             });
-
-    //         }
-
-    //         const option0 = document.createElement('option');
-
-    //         option0.textContent = 'Choose one';
-
-    //         option0.value = object.project;
-
-    //         projectsDropDown.append(option0);
-
-
-    //         unprocessedProject.forEach(object => {
-    //             // console.log(object.title);
-
-    //             const projectOption = document.createElement('option');
-
-    //             projectOption.textContent = object.title;
-
-    //             projectOption.value = object.title;
-
-    //             projectsDropDown.append(projectOption);
-    //         });
-
-
-            
-
-    // }
-
-
-
-
-
-
 }
 
-// SEND THIS TO allTodoDOMCreation.js
-// appendTodoObjects('high')
 
 export default appendTodoObjects;
