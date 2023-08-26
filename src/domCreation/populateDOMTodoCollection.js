@@ -4,7 +4,9 @@ import todoModule from "../createTodos";
 import projectObjects from '../tabObjects/allProjectsTab';
 
 // doesn't work because of circular dependency
-import updateTodoItem  from '../domActivities/updateTodoDOM';
+// import updateTodoItem  from '../domActivities/updateTodoDOM';
+
+import { updateTodoItem } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -152,7 +154,7 @@ function appendTodoObjects(priority){
                                         todoContainer.append(todoPrioritytDiv);
 
 
-                                    // SEND TO A SEPARATE MODULE 
+                                    // SEND TO A SEPARATE MODULE - OPENS TODO ITEM
                                     todoContainer.addEventListener('click',function(){
 
                                         const mainContainer = document.querySelector('.main-container');
