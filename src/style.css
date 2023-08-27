@@ -250,6 +250,15 @@ body{
     z-index: 2;
 }
 
+.project-details{
+
+    border: 3px solid darkorange;
+    width: 350px;
+    height: 700px;
+    background-color: darkgreen;
+    /* overflow: auto; */
+}
+
 .project-todos{
 
     border: 3px solid cyan;

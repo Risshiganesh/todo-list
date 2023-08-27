@@ -26,9 +26,45 @@ import appendProjectObjects from "../domCreation/populateDOMProjectCollection";
 import appendNotesObject from "../domCreation/populateDOMNoteCollection";
 
 // Because displaying todoCollection in high priority is the default
-let recentCollectionContainerFn = populateTodoCollection;
+// let recentCollectionContainerFn = populateTodoCollection;
 
-let recentCollectionContainerArg = 'high';
+// let recentCollectionContainerArg = 'high';
+
+
+
+let menuInDisplay = 'todos'
+
+let priorityInDisplay = 'high'
+
+
+function updateDisplay (){
+
+    if(menuInDisplay === 'todos'){
+        console.log('TODOS DISPLAY UPDATED');
+
+        populateTodoCollection(priorityInDisplay);
+
+    }
+
+    if(menuInDisplay === 'projects'){
+
+        console.log('TODOS PROJECTS UPDATED');
+
+        appendProjectObjects(priorityInDisplay);
+
+    }
+
+    if (menuInDisplay === 'notes') {
+
+        console.log('TODOS NOTES UPDATED');
+        
+        appendNotesObject();
+
+    }
+}
+
+
+
 
 function domActivitiesModule (){
 
@@ -40,7 +76,6 @@ function domActivitiesModule (){
 
         if(menu.classList.contains("menu-active")){
             menu.classList.remove("menu-active");
-            console.log('hamburgerrrr-remove')
             return;
         }
 
@@ -60,18 +95,15 @@ function domActivitiesModule (){
     hamburgerButton.addEventListener('click',function(e){
 
         e.stopPropagation();
-        console.log('hamburger')
 
         if(!menu.classList.contains("menu-active")){
             menu.classList.add("menu-active");
-            console.log('hamburgerrrr-addd')
             return;
         }
 
 
         if(menu.classList.contains("menu-active")){
             menu.classList.remove("menu-active");
-            console.log('hamburgerrrr-remove')
             return;
         }
 
@@ -153,9 +185,6 @@ function domActivitiesModule (){
     selectTodo.addEventListener('click', function(){
         todoCreationDiv.classList.add('display-form-items');
 
-        // console.log(existingProject);
-
-        
         todoInputs.forEach(input => {
             input.setAttribute('required','');
         });
@@ -205,8 +234,7 @@ function domActivitiesModule (){
 
 
     selectExistingProject.addEventListener('click', function(){
-        // console.log('works!');
-        
+
         checkedExistingProject();
         
     });
@@ -257,6 +285,9 @@ function domActivitiesModule (){
     const formSubmit = document.querySelector('#form-submit');
 
 
+    
+
+
     // const testArray = [todoTitle,todoDesc,entryType,todoDate,todoReminder,todoPriority,projectOption,projectsChoices,projectTitle,projectDesc,projectDate,projectReminder,projectPriority];
 
 
@@ -266,17 +297,18 @@ function domActivitiesModule (){
     
 
     formSubmit.addEventListener('click', function(e){
+
+       
+
+        // clear color on priority button
+        
+
         const requiredInput = [];
 
         let requiredInputFilled = true;
 
-        console.log(requiredInput);
-
-
-
 
         allFormInputs.forEach(element => {
-            // console.log(element);
             if (element.hasAttribute('required')) {
                 requiredInput.push(element);
             }
@@ -287,15 +319,13 @@ function domActivitiesModule (){
 
             if(!each.value){
                 requiredInputFilled = false;   
-                console.log('false works');   
+
                 break;      
             }
 
         }
 
         if(requiredInputFilled){
-
-            console.log('preventDefault works!');
 
             e.preventDefault();
 
@@ -309,15 +339,9 @@ function domActivitiesModule (){
 
 
             if(newProjectRadio.checked){
-
-                console.log('new project works');
-
-                // title,desc,dueDate,priority,remindIn,status
                 
                 projectModule.createProject(projectTitle.value,projectDesc.value,projectDate.value,projectPriority.value,projectReminder.value,`pending`);
 
-
-                // title,desc,dueDate,remindIn,priority,status,project
 
                 todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectTitle.value);
 
@@ -334,7 +358,37 @@ function domActivitiesModule (){
                 //everytime submit button is clicked fresh dropdown is created 
                 mainDomModule.existingProjectOptions();
 
-                recentCollectionContainerFn(recentCollectionContainerArg)
+                createProjectDOM()
+
+                appendProjectObjects(projectPriority.value);
+
+                const highPriorityButton = document.querySelector('.high-priority');
+                const mediumPriorityButton = document.querySelector('.medium-priority');
+                const lowPriorityButton = document.querySelector('.low-priority');
+
+                const priorityButtons = document.querySelector('.priority-buttons');
+        
+                priorityButtons.querySelectorAll('*').forEach(element => {
+                    element.classList.remove('chosen-priority')
+                });
+
+                if (projectPriority.value === 'high') {
+                    
+                    highPriorityButton.classList.add('chosen-priority')
+
+                }
+
+                if (projectPriority.value === 'medium') {
+                    
+                    mediumPriorityButton.classList.add('chosen-priority')
+
+                }
+
+                if (projectPriority.value === 'low') {
+                    
+                    lowPriorityButton.classList.add('chosen-priority')
+
+                }
 
 
 
@@ -360,12 +414,55 @@ function domActivitiesModule (){
             //everytime submit button is clicked fresh dropdown is created 
             mainDomModule.existingProjectOptions();
 
-            if (selectNote.checked) {
-                appendNotesObject();
-                return;
+            if (selectTodo.checked) {
+
+                createTodoDOM();
+                populateTodoCollection(todoPriority.value);
+
+
+                // turn this to a function
+                const highPriorityButton = document.querySelector('.high-priority');
+                const mediumPriorityButton = document.querySelector('.medium-priority');
+                const lowPriorityButton = document.querySelector('.low-priority');
+
+                const priorityButtons = document.querySelector('.priority-buttons');
+  
+                priorityButtons.querySelectorAll('*').forEach(element => {
+                    element.classList.remove('chosen-priority')
+                });
+
+                
+
+                if (todoPriority.value === 'high') {
+                    
+                    highPriorityButton.classList.add('chosen-priority')
+
+                }
+
+                if (todoPriority.value === 'medium') {
+                    
+                    mediumPriorityButton.classList.add('chosen-priority');
+
+
+                }
+
+                if (todoPriority.value === 'low') {
+                    
+                    lowPriorityButton.classList.add('chosen-priority')
+
+                }
+                
             }
 
-            recentCollectionContainerFn(recentCollectionContainerArg);
+            
+
+
+            if (selectNote.checked) {
+
+                createNotesDOM();
+                appendNotesObject()
+
+            }
 
 
         }
@@ -402,8 +499,6 @@ function domActivitiesModule (){
 
     formContainer.addEventListener('click', function(e){
 
-        
-        console.log('click works')
         hideForm();
             
     })
@@ -413,8 +508,6 @@ function domActivitiesModule (){
     formButton.addEventListener('click',function(){
 
         formContainer.classList.add('show-form');
-
-        console.log('test');
 
     })
 
@@ -434,6 +527,9 @@ function domActivitiesModule (){
     allTodosTab.addEventListener('click',function(){
 
         console.log('TO DO LIST');
+
+        menuInDisplay = 'todos';
+
         createTodoDOM();
 
     });
@@ -443,6 +539,9 @@ function domActivitiesModule (){
     allProjectsTab.addEventListener('click',function(){
 
         console.log('PROJECTS TAB');
+
+        menuInDisplay = 'projects';
+
         createProjectDOM()
 
     })
@@ -451,6 +550,10 @@ function domActivitiesModule (){
     const allNotesTab = document.querySelector('.all-notes-tab');
 
     allNotesTab.addEventListener('click',function(){
+
+        console.log('NOTES LIST');
+
+        menuInDisplay = 'notes';
 
         createNotesDOM();
 
@@ -488,11 +591,9 @@ function domActivitiesModule (){
 
         populateTodoCollection('high');
 
-        recentCollectionContainerFn = populateTodoCollection;
-        recentCollectionContainerArg = 'high';
+        priorityInDisplay = 'high';
         console.log('LOOPING')
 
-        // console.log(recentCollectionContainerFn);
     });
 
     
@@ -509,8 +610,7 @@ function domActivitiesModule (){
 
         populateTodoCollection('medium');
 
-        recentCollectionContainerFn = populateTodoCollection;
-        recentCollectionContainerArg = 'medium';
+        priorityInDisplay = 'medium';
         console.log('LOOPING')
     });
 
@@ -529,8 +629,7 @@ function domActivitiesModule (){
 
         populateTodoCollection('low');
 
-        recentCollectionContainerFn = populateTodoCollection;
-        recentCollectionContainerArg = 'low';
+        priorityInDisplay = 'low';
         console.log('LOOPING')
     });
    }
@@ -560,11 +659,9 @@ function domActivitiesModule (){
 
         appendProjectObjects('high');
 
-        recentCollectionContainerFn = appendProjectObjects;
-        recentCollectionContainerArg = 'high';
+        priorityInDisplay = 'high';
         console.log('LOOPING')
 
-        // console.log(recentCollectionContainerFn);
     });
 
     
@@ -581,8 +678,7 @@ function domActivitiesModule (){
 
         appendProjectObjects('medium');
 
-        recentCollectionContainerFn = appendProjectObjects;
-        recentCollectionContainerArg = 'medium';
+        priorityInDisplay = 'medium';
         console.log('LOOPING')
     });
 
@@ -601,8 +697,7 @@ function domActivitiesModule (){
 
         appendProjectObjects('low');
 
-        recentCollectionContainerFn = appendProjectObjects;
-        recentCollectionContainerArg = 'low';
+        priorityInDisplay = 'low';
         console.log('LOOPING')
     });
    }
@@ -640,7 +735,7 @@ function domActivitiesModule (){
         
         todoModule.updateTodo(object,newDetails);
 
-        recentCollectionContainerFn(recentCollectionContainerArg);
+        updateDisplay();
 
         todoDisplayContainer.remove();
 
@@ -676,27 +771,16 @@ function domActivitiesModule (){
 
         const newTodoTitle = document.querySelector('#todo-display-title')
         const newTodoDesc = document.querySelector('#todo-display-desc');
-        // const newTodoDue = document.querySelector('#todo-display-date');
-        // const newTodoReminder = document.querySelector('#todo-display-remind-in');
-        // const newTodoPriority = document.querySelector('#todo-display-priority');
-        // const newTodoStatus = document.querySelector('#todo-display-status');
-        // const newTodoProject = document.querySelector('#project-display-choices');
-        
         
 
         let newDetails = {
             newTitle: newTodoTitle.value,
             newDesc: newTodoDesc.value,
-            // newDue: newTodoDue.value,
-            // newReminder: newTodoReminder.value,
-            // newPriority: newTodoPriority.value,
-            // newStatus: newTodoStatus.value,
-            // newProject: newTodoProject.value,
         }
         
         todoModule.updateTodo(object,newDetails);
 
-        recentCollectionContainerFn(recentCollectionContainerArg);
+        updateDisplay();
 
         todoDisplayContainer.remove();
 
@@ -716,18 +800,151 @@ function domActivitiesModule (){
 
     }
 
+
+
+
+
+
+
+
+
+    function updateProjectItem (project){
+
+
+        const projectDisplayContainer = document.querySelector('.project-todo-container');
+
+        const projectDisplay = document.querySelector('.project-details');
+
+        const projectUpdateButton = document.querySelector('#project-update');
+
+        projectUpdateButton.addEventListener('click',function(){
+
+            // project-status-update
+
+        const newProjectTitle = document.querySelector('#project-title-update')
+        const newProjectDesc = document.querySelector('#project-desc-update');
+        const newProjectDue = document.querySelector('#project-date-update');
+        const newProjectReminder = document.querySelector('#project-reminder-update');
+        const newProjectPriority = document.querySelector('#project-priority-update');
+        const newProjectStatus = document.querySelector('#project-status-update');
+
+        
+        
+
+        let newDetails = {
+            // update this
+            newTitle: newProjectTitle.value,
+            newDesc: newProjectDesc.value,
+            newDue: newProjectDue.value,
+            newReminder: newProjectReminder.value,
+            newPriority: newProjectPriority.value,
+            newStatus: newProjectStatus.value,
+        }
+
+
+        projectModule.updateProject(project,newDetails);
+
+        updateDisplay()
+
+        projectDisplayContainer.remove();
+
+        });
+
+
+        
+        projectDisplayContainer.addEventListener('click',function(){
+            projectDisplayContainer.remove();
+        })
+
+        projectDisplay.addEventListener('click',function(e){
+            e.stopPropagation();
+        })
+
+
+
+    }
+
+
+
+
+
+
+    function deleteTodoItem (object){
+
+        const todoDisplayContainer = document.querySelector('.todo-display-container');
+
+        const todoDisplay = document.querySelector('.todo-display');
+
+        const todoDeleteBtn = document.querySelector('#todo-delete');
+
+        todoDeleteBtn.addEventListener('click',function(){
+
+        
+        todoModule.deleteTodo(object);
+
+        updateDisplay()
+
+        todoDisplayContainer.remove();
+
+        });
+
+
+        todoDisplayContainer.addEventListener('click',function(){
+            todoDisplayContainer.remove();
+        })
+
+        todoDisplay.addEventListener('click',function(e){
+            e.stopPropagation();
+        })
+
+
+
+    }
+
+
+
+    function deleteProjectItem (object){
+
+
+        const projectDisplayContainer = document.querySelector('.project-todo-container');
+
+        const projectDisplay = document.querySelector('.project-details');
+
+        const projectDeleteButton = document.querySelector('#project-delete');
+
+        
+
+        projectDeleteButton.addEventListener('click',function(){
+
+        
+        projectModule.deleteProject(object);
+
+        updateDisplay();
+
+        projectDisplayContainer.remove();
+
+        });
+
+
+        projectDisplayContainer.addEventListener('click',function(){
+            projectDisplayContainer.remove();
+        })
+
+        projectDisplay.addEventListener('click',function(e){
+            e.stopPropagation();
+        })
+
+
+
+    }
+
   
 
    
 
 
-//    changePriority();
-
-// et recentCollectionContainerFn = populateTodoCollection;
-
-// let recentCollectionContainerArg = 'high';
 
 export default domActivitiesModule;
 
-export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateNoteItem};
+export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateProjectItem, updateNoteItem, deleteTodoItem, deleteProjectItem};
 

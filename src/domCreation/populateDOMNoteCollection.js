@@ -1,5 +1,5 @@
 import notesObject from "../tabObjects/allNotesTab";
-import { updateNoteItem } from "../domActivities/domActivities";
+import { updateNoteItem, deleteTodoItem } from "../domActivities/domActivities";
 
 function appendNotesObject(){
             
@@ -19,8 +19,6 @@ function appendNotesObject(){
     collectionContainer.append(notesCollection);
 
     const notesArray = notesObject().reverse();
-
-    console.log(notesArray);
 
     notesArray.forEach(object => {
         const notesContainer = document.createElement('div');
@@ -90,181 +88,10 @@ function appendNotesObject(){
                     todoDisplay.append(todoDescTextArea);
 
 
-                    // const todoDisplayDate = document.createElement('input');
+                    
 
-                    // todoDisplayDate.setAttribute('type','date');
-
-                    // todoDisplayDate.setAttribute('id','todo-display-date');
-
-                    // todoDisplayDate.value = object.dueDate;
-
-                    // todoDisplayDate.classList.add('todo-update');
-
-                    // todoDisplay.append(todoDisplayDate);
-
-                    // const lineBreak1 = document.createElement('br');                                               
-                    // todoDisplay.append(lineBreak1);
-
-
-                    // const todoDisplayRemindIn = document.createElement('input');
-
-                    // todoDisplayRemindIn.setAttribute('type','number');
-
-                    // todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
-
-                    // console.log(object.dueDate);
-
-                    // todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
-
-                    // todoDisplayRemindIn.value = object.remindIn;
-
-                    // todoDisplayRemindIn.classList.add('todo-update');
-
-                    // todoDisplay.append(todoDisplayRemindIn);
-
-                    // const lineBreak2 = document.createElement('br');
-                    // todoDisplay.append(lineBreak2);
-
-
-                    // const todoDisplayPriority = document.createElement('button');
-
-                    // todoDisplayPriority.setAttribute('value',object.priority);
-
-                    // todoDisplayPriority.setAttribute('type','button');
-
-                    // todoDisplayPriority.setAttribute('id','todo-display-priority');
-
-                    // todoDisplayPriority.textContent = object.priority;
-
-                    // todoDisplayPriority.classList.add('todo-update');
-
-                    // todoDisplay.append(todoDisplayPriority);
-
-                    // todoDisplayPriority.addEventListener('click', function(){
-
-                        
-                    //     console.log(todoDisplayPriority.value)
-
-                    //     // Add classes for different priorities (different colours)
-
-                    //     if (todoDisplayPriority.value === 'low'){
-                    //         todoDisplayPriority.value = 'medium';
-                    //         todoDisplayPriority.textContent = 'Medium';
-
-                    //         return;
-                    //     }
-
-                    //     if (todoDisplayPriority.value === 'medium'){
-                    //         todoDisplayPriority.value = 'high';
-                    //         todoDisplayPriority.textContent = 'High';
-
-                    //         return;
-                    //     }
-
-                    //     if (todoDisplayPriority.value === 'high'){
-                    //         todoDisplayPriority.value = 'low';
-                    //         todoDisplayPriority.textContent = 'Low';
-
-                    //         return;
-                    //     }
-
-
-                    // });
-
-                    // const lineBreak3 = document.createElement('br');
-                    // todoDisplay.append(lineBreak3);
-
-
-                    // const projectsDropDown = document.createElement('select');
-
-                    // projectsDropDown.setAttribute('name','project-display-choices');
-
-                    // projectsDropDown.setAttribute('id','project-display-choices');
-
-                    // projectsDropDown.classList.add('form-input');
-
-                    // todoDisplay.append(projectsDropDown);
-
-
-
-
-                    //         const unprocessedProject = projectObjects().unprocessedProjectArray
-
-                    //         const optionsNode = document.querySelectorAll('option');
-                
-                    //         if(optionsNode){
-                
-                    //             optionsNode.forEach(option => {
-                    //                 option.remove();
-                    //             });
-                
-                    //         }
-                
-                    //         const option0 = document.createElement('option');
-                
-                    //         option0.textContent = object.project;
-                
-                    //         option0.value = object.project;
-                
-                    //         projectsDropDown.append(option0);
-                
-                
-                    //         unprocessedProject.forEach(obj => {
-                    //             // console.log(object.title);
-                
-                    //             const projectOption = document.createElement('option');
-                
-                    //             projectOption.textContent = obj.title;
-                
-                    //             projectOption.value = obj.title;
-                
-                    //             projectsDropDown.append(projectOption);
-                    //         });
-
-
-
-                    // const lineBreak4 = document.createElement('br');
-                    // todoDisplay.append(lineBreak4);
-
-                    // create line break 
-
-                    // const todoDisplayStatus = document.createElement('button');
-
-                    // todoDisplayStatus.setAttribute('value',object.status);
-
-                    // todoDisplayStatus.setAttribute('type','button');
-
-                    // todoDisplayStatus.setAttribute('id','todo-display-status');
-
-                    // todoDisplayStatus.textContent = object.status;
-
-                    // todoDisplayStatus.classList.add('todo-update');
-
-                    // todoDisplay.append(todoDisplayStatus);
-
-                    // todoDisplayStatus.addEventListener('click', function(){
-
-                    //     // Add classes for different priorities (different colours)
-
-                    //     if (todoDisplayStatus.value === 'pending'){
-                    //         todoDisplayStatus.value = 'complete';
-                    //         todoDisplayStatus.textContent = 'Complete';
-
-                    //         return;
-                    //     }
-
-                    //     if (todoDisplayStatus.value === 'complete'){
-                    //         todoDisplayStatus.value = 'pending';
-                    //         todoDisplayStatus.textContent = 'Pending';
-
-                    //         return;
-                    //     }
-
-
-                    // });
-
-                    const lineBreak5 = document.createElement('br');
-                    todoDisplay.append(lineBreak5);
+                    const lineBreak1 = document.createElement('br');
+                    todoDisplay.append(lineBreak1);
 
 
                     const todoUpdate = document.createElement('button');
@@ -282,7 +109,30 @@ function appendNotesObject(){
                     todoDisplay.append(todoUpdate);
 
 
+                    const lineBreak2 = document.createElement('br');
+                    
+                    todoDisplay.append(lineBreak2);
+
+
+                    const todoDelete = document.createElement('button');
+
+                    todoDelete.setAttribute('value','');
+
+                    todoDelete.setAttribute('type','button');
+
+                    todoDelete.setAttribute('id','todo-delete');
+
+                    todoDelete.textContent = 'Delete';
+
+                    todoDelete.classList.add('todo-update');
+
+                    todoDisplay.append(todoDelete);
+
+
                     updateNoteItem(object);
+
+                    deleteTodoItem(object);
+
                 
         });
     });

@@ -106,13 +106,11 @@ function projectDOMModule (){
 
     displayContainer.append(collectionContainer);
 
-    // populateTodoCollection('high');
+
     appendProjectObjects('high');
 
     changeProjectPriority();
     
-    // domAction()
-
     
     
 }

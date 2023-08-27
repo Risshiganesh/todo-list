@@ -1,12 +1,11 @@
 import todoObject from "../tabObjects/allTodosTab";
-import todoModule from "../createTodos";
 // for selection options
 import projectObjects from '../tabObjects/allProjectsTab';
 
 // doesn't work because of circular dependency
 // import updateTodoItem  from '../domActivities/updateTodoDOM';
 
-import { updateTodoItem } from "../domActivities/domActivities";
+import { updateTodoItem, deleteTodoItem } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -228,8 +227,6 @@ function appendTodoObjects(priority){
 
                                                 todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
 
-                                                console.log(object.dueDate);
-
                                                 todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
 
                                                 todoDisplayRemindIn.value = object.remindIn;
@@ -257,9 +254,6 @@ function appendTodoObjects(priority){
                                                 todoDisplay.append(todoDisplayPriority);
 
                                                 todoDisplayPriority.addEventListener('click', function(){
-
-                                                    
-                                                    console.log(todoDisplayPriority.value)
 
                                                     // Add classes for different priorities (different colours)
 
@@ -326,7 +320,6 @@ function appendTodoObjects(priority){
                                             
                                             
                                                         unprocessedProject.forEach(obj => {
-                                                            // console.log(object.title);
                                             
                                                             const projectOption = document.createElement('option');
                                             
@@ -397,8 +390,32 @@ function appendTodoObjects(priority){
 
                                                 todoDisplay.append(todoUpdate);
 
+                                                
+                                                const lineBreak6 = document.createElement('br');
+                                                todoDisplay.append(lineBreak6);
+
+
+                                                const todoDelete = document.createElement('button');
+
+                                                todoDelete.setAttribute('value','');
+
+                                                todoDelete.setAttribute('type','button');
+
+                                                todoDelete.setAttribute('id','todo-delete');
+
+                                                todoDelete.textContent = 'Delete';
+
+                                                todoDelete.classList.add('todo-update');
+
+                                                todoDisplay.append(todoDelete);
+
 
                                                 updateTodoItem(object);
+
+                                                deleteTodoItem(object);
+
+
+                                                
                                             
                                     });
 

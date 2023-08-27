@@ -14,7 +14,7 @@ function todoModule (){
 
 
     // this is the function that will be used to create Todos
-    function createTodo (title,desc,dueDate,remindIn,priority,status,project = 'none'){
+    function createTodo (title,desc,dueDate,remindIn,priority,status,project){
         const newToDo = todoFactory(title,desc,dueDate,remindIn,priority,status,project);
         todoArray.push(newToDo);
         return;
@@ -38,7 +38,7 @@ function todoModule (){
 
         createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project 2');
 
-        createTodo(`title${index}`,`desc${index}`,'',index,`low`,`pending`,'project 2');
+        createTodo(`title${index}`,`desc${index}`);
 
 
    
@@ -63,25 +63,6 @@ function todoModule (){
 
         todoArray.forEach(todo => {
 
-            // oldTitle: object.title,
-            // oldDesc: object.desc,
-            // oldDue: object.dueDate,
-            // oldReminder: object.remindIn,
-            // oldPriority: object.priority,
-            // oldStatus: object.status,
-            // oldProject: object.project,
-
-
-            // newTitle: todoDisplayTitle.value,
-            // newDesc: todoDescTextArea.value,
-            // newDue: todoDisplayDate.value,
-            // newReminder: todoDisplayRemindIn.value,
-            // newPriority: todoDisplayPriority.value,
-            // newStatus: todoDisplayStatus.value,
-            // newProject: projectsDropDown.value, 
-
-            // console.log(todo.title);
-            // console.log(oldDetails.title)
 
             if (todo.title === oldDetails.title && 
                 todo.desc === oldDetails.desc && 
@@ -106,17 +87,63 @@ function todoModule (){
             
         });
 
-        // console.log(newDetails.newProject)
+    }
 
 
 
+
+    function deleteTodo (oldDetails){
+
+
+        for (let index = 0; index < todoArray.length; index++) {
+
+
+            if (todoArray[index].title === oldDetails.title && 
+                todoArray[index].desc === oldDetails.desc && 
+                todoArray[index].dueDate === oldDetails.dueDate && 
+                todoArray[index].remindIn === oldDetails.remindIn && 
+                todoArray[index].priority === oldDetails.priority && 
+                todoArray[index].status === oldDetails.status && 
+                todoArray[index].project === oldDetails.project) {
+
+
+                todoArray.splice(index,1)
+
+            }
+            
+        }
+
+    }
+
+
+
+
+    function deleteTodoOfProject (project){
+
+
+        for (let index = 0; index < todoArray.length; index++) {
+
+
+            if (todoArray[index].project === project.title) {
+
+                console.log('TODO DELETED')
+
+                todoArray.splice(index,1)
+
+                --index;
+
+            }
+            
+        }
+
+        console.log(todoArray);
     }
 
     
 
     // End of test objects
 
-    return {todoArray, createTodo, updateTodo};
+    return {todoArray, createTodo, updateTodo, deleteTodo, deleteTodoOfProject};
 
 
 }
