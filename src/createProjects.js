@@ -38,6 +38,26 @@ function projectModule () {
     // localStorage.removeItem('storedProjects');
 
 
+    function cleanUpProjects (){
+
+        for (let index = 0; index < projectArray.length; index++) {
+
+
+            if ((!projectArray[index].title) && 
+                (!projectArray[index].desc)) {
+
+                projectArray.splice(index,1)
+
+            }
+            
+        }
+
+        localStorageUpdate();
+
+    }
+
+    // clean up empty projects
+    cleanUpProjects();
     
 
     function localStorageUpdate(){
@@ -107,7 +127,6 @@ function projectModule () {
 
     function updateProject (oldDetails,newDetails){
 
-        console.log('CHANGE WORKS!')
 
         projectArray.forEach(project => {
 
