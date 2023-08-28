@@ -12,48 +12,85 @@ function todoModule (){
     // This is where unsorted todo arrays are stored
     const todoArray = [];
 
+    
+    function getStoredTodos (){
+
+        const storedTodos = localStorage.getItem('storedTodos');
+
+        if(!storedTodos){
+            return;
+        }
+        const parseStoredTodos = JSON.parse(storedTodos);
+
+        parseStoredTodos.forEach(todos => {
+            todoArray.push(todos)
+        });
+
+    }
+
+    // get stored todos on boot
+    getStoredTodos();
+
+
+
+
+    function localStorageUpdate(){
+
+        console.log('SET LOCAL STORAGE');
+
+        localStorage.setItem('storedTodos',JSON.stringify(todoArray));
+
+    }
+
 
     // this is the function that will be used to create Todos
     function createTodo (title,desc,dueDate,remindIn,priority,status,project){
         const newToDo = todoFactory(title,desc,dueDate,remindIn,priority,status,project);
         todoArray.push(newToDo);
+        localStorageUpdate();
         return;
     }
 
 
     // This must be deleted later as it is created primarily for testing
 
-    const currentDate = new Date();
+    // const currentDate = new Date();
 
-    const day = currentDate.getDate();
+    // const day = currentDate.getDate();
 
-    const month = currentDate.getMonth();
+    // const month = currentDate.getMonth();
 
-    const year = currentDate.getFullYear();
-
-
-    for (let index = 1; index <= 10; index++) {
-
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`pending`,'project 2');
-
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project 2');
-
-        createTodo(`title${index}`,`desc${index}`);
+    // const year = currentDate.getFullYear();
 
 
-   
-        
-    }
+    // for (let index = 1; index <= 10; index++) {
 
-    for (let index = 1; index <= 5; index++) {
+    //     createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`pending`,'project 2');
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`complete`,'project1test');
+    //     createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`low`,`pending`,'project 2');
 
-        createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`medium`,`pending`,'project1test');
+    //     createTodo(`title${index}`,`desc${index}`);
+
 
    
         
-    }
+    // }
+
+    // for (let index = 1; index <= 5; index++) {
+
+    //     createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`high`,`complete`,'project1test');
+
+    //     createTodo(`title${index}`,`desc${index}`,`${year + index}-${month + index}-${day + index}`,index,`medium`,`pending`,'project1test');
+
+   
+        
+    // }
+
+    // localStorageUpdate();
+    // localStorageUpdate();
+    // console.log('GET LOCAL STORAGE');
+    // console.log(JSON.parse(localStorage.getItem('todoArray')))
+    localStorage.removeItem('storedTodos');
     
     // oldDetails
     // newDetails
@@ -87,6 +124,8 @@ function todoModule (){
             
         });
 
+        localStorageUpdate();
+
     }
 
 
@@ -113,6 +152,8 @@ function todoModule (){
             
         }
 
+        localStorageUpdate();
+
     }
 
 
@@ -136,7 +177,8 @@ function todoModule (){
             
         }
 
-        console.log(todoArray);
+        localStorageUpdate();
+
     }
 
     

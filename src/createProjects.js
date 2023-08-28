@@ -16,52 +16,89 @@ function projectModule () {
     const projectArray = [];
 
 
+
+    function getStoredProjects (){
+
+        const storedProjects = localStorage.getItem('storedProjects');
+
+        if(!storedProjects){
+            return;
+        }
+        const parseStoredProjects = JSON.parse(storedProjects);
+
+        parseStoredProjects.forEach(projects => {
+            projectArray.push(projects)
+        });
+
+    }
+
+    // get stored projects on boot
+    getStoredProjects();
+
+
+    
+
+    function localStorageUpdate(){
+
+        console.log('SET LOCAL STORAGE');
+
+        localStorage.setItem('storedProjects',JSON.stringify(projectArray));
+
+    }
+
+
+
+
+
+
+
     function createProject (title,desc,dueDate,priority,remindIn,status){
         const newProject = projectFactory(title,desc,dueDate,priority,remindIn,status); //change this later if you need to
         projectArray.push(newProject);
+        localStorageUpdate();
         return;
     }
 
 
     // 8 high priority
 
-    const currentDate = new Date();
+    // const currentDate = new Date();
 
-    const day = currentDate.getDate();
+    // const day = currentDate.getDate();
 
-    const month = currentDate.getMonth();
+    // const month = currentDate.getMonth();
 
-    const year = currentDate.getFullYear();
+    // const year = currentDate.getFullYear();
 
-    let remind = -2;
+    // let remind = -2;
 
-    let remind1 = 0;
+    // let remind1 = 0;
 
-    for (let index = 4; index > 0; index--) {
-
-        
-
-        createProject(`project${index}test`,`desc${index}`,`${year + remind}-${month + remind}-${day + remind}`,`high`,remind,'complete');
-
-        createProject(`project${index}test2`,`desc${index}`,`${year + remind}-${month + remind}-${day + remind}`,`high`,remind+index,'pending');
-
-        remind = remind + index;
-
-        
-    }
-
-
-    // 10 low priority
-    for (let index = 6; index > 0; index--) {
+    // for (let index = 4; index > 0; index--) {
 
         
 
-        createProject(`project ${index}`,`desc${index}`,`${year + remind1}-${month + remind1}-${day + remind1}`,`low`,remind1,'complete');
-        createProject(`project${index}ww`,`desc${index}`,`${year + remind1}-${month + remind1}-${day - remind1}`,`low`,remind1,'pending');
-        createProject(`project${index}up`,`desc${index}`,`${year + remind1}-${month + remind1}-${day + remind1}`,`low`,remind1-1,'pending');
+    //     createProject(`project${index}test`,`desc${index}`,`${year + remind}-${month + remind}-${day + remind}`,`high`,remind,'complete');
+
+    //     createProject(`project${index}test2`,`desc${index}`,`${year + remind}-${month + remind}-${day + remind}`,`high`,remind+index,'pending');
+
+    //     remind = remind + index;
+
         
-        remind1 = remind1 - index;
-    }
+    // }
+
+
+    // // 10 low priority
+    // for (let index = 6; index > 0; index--) {
+
+        
+
+    //     createProject(`project ${index}`,`desc${index}`,`${year + remind1}-${month + remind1}-${day + remind1}`,`low`,remind1,'complete');
+    //     createProject(`project${index}ww`,`desc${index}`,`${year + remind1}-${month + remind1}-${day - remind1}`,`low`,remind1,'pending');
+    //     createProject(`project${index}up`,`desc${index}`,`${year + remind1}-${month + remind1}-${day + remind1}`,`low`,remind1-1,'pending');
+        
+    //     remind1 = remind1 - index;
+    // }
 
 
 
@@ -96,6 +133,8 @@ function projectModule () {
             
         });
 
+        localStorageUpdate();
+
     }
 
 
@@ -120,6 +159,8 @@ function projectModule () {
             }
             
         }
+
+        localStorageUpdate();
 
     }
 
