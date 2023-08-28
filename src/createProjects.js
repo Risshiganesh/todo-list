@@ -35,6 +35,8 @@ function projectModule () {
     // get stored projects on boot
     getStoredProjects();
 
+    // localStorage.removeItem('storedProjects');
+
 
     
 

@@ -11,7 +11,7 @@ import todoObject from "../tabObjects/allTodosTab";
 
 import projectObject from "../tabObjects/allProjectsTab";
 
-import mainDomModule from "../domCreation/formDOMCreation";
+import formDomModule from "../domCreation/formDOMCreation";
 
 import createTodoDOM from "../domCreation/allTodoDOMCreation";
 
@@ -130,9 +130,20 @@ function domActivitiesModule (){
 
     const todoCreationDiv = document.querySelector('.create-new-todo');
 
+
+
+
+    // same variable, need to refactor
     const selectExistingProject = document.querySelector('#existing-project');
 
     const selectNewProject = document.querySelector('#new-project');
+
+    const existingProjectRadio = document.querySelector('#existing-project');
+
+    const newProjectRadio = document.querySelector('#new-project');
+
+
+
 
     const existingProjectDiv = document.querySelector('.select-existing-project');
 
@@ -154,12 +165,10 @@ function domActivitiesModule (){
 
     const todoPriority = document.querySelector('#todo-priority');
 
-    const existingProjectRadio = document.querySelector('#existing-project');
-
-    const newProjectRadio = document.querySelector('#new-project');
+    
 
 
-    const todoInputs = [todoDate,todoReminder,todoPriority,existingProjectRadio];
+    const todoInputs = [todoDate,todoReminder];
 
 
 
@@ -188,8 +197,15 @@ function domActivitiesModule (){
         todoInputs.forEach(input => {
             input.setAttribute('required','');
         });
-        
 
+        if (selectExistingProject.disabled) {
+            selectNewProject.checked = true;
+        }
+
+        if (!selectExistingProject.checked && !selectNewProject.checked)  {
+            selectExistingProject.checked = true;
+        }
+        
         if (selectExistingProject.checked) {
             checkedExistingProject();
         }
@@ -205,6 +221,9 @@ function domActivitiesModule (){
         todoCreationDiv.classList.remove('display-form-items');
         existingProjectDiv.classList.remove('display-form-items');
         newProjectDiv.classList.remove('display-form-items');
+
+        selectNewProject.checked = false;
+        selectExistingProject.checked = false;
 
         todoInputs.forEach(input => {
             input.removeAttribute('required');
@@ -339,6 +358,7 @@ function domActivitiesModule (){
 
 
             if(newProjectRadio.checked){
+                console.log('why are you running?')
                 
                 projectModule.createProject(projectTitle.value,projectDesc.value,projectDate.value,projectPriority.value,projectReminder.value,`pending`);
 
@@ -356,7 +376,7 @@ function domActivitiesModule (){
                 });
 
                 //everytime submit button is clicked fresh dropdown is created 
-                mainDomModule.existingProjectOptions();
+                formDomModule.existingProjectOptions();
 
                 createProjectDOM()
 
@@ -400,11 +420,11 @@ function domActivitiesModule (){
 
             todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectsChoices.value);
 
-            todoObject();
+            // todoObject();
 
-            projectObject();
+            // projectObject();
 
-            notesObject();
+            // notesObject();
 
             resetArray.forEach(input => {
 
@@ -412,9 +432,11 @@ function domActivitiesModule (){
             });
 
             //everytime submit button is clicked fresh dropdown is created 
-            mainDomModule.existingProjectOptions();
+            formDomModule.existingProjectOptions();
 
             if (selectTodo.checked) {
+
+                
 
                 createTodoDOM();
                 populateTodoCollection(todoPriority.value);
@@ -508,6 +530,27 @@ function domActivitiesModule (){
     formButton.addEventListener('click',function(){
 
         formContainer.classList.add('show-form');
+
+        formDomModule.existingProjectOptions();
+
+        if(selectNote.checked){
+            return;
+        }
+
+        if (selectTodo.checked && selectExistingProject.disabled) {
+            selectNewProject.checked = true;
+        }
+
+
+        if (selectNewProject.checked){
+            console.log('NEW PROJECT')
+            checkedNewProject();
+        }
+
+        if(selectExistingProject.checked){
+            console.log('EXISTING PROJECT')
+            checkedExistingProject();
+        }
 
     })
 

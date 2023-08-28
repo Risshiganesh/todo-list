@@ -340,9 +340,9 @@ function formDomModule (){
 
                                 existingProjectRadio.setAttribute('id','existing-project');
 
-                                existingProjectRadio.setAttribute('name','project');
+                                // existingProjectRadio.setAttribute('required','');
 
-                                existingProjectRadio.setAttribute('checked','');
+                                existingProjectRadio.setAttribute('name','project');
 
                                 existingProjectRadio.classList.add('form-input');
 
@@ -673,9 +673,33 @@ function formDomModule (){
 
                         function existingProjectOptions () {
 
-                            // console.log(unprocessedProject.title);
+                            const existingProjectRadio = document.querySelector('#existing-project');
 
-                                const unprocessedProject = projectObjects().unprocessedProjectArray
+                            const newProjectRadio = document.querySelector('#new-project');
+
+
+
+
+                            const unprocessedProject = projectObjects().unprocessedProjectArray
+
+
+                            if (unprocessedProject.length === 0) {
+
+                                existingProjectRadio.removeAttribute('checked','');
+                                existingProjectRadio.checked = false;
+                                existingProjectRadio.disabled = true;
+
+                                // newProjectRadio.setAttribute('checked','');
+                                // newProjectRadio.checked = true;
+
+
+                                return
+                            }
+
+                            if(unprocessedProject.length > 0 ){
+
+                                existingProjectRadio.disabled = false;
+
 
                                 const optionsNode = document.querySelectorAll('option');
 
@@ -708,12 +732,59 @@ function formDomModule (){
                                     projectChoicesDropDown.append(projectOption);
                                 });
 
+                                return;
 
-                                
+                            }
+
 
                         }
 
+
+
+                        // function existingProjectOptions (){
+
+                        //     const unprocessedProject = projectObjects().unprocessedProjectArray
+
+                        //     const optionsNode = document.querySelectorAll('option');
+
+                        //     if(optionsNode){
+
+                        //         optionsNode.forEach(option => {
+                        //             option.remove();
+                        //         });
+
+                        //     }
+
+                        //     const option0 = document.createElement('option');
+
+                        //     option0.textContent = 'Choose one';
+
+                        //     option0.value = '';
+
+                        //     projectChoicesDropDown.append(option0);
+
+
+                        //     unprocessedProject.forEach(object => {
+                        //         // console.log(object.title);
+
+                        //         const projectOption = document.createElement('option');
+
+                        //         projectOption.textContent = object.title;
+
+                        //         projectOption.value = object.title;
+
+                        //         projectChoicesDropDown.append(projectOption);
+                        //     });
+
+                        // }
+
                         existingProjectOptions();
+
+
+
+
+
+                                
 
 
 

@@ -5,8 +5,17 @@ function todoModule (){
     // Factory function to create notes
 
     function todoFactory (title,desc,dueDate,remindIn,priority,status,project){
+
+        // todo
+        if(dueDate){
+            return {title,desc,dueDate,remindIn,priority,status,project}
+        }
+        // note
+        if(!dueDate){
+            return {title,desc}
+        }
         
-        return {title,desc,dueDate,remindIn,priority,status,project}
+        
     }
 
     // This is where unsorted todo arrays are stored
@@ -90,7 +99,7 @@ function todoModule (){
     // localStorageUpdate();
     // console.log('GET LOCAL STORAGE');
     // console.log(JSON.parse(localStorage.getItem('todoArray')))
-    localStorage.removeItem('storedTodos');
+    // localStorage.removeItem('storedTodos');
     
     // oldDetails
     // newDetails
