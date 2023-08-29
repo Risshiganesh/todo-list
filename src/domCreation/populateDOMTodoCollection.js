@@ -5,7 +5,7 @@ import projectObjects from '../tabObjects/allProjectsTab';
 // doesn't work because of circular dependency
 // import updateTodoItem  from '../domActivities/updateTodoDOM';
 
-import { updateTodoItem, deleteTodoItem } from "../domActivities/domActivities";
+import { updateTodoItem, deleteTodoItem, emptyDisplay } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -430,6 +430,8 @@ function appendTodoObjects(priority){
         }
 
     }
+
+    emptyDisplay();
 
 }
 

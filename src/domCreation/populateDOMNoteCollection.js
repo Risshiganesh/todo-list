@@ -1,5 +1,5 @@
 import notesObject from "../tabObjects/allNotesTab";
-import { updateNoteItem, deleteTodoItem } from "../domActivities/domActivities";
+import { updateNoteItem, deleteTodoItem, emptyDisplay } from "../domActivities/domActivities";
 
 function appendNotesObject(){
             
@@ -137,8 +137,7 @@ function appendNotesObject(){
         });
     });
 
-
-
+    emptyDisplay();
 
 }
 

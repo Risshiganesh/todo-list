@@ -1,6 +1,6 @@
 import projectObjects from "../tabObjects/allProjectsTab";
 
-import { updateProjectItem,updateTodoItem, deleteProjectItem } from "../domActivities/domActivities";
+import { updateProjectItem,updateTodoItem, deleteProjectItem,emptyDisplay } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -955,6 +955,9 @@ function appendProjectObjects(priority){
         }
 
     }
+
+
+    emptyDisplay();
 
 }
 

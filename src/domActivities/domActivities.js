@@ -558,6 +558,7 @@ function domActivitiesModule (){
 
 
 
+    
 
 
 
@@ -568,6 +569,8 @@ function domActivitiesModule (){
     const allTodosTab = document.querySelector('.all-todos-tab');
 
     allTodosTab.addEventListener('click',function(){
+
+        
 
         console.log('TO DO LIST');
 
@@ -981,6 +984,68 @@ function domActivitiesModule (){
 
     }
 
+
+
+    // send to all populate modules
+    function emptyDisplay(){
+        const collectionContainer = document.querySelector('.collection-container');
+        const collectionContainerItems = [];
+
+        if(collectionContainer){
+            collectionContainer.querySelectorAll('*').forEach(element => {
+                collectionContainerItems.push(element)
+            });
+
+            if (collectionContainerItems.length === 0) {
+                const displayEmpty = document.createElement('div');
+                displayEmpty.classList.add('display-empty');
+                displayEmpty.textContent = 'EMPTY';
+                collectionContainer.append(displayEmpty);
+                return;
+            }
+
+        }
+
+        const notesCollection = document.querySelector('.notes-collection');
+        const notesCollectionItems = [];
+
+        if (notesCollection) {
+            notesCollection.querySelectorAll('*').forEach(element => {
+                notesCollectionItems.push(element)
+            });
+
+            if (notesCollectionItems.length === 0) {
+                notesCollection.remove();
+                const displayEmpty = document.createElement('div');
+                displayEmpty.classList.add('display-empty');
+                displayEmpty.textContent = 'EMPTY';
+                collectionContainer.append(displayEmpty);
+                return;
+                // if (notesCollection) {
+                    
+                // }
+            }
+    
+        }
+        
+
+        
+
+        
+        
+        // console.log(notesCollection);
+        
+
+        
+     
+
+        // if (collectionContainerItems.length > 0) {
+        //     const displayEmpty = document.querySelector('display-empty');
+        //     displayEmpty.remove();
+        //     return;
+        // }
+    }
+
   
 
    
@@ -989,5 +1054,5 @@ function domActivitiesModule (){
 
 export default domActivitiesModule;
 
-export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateProjectItem, updateNoteItem, deleteTodoItem, deleteProjectItem};
+export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateProjectItem, updateNoteItem, deleteTodoItem, deleteProjectItem,emptyDisplay};
 

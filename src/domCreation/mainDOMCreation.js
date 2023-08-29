@@ -54,43 +54,96 @@ function mainDomModule (){
 
     mainContainer.append(noteMenu);
 
-        const allTodosTabDOM = document.createElement('div');
 
-        allTodosTabDOM.classList.add('all-todos-tab');
+        const tabContainer = document.createElement('div');
 
-        noteMenu.append(allTodosTabDOM);
+        tabContainer.classList.add('tab-container');
 
-            const allTodosHeader = document.createElement('h1');
-
-            allTodosHeader.textContent = 'All Todos';
-
-            allTodosTabDOM.append(allTodosHeader)
+        noteMenu.append(tabContainer)
 
 
-        const allProjectsTabDOM = document.createElement('div');
 
-        allProjectsTabDOM.classList.add('all-projects-tab');
+            const allTodosTabDOM = document.createElement('div');
 
-        noteMenu.append(allProjectsTabDOM);
+            allTodosTabDOM.classList.add('all-todos-tab');
 
-            const allProjectsHeader = document.createElement('h1');
+            allTodosTabDOM.classList.add('menu-tab-active')
 
-            allProjectsHeader.textContent = 'Projects';
+            tabContainer.append(allTodosTabDOM);
 
-            allProjectsTabDOM.append(allProjectsHeader);
+                const allTodosHeader = document.createElement('h1');
+
+                allTodosHeader.textContent = 'All Todos';
+
+                allTodosTabDOM.append(allTodosHeader)
 
 
-        const allNotesTabDOM = document.createElement('div');
+            const allProjectsTabDOM = document.createElement('div');
 
-        allNotesTabDOM.classList.add('all-notes-tab');
+            allProjectsTabDOM.classList.add('all-projects-tab');
 
-        noteMenu.append(allNotesTabDOM);
+            tabContainer.append(allProjectsTabDOM);
 
-            const allNotesHeader = document.createElement('h1');
+                const allProjectsHeader = document.createElement('h1');
 
-            allNotesHeader.textContent = 'Notes';
+                allProjectsHeader.textContent = 'Projects';
 
-            allNotesTabDOM.append(allNotesHeader);
+                allProjectsTabDOM.append(allProjectsHeader);
+
+
+            const allNotesTabDOM = document.createElement('div');
+
+            allNotesTabDOM.classList.add('all-notes-tab');
+
+            tabContainer.append(allNotesTabDOM);
+
+                const allNotesHeader = document.createElement('h1');
+
+                allNotesHeader.textContent = 'Notes';
+
+                allNotesTabDOM.append(allNotesHeader);
+
+
+
+        function tabActiveSwitch (){
+            
+            const tabArray = [allTodosTabDOM,allProjectsTabDOM,allNotesTabDOM];
+
+            allTodosTabDOM.addEventListener('click',function(){
+
+                allTodosTabDOM.classList.add('menu-tab-active');
+
+                allProjectsTabDOM.classList.remove('menu-tab-active');
+
+                allNotesTabDOM.classList.remove('menu-tab-active');
+
+            });
+
+
+            allProjectsTabDOM.addEventListener('click',function(){
+
+                allProjectsTabDOM.classList.add('menu-tab-active');
+                
+                allTodosTabDOM.classList.remove('menu-tab-active');
+
+                allNotesTabDOM.classList.remove('menu-tab-active');
+
+            });
+
+
+            allNotesTabDOM.addEventListener('click',function(){
+
+                allNotesTabDOM.classList.add('menu-tab-active');
+
+                allTodosTabDOM.classList.remove('menu-tab-active');
+
+                allProjectsTabDOM.classList.remove('menu-tab-active');
+
+            });
+
+        }
+
+        tabActiveSwitch();
 
 
 

@@ -38,6 +38,7 @@ function projectModule () {
     // localStorage.removeItem('storedProjects');
 
 
+    // Delete this if there ends up being a problem
     function cleanUpProjects (){
 
         for (let index = 0; index < projectArray.length; index++) {
@@ -46,7 +47,11 @@ function projectModule () {
             if ((!projectArray[index].title) && 
                 (!projectArray[index].desc)) {
 
+                console.log('CLEANED UP!!!')
+
                 projectArray.splice(index,1)
+
+                --index;
 
             }
             
