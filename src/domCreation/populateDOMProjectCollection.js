@@ -61,18 +61,20 @@ function appendProjectObjects(priority){
                 
                         collectionContainer.append(statusContainer);
                 
-                            const projectTitleDiv = document.createElement('div');
+                            const statusTitleDiv = document.createElement('div');
                 
-                            projectTitleDiv.textContent = titleArray[index];
+                            statusTitleDiv.textContent = titleArray[index];
+
+                            statusTitleDiv.classList.add('status-title');
                 
-                            statusContainer.append(projectTitleDiv);
+                            statusContainer.append(statusTitleDiv);
                 
                 
                             const dueStatusContainer = document.createElement('div');
                 
                             dueStatusContainer.classList.add(classArray[index]);
                 
-                            projectTitleDiv.append(dueStatusContainer);
+                            statusContainer.append(dueStatusContainer);
                 
                 
                                 const scrollableContainer = document.createElement('div');

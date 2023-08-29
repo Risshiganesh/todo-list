@@ -67,7 +67,7 @@ function allTodoDOMModule (){
 
             highPriority.classList.add('high-priority');
 
-            highPriority.classList.add('chosen-priority');
+            highPriority.classList.add('high-priority-chosen');
 
             highPriority.textContent = 'High';
 

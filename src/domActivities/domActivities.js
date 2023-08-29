@@ -627,13 +627,20 @@ function domActivitiesModule (){
 
     highPriorityButton.addEventListener('click',function(){
         
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
   
-        priorityButtons.querySelectorAll('*').forEach(element => {
-            element.classList.remove('chosen-priority')
-        });
+        // priorityButtons.querySelectorAll('*').forEach(element => {
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        highPriorityButton.classList.add('chosen-priority');
+        // highPriorityButton.classList.add('chosen-priority');
+
+
+        highPriorityButton.classList.add('high-priority-chosen');
+
+        mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+        lowPriorityButton.classList.remove('low-priority-chosen');
 
         populateTodoCollection('high');
 
@@ -646,13 +653,19 @@ function domActivitiesModule (){
 
     mediumPriorityButton.addEventListener('click',function(){
         
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
         
-        priorityButtons.querySelectorAll('*').forEach(element => {
-            element.classList.remove('chosen-priority')
-        });
+        // priorityButtons.querySelectorAll('*').forEach(element => {
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        mediumPriorityButton.classList.add('chosen-priority');
+        // mediumPriorityButton.classList.add('chosen-priority');
+
+        highPriorityButton.classList.remove('high-priority-chosen');
+
+        mediumPriorityButton.classList.add('medium-priority-chosen');
+
+        lowPriorityButton.classList.remove('low-priority-chosen');
 
         populateTodoCollection('medium');
 
@@ -664,14 +677,20 @@ function domActivitiesModule (){
    
     lowPriorityButton.addEventListener('click',function(){
 
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
 
-        priorityButtons.querySelectorAll('*').forEach(element => {
+        // priorityButtons.querySelectorAll('*').forEach(element => {
             
-            element.classList.remove('chosen-priority')
-        });
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        lowPriorityButton.classList.add('chosen-priority');
+        // lowPriorityButton.classList.add('chosen-priority');
+
+        highPriorityButton.classList.remove('high-priority-chosen');
+
+        mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+        lowPriorityButton.classList.add('low-priority-chosen');
 
         populateTodoCollection('low');
 
@@ -695,13 +714,24 @@ function domActivitiesModule (){
 
     highPriorityButton.addEventListener('click',function(){
         
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
   
-        priorityButtons.querySelectorAll('*').forEach(element => {
-            element.classList.remove('chosen-priority')
-        });
+        // priorityButtons.querySelectorAll('*').forEach(element => {
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        highPriorityButton.classList.add('chosen-priority');
+        // highPriorityButton.classList.add('chosen-priority');
+
+
+
+
+        highPriorityButton.classList.add('high-priority-chosen');
+
+        mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+        lowPriorityButton.classList.remove('low-priority-chosen');
+
+
 
         appendProjectObjects('high');
 
@@ -714,13 +744,23 @@ function domActivitiesModule (){
 
     mediumPriorityButton.addEventListener('click',function(){
         
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
         
-        priorityButtons.querySelectorAll('*').forEach(element => {
-            element.classList.remove('chosen-priority')
-        });
+        // priorityButtons.querySelectorAll('*').forEach(element => {
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        mediumPriorityButton.classList.add('chosen-priority');
+        // mediumPriorityButton.classList.add('chosen-priority');
+
+
+
+        highPriorityButton.classList.remove('high-priority-chosen');
+
+        mediumPriorityButton.classList.add('medium-priority-chosen');
+
+        lowPriorityButton.classList.remove('low-priority-chosen');
+
+
 
         appendProjectObjects('medium');
 
@@ -732,14 +772,20 @@ function domActivitiesModule (){
    
     lowPriorityButton.addEventListener('click',function(){
 
-        const priorityButtons = document.querySelector('.priority-buttons');
+        // const priorityButtons = document.querySelector('.priority-buttons');
 
-        priorityButtons.querySelectorAll('*').forEach(element => {
+        // priorityButtons.querySelectorAll('*').forEach(element => {
             
-            element.classList.remove('chosen-priority')
-        });
+        //     element.classList.remove('chosen-priority')
+        // });
 
-        lowPriorityButton.classList.add('chosen-priority');
+        // lowPriorityButton.classList.add('chosen-priority');
+
+        highPriorityButton.classList.remove('high-priority-chosen');
+
+        mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+        lowPriorityButton.classList.add('low-priority-chosen');
 
         appendProjectObjects('low');
 

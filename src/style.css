@@ -79,6 +79,7 @@ body{
     -webkit-backdrop-filter: blur( 6.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: rgba(255, 255, 255, 0.514);
 
 }
 
@@ -116,13 +117,13 @@ body{
     align-items: center;
     justify-items: center;
     border-radius: 0px 0px 10px 10px;
-    color: rgba(255, 255, 255, 0.432);
+    color: rgba(255, 255, 255, 0.514);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
 .hamburger-menu {
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
     width: 70px;
     display: none; /*display: block when display is below 600px */ 
     font-size: 60px;
@@ -214,11 +215,27 @@ body{
     -webkit-backdrop-filter: blur( 6.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: rgba(255, 255, 255, 0.753);
 }
 
 .chosen-priority{
     background-color: rgba(0, 199, 33, 0.562);
     color: white;
+}
+
+.high-priority-chosen {
+    background-color: red;
+    color: black;
+}
+
+.medium-priority-chosen {
+    background-color: yellow;
+    color: black;
+}
+
+.low-priority-chosen {
+    background-color: yellowgreen;
+    color: black;
 }
 
 .tab-title{
@@ -320,15 +337,21 @@ body{
 
 .status-container{
 
-    border: 2px solid fuchsia;
+    /* border: 2px solid fuchsia; */
     overflow: auto;
-    height: 350px;
+    height: 370px;
     color: white;
 
 }
 
 
-
+.status-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0px 10px 10px;
+    /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
 
 
 
@@ -339,14 +362,25 @@ body{
 .complete-container{
 
     display: grid;
-    border: 4px solid gold;
-    height: 320px;
+    /* border: 4px solid gold; */
+    height: 300px;
     width: 100%;
-    background-color: indigo;
+    /* background-color: indigo; */
     align-items: center;
     justify-items: start;
     
     overflow: auto;
+
+    padding-left: 40px;
+
+
+
+
+    border-radius: 10px;
+    background: #004a5700;
+    box-shadow: inset 5px 5px 10px #003f4a,
+                inset -5px -5px 10px #005564;
+
 
 }
 
@@ -354,19 +388,37 @@ body{
 .scrollable-container{
 
     display: grid;
-    column-gap: 10px;
+    column-gap: 20px;
     grid-auto-flow: column; /*This was what i wanted to do*/
     
-    border: 4px solid brown;
+    /* border: 4px solid brown; */
 
 }
 
 .todo-container{
     width: 300px;
     height: 220px;
-    border: 5px solid pink;
+
+    padding: 10px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    font-family: Arial, Helvetica, sans-serif;
     
 }
+
+.todo-title-div {
+
+    font-size: 20px;
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+
+
 
 .todo-display-container {
     display: grid;
@@ -381,8 +433,8 @@ body{
 
 .todo-display {
     background-color: purple;
-    width: 350px;
-    height: 500px;
+    width: 300px;
+    height: 400px;
 }
 
 
@@ -393,8 +445,14 @@ body{
 .project-container{
     width: 350px;
     height: 250px;
-    border: 5px solid pink;
-    flex-shrink: 0;
+ 
+    padding: 10px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     
 }
 
@@ -524,6 +582,7 @@ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 6.5px );
 -webkit-backdrop-filter: blur( 6.5px );
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-right: none;
     
 }
 
@@ -664,8 +723,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         /* font-size: 15px; */
         text-align: right;
         
-        
-
     }
 
     .menu-active { /*triggers when hamburger menu is clicked*/

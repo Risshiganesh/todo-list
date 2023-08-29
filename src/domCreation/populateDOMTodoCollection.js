@@ -67,18 +67,22 @@ function appendTodoObjects(priority){
                 
                         collectionContainer.append(statusContainer);
                 
-                            const todoTitleDiv = document.createElement('div');
+                            const statusTitleDiv = document.createElement('div');
                 
-                            todoTitleDiv.textContent = titleArray[index];
+                            statusTitleDiv.textContent = titleArray[index];
+
+                            statusTitleDiv.classList.add('status-title');
                 
-                            statusContainer.append(todoTitleDiv);
+                            statusContainer.append(statusTitleDiv);
+
+                                
                 
                 
                             const dueStatusContainer = document.createElement('div');
                 
                             dueStatusContainer.classList.add(classArray[index]);
                 
-                            todoTitleDiv.append(dueStatusContainer);
+                            statusContainer.append(dueStatusContainer);
                 
                 
                                 const scrollableContainer = document.createElement('div');
