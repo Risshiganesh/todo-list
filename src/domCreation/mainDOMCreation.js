@@ -41,9 +41,18 @@ function mainDomModule (){
 
         hamburgerMenu.classList.add('hamburger-menu');
 
-        hamburgerMenu.textContent = '|||';
+        // hamburgerMenu.textContent = '#';
+        
+        // hamburgerMenu.setAttribute('src','../assets/menu-icon.png')
 
         topContainer.append(hamburgerMenu);
+
+
+            const menuIcon = document.createElement('img');
+
+            menuIcon.setAttribute('src','../assets/menu-icon.png');
+
+            hamburgerMenu.append(menuIcon);
 
 
     // MENU
