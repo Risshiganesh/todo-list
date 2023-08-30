@@ -5,7 +5,7 @@ import projectObjects from '../tabObjects/allProjectsTab';
 // doesn't work because of circular dependency
 // import updateTodoItem  from '../domActivities/updateTodoDOM';
 
-import { updateTodoItem, deleteTodoItem, emptyDisplay } from "../domActivities/domActivities";
+import { updateTodoItem, deleteTodoItem, emptyDisplay, displayDuration } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -116,45 +116,50 @@ function appendTodoObjects(priority){
 
                                         todoDescDiv.classList.add('todo-desc-div');
 
-                                        todoDescDiv.textContent = object.desc;
-
                                         todoContainer.append(todoDescDiv);
+
+
+                                            const descParagraph = document.createElement('p');
+
+                                            todoDescDiv.textContent = object.desc;
+
+                                            todoDescDiv.append(descParagraph)
 
 
                                         const todoDateDiv = document.createElement('div');
 
                                         todoDateDiv.classList.add('todo-date-div');
 
-                                        todoDateDiv.textContent = object.dueDate;
+                                        todoDateDiv.textContent = displayDuration(object.dueDate);
+
+                                        // todoDateDiv.textContent = `${object.durationLeft.dayLeft} days, ${object.durationLeft.monthsLeft } months and ${object.durationLeft.yearsLeft} years left`;
 
                                         todoContainer.append(todoDateDiv);
 
 
-                                        const todoDurationLeftDiv = document.createElement('div');
+                                        
 
-                                        todoDurationLeftDiv.classList.add('todo-dur-left-div');
 
-                                        todoDurationLeftDiv.textContent = `${object.durationLeft.dayLeft} days, ${object.durationLeft.monthsLeft} months and ${object.durationLeft.yearsLeft} years left`;
 
-                                        todoContainer.append(todoDurationLeftDiv);
+
 
 
                                         const todoProjectDiv = document.createElement('div');
 
                                         todoProjectDiv.classList.add('todo-project-div');
 
-                                        todoProjectDiv.textContent = object.project;
+                                        todoProjectDiv.textContent = `Project: ${object.project}`;
 
                                         todoContainer.append(todoProjectDiv);
 
 
-                                        const todoPrioritytDiv = document.createElement('div');
+                                        // const todoPrioritytDiv = document.createElement('div');
 
-                                        todoPrioritytDiv.classList.add('todo-priority-div');
+                                        // todoPrioritytDiv.classList.add('todo-priority-div');
 
-                                        todoPrioritytDiv.textContent = object.priority;
+                                        // todoPrioritytDiv.textContent = object.priority;
 
-                                        todoContainer.append(todoPrioritytDiv);
+                                        // todoContainer.append(todoPrioritytDiv);
 
 
                                     // SEND TO A SEPARATE MODULE - OPENS TODO ITEM

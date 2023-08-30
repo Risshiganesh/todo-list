@@ -1,6 +1,6 @@
 import projectObjects from "../tabObjects/allProjectsTab";
 
-import { updateProjectItem,updateTodoItem, deleteProjectItem,emptyDisplay } from "../domActivities/domActivities";
+import { updateProjectItem,updateTodoItem, deleteProjectItem,emptyDisplay, displayDuration } from "../domActivities/domActivities";
 
 
 // POPULATE TODO COLLECTION CONTAINER
@@ -90,6 +90,8 @@ function appendProjectObjects(priority){
                                     
                                     const projectContainer = document.createElement('div');
 
+                                    projectContainer.classList.add('todo-container')
+
                                     projectContainer.classList.add('project-container');
 
                                     scrollableContainer.append(projectContainer);
@@ -117,27 +119,27 @@ function appendProjectObjects(priority){
 
                                         projectDateDiv.classList.add('project-date-div');
 
-                                        projectDateDiv.textContent = project.dueDate;
+                                        projectDateDiv.textContent = displayDuration(project.dueDate);
 
                                         projectContainer.append(projectDateDiv);
 
 
-                                        const projectDurationLeftDiv = document.createElement('div');
+                                        // const projectDurationLeftDiv = document.createElement('div');
 
-                                        projectDurationLeftDiv.classList.add('project-dur-left-div');
+                                        // projectDurationLeftDiv.classList.add('project-dur-left-div');
 
-                                        projectDurationLeftDiv.textContent = `${project.durationLeft.dayLeft} days, ${project.durationLeft.monthsLeft} months and ${project.durationLeft.yearsLeft} years left`;
+                                        // projectDurationLeftDiv.textContent = `${project.durationLeft.dayLeft} days, ${project.durationLeft.monthsLeft} months and ${project.durationLeft.yearsLeft} years left`;
 
-                                        projectContainer.append(projectDurationLeftDiv);
+                                        // projectContainer.append(projectDurationLeftDiv);
 
 
-                                        const projectPrioritytDiv = document.createElement('div');
+                                        // const projectPrioritytDiv = document.createElement('div');
 
-                                        projectPrioritytDiv.classList.add('project-priority-div');
+                                        // projectPrioritytDiv.classList.add('project-priority-div');
 
-                                        projectPrioritytDiv.textContent = project.priority;
+                                        // projectPrioritytDiv.textContent = project.priority;
 
-                                        projectContainer.append(projectPrioritytDiv);
+                                        // projectContainer.append(projectPrioritytDiv);
 
 
                                         // DISPLAY PROJECT TODOS - send project container as an argument

@@ -232,7 +232,7 @@ function sortingModule (){
 
         const currentDay = currentDate.getDate();
 
-        const currentMonth = currentDate.getMonth();
+        const currentMonth = currentDate.getMonth()+1;
 
         const currentYear = currentDate.getFullYear();
 
@@ -248,7 +248,13 @@ function sortingModule (){
 
         const monthsLeft = splitObjDate[1] - currentMonth;
 
-        const dayLeft = splitObjDate[2] - currentDay;
+        // const dayLeft = splitObjDate[2] - currentDay;
+
+        // if it is next month or more, add 30 days multiplied by the number of extra months (for more filtering accuracy)
+        const dayLeft = (30 * (monthsLeft)) + (splitObjDate[2] - currentDay);
+
+
+        
 
 
         const intervalObj = {dayLeft,monthsLeft,yearsLeft};

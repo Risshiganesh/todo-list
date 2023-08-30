@@ -392,21 +392,36 @@ function domActivitiesModule (){
                     element.classList.remove('chosen-priority')
                 });
 
-                if (projectPriority.value === 'high') {
-                    
-                    highPriorityButton.classList.add('chosen-priority')
+                if (todoPriority.value === 'high') {
+
+                    highPriorityButton.classList.add('high-priority-chosen');
+
+                    mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+                    lowPriorityButton.classList.remove('low-priority-chosen');
 
                 }
 
-                if (projectPriority.value === 'medium') {
-                    
-                    mediumPriorityButton.classList.add('chosen-priority')
+                if (todoPriority.value === 'medium') {
+
+                    highPriorityButton.classList.remove('high-priority-chosen');
+
+                    mediumPriorityButton.classList.add('medium-priority-chosen');
+
+                    lowPriorityButton.classList.remove('low-priority-chosen');
+
+
 
                 }
 
-                if (projectPriority.value === 'low') {
-                    
-                    lowPriorityButton.classList.add('chosen-priority')
+                if (todoPriority.value === 'low') {
+
+                    highPriorityButton.classList.remove('high-priority-chosen');
+
+                    mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+                    lowPriorityButton.classList.add('low-priority-chosen');
+
 
                 }
 
@@ -456,21 +471,35 @@ function domActivitiesModule (){
                 
 
                 if (todoPriority.value === 'high') {
-                    
-                    highPriorityButton.classList.add('chosen-priority')
+
+                    highPriorityButton.classList.add('high-priority-chosen');
+
+                    mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+                    lowPriorityButton.classList.remove('low-priority-chosen');
 
                 }
 
                 if (todoPriority.value === 'medium') {
-                    
-                    mediumPriorityButton.classList.add('chosen-priority');
+
+                    highPriorityButton.classList.remove('high-priority-chosen');
+
+                    mediumPriorityButton.classList.add('medium-priority-chosen');
+
+                    lowPriorityButton.classList.remove('low-priority-chosen');
+
 
 
                 }
 
                 if (todoPriority.value === 'low') {
-                    
-                    lowPriorityButton.classList.add('chosen-priority')
+
+                    highPriorityButton.classList.remove('high-priority-chosen');
+
+                    mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+                    lowPriorityButton.classList.add('low-priority-chosen');
+
 
                 }
                 
@@ -1067,29 +1096,22 @@ function domActivitiesModule (){
                 displayEmpty.textContent = 'EMPTY';
                 collectionContainer.append(displayEmpty);
                 return;
-                // if (notesCollection) {
-                    
-                // }
+           
             }
     
         }
         
+    }
 
-        
 
-        
-        
-        // console.log(notesCollection);
-        
+    function displayDuration(date){
 
-        
-     
+        const splitDate = date.split('-');
 
-        // if (collectionContainerItems.length > 0) {
-        //     const displayEmpty = document.querySelector('display-empty');
-        //     displayEmpty.remove();
-        //     return;
-        // }
+        const monthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+        return `Due: ${Number(splitDate[2])} ${monthArray[splitDate[1]-1]} ${splitDate[0]}`;
+
     }
 
   
@@ -1100,5 +1122,5 @@ function domActivitiesModule (){
 
 export default domActivitiesModule;
 
-export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateProjectItem, updateNoteItem, deleteTodoItem, deleteProjectItem,emptyDisplay};
+export {changeTodoPriority, changeProjectPriority, updateTodoItem, updateProjectItem, updateNoteItem, deleteTodoItem, deleteProjectItem,emptyDisplay,displayDuration};
 

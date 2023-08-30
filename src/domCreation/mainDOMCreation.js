@@ -41,7 +41,7 @@ function mainDomModule (){
 
         hamburgerMenu.classList.add('hamburger-menu');
 
-        hamburgerMenu.textContent = '///';
+        hamburgerMenu.textContent = '|||';
 
         topContainer.append(hamburgerMenu);
 

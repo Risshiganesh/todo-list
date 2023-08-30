@@ -73,7 +73,7 @@ body{
     font-size: 12px;
 
 
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(139, 139, 139, 0.25);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 6.5px );
     -webkit-backdrop-filter: blur( 6.5px );
@@ -117,7 +117,7 @@ body{
     align-items: center;
     justify-items: center;
     border-radius: 0px 0px 10px 10px;
-    color: rgba(255, 255, 255, 0.514);
+    color: rgba(255, 255, 255, 0.623);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -126,7 +126,7 @@ body{
     /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
     width: 70px;
     display: none; /*display: block when display is below 600px */ 
-    font-size: 60px;
+    font-size: 50px;
     text-align: center;
     color: rgba(255, 255, 255, 0.432);
 
@@ -224,17 +224,17 @@ body{
 }
 
 .high-priority-chosen {
-    background-color: red;
+    background-color: rgb(223, 0, 0);
     color: black;
 }
 
 .medium-priority-chosen {
-    background-color: yellow;
+    background-color: rgb(224, 224, 0);
     color: black;
 }
 
 .low-priority-chosen {
-    background-color: yellowgreen;
+    background-color: rgb(0, 214, 0);
     color: black;
 }
 
@@ -371,7 +371,11 @@ body{
     
     overflow: auto;
 
-    padding-left: 40px;
+    justify-items: center;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
 
 
 
@@ -382,6 +386,25 @@ body{
                 inset -5px -5px 10px #005564;
 
 
+}
+
+
+.overdue-container > .scrollable-container > .todo-container {
+    background-color: rgba(205, 50, 50, 0.329);
+}
+
+
+.due-soon-container > .scrollable-container > .todo-container {
+    background-color: rgba(255, 255, 0, 0.459);
+}
+
+
+.upcoming-container > .scrollable-container > .todo-container {
+    background-color: rgba(2, 0, 128, 0.301);
+}
+
+.complete-container > .scrollable-container > .todo-container {
+    background-color: rgba(0, 128, 0, 0.521);
 }
 
 
@@ -399,7 +422,7 @@ body{
     width: 300px;
     height: 220px;
 
-    padding: 10px;
+    padding: 15px;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 6.5px );
@@ -412,10 +435,39 @@ body{
 
 .todo-title-div {
 
-    font-size: 20px;
+    font-size: 18px;
     border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    text-overflow: ellipsis;
+    /* text-align: center; */
+    overflow: hidden;
 
 }
+
+
+.todo-desc-div {
+    /* border: 1px solid white; */
+    height: 120px;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    margin-bottom: 10px;
+    /* padding-bottom: 5px; */
+}
+
+.todo-date-div,
+.todo-project-div {
+    font-size: 13px;
+    text-align: end;
+}
+
+
+
+
+
 
 
 
@@ -446,14 +498,51 @@ body{
     width: 350px;
     height: 250px;
  
-    padding: 10px;
+    padding: 15px;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 6.5px );
     -webkit-backdrop-filter: blur( 6.5px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0);
+    display: grid;
     
+}
+
+
+
+.project-title-div {
+
+    font-size: 25px;
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* margin-bottom: 5px;
+    padding-bottom: 5px; */
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    align-self: end;
+    padding-bottom: 10px;
+
+}
+
+
+.project-desc-div {
+    /* border: 1px solid white; */
+    height: 120px;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    margin-bottom: 10px;
+    padding: 10px;
+    /* padding-bottom: 5px; */
+}
+
+.project-date-div{
+    font-size: 13px;
+    text-align: end;
+    align-self: end;
 }
 
 
@@ -537,25 +626,51 @@ body{
 .notes-collection{
 
     display: grid;
-    border: 4px solid gold;
     height: 100%;
     width: 100%;
-    background-color: indigo;
+    /* background-color: indigo; */
     align-items: start;
     overflow: auto;
     gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); 
-    border: 4px solid brown;
-
+ 
 }
 
 
 .notes-container{
     width: 100%;
     height: 300px;
-    border: 5px solid pink;
-    flex-shrink: 0;
+
+    padding: 15px;
+    background: rgba(116, 116, 116, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
     
+}
+
+.note-title {
+    font-size: 22px;
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    text-overflow: ellipsis;
+    /* text-align: center; */
+    overflow: hidden;
+}
+
+.note-desc {
+    /* border: 1px solid white; */
+    height: 230px;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+
 }
 
 
