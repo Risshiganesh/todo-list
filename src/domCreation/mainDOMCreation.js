@@ -1,4 +1,6 @@
+import hamburgerIcon from "../assets/menu-icon.png";
 
+// import hamburgerIcon from "../assets/menu.png"
 
 function mainDomModule (){
 
@@ -41,16 +43,12 @@ function mainDomModule (){
 
         hamburgerMenu.classList.add('hamburger-menu');
 
-        // hamburgerMenu.textContent = '#';
-        
-        // hamburgerMenu.setAttribute('src','../assets/menu-icon.png')
-
         topContainer.append(hamburgerMenu);
 
 
-            const menuIcon = document.createElement('img');
+            const menuIcon = new Image()
 
-            menuIcon.setAttribute('src','../assets/menu-icon.png');
+            menuIcon.src = hamburgerIcon;
 
             hamburgerMenu.append(menuIcon);
 
