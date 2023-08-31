@@ -356,6 +356,12 @@ function domActivitiesModule (){
 
             const resetArray = [projectTitle,projectDesc,projectDate,projectReminder,todoTitle,todoDesc,todoDate,todoReminder];
 
+            const tabContainer = document.querySelector('.tab-container');
+
+            tabContainer.querySelectorAll('*').forEach(element => {
+                element.classList.remove('menu-tab-active')
+            });
+
 
             if(newProjectRadio.checked){
                 console.log('why are you running?')
@@ -382,6 +388,8 @@ function domActivitiesModule (){
 
                 appendProjectObjects(projectPriority.value);
 
+                allProjectsTab.classList.add('menu-tab-active');
+
                 const highPriorityButton = document.querySelector('.high-priority');
                 const mediumPriorityButton = document.querySelector('.medium-priority');
                 const lowPriorityButton = document.querySelector('.low-priority');
@@ -392,7 +400,8 @@ function domActivitiesModule (){
                     element.classList.remove('chosen-priority')
                 });
 
-                if (todoPriority.value === 'high') {
+                if (projectPriority.value === 'high') {
+                    console.log('HIGH PRIORITY CHOSEN')
 
                     highPriorityButton.classList.add('high-priority-chosen');
 
@@ -402,7 +411,8 @@ function domActivitiesModule (){
 
                 }
 
-                if (todoPriority.value === 'medium') {
+                if (projectPriority.value === 'medium') {
+                    console.log('MEDIUM PRIORITY CHOSEN')
 
                     highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -414,7 +424,8 @@ function domActivitiesModule (){
 
                 }
 
-                if (todoPriority.value === 'low') {
+                if (projectPriority.value === 'low') {
+                    console.log('LOW PRIORITY CHOSEN')
 
                     highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -456,17 +467,19 @@ function domActivitiesModule (){
                 createTodoDOM();
                 populateTodoCollection(todoPriority.value);
 
+                allTodosTab.classList.add('menu-tab-active');
+
 
                 // turn this to a function
                 const highPriorityButton = document.querySelector('.high-priority');
                 const mediumPriorityButton = document.querySelector('.medium-priority');
                 const lowPriorityButton = document.querySelector('.low-priority');
 
-                const priorityButtons = document.querySelector('.priority-buttons');
+                // const priorityButtons = document.querySelector('.priority-buttons');
   
-                priorityButtons.querySelectorAll('*').forEach(element => {
-                    element.classList.remove('chosen-priority')
-                });
+                // priorityButtons.querySelectorAll('*').forEach(element => {
+                //     element.classList.remove('chosen-priority')
+                // });
 
                 
 
@@ -512,6 +525,8 @@ function domActivitiesModule (){
 
                 createNotesDOM();
                 appendNotesObject()
+
+                allNotesTab.classList.add('menu-tab-active');
 
             }
 
