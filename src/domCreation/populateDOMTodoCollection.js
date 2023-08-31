@@ -266,22 +266,22 @@ function appendTodoObjects(priority){
 
                                                     // Add classes for different priorities (different colours)
 
-                                                    if (todoDisplayPriority.value === 'low'){
-                                                        todoDisplayPriority.value = 'medium';
+                                                    if (todoDisplayPriority.value === 'Low'){
+                                                        todoDisplayPriority.value = 'Medium';
                                                         todoDisplayPriority.textContent = 'Medium';
 
                                                         return;
                                                     }
 
-                                                    if (todoDisplayPriority.value === 'medium'){
-                                                        todoDisplayPriority.value = 'high';
+                                                    if (todoDisplayPriority.value === 'Medium'){
+                                                        todoDisplayPriority.value = 'High';
                                                         todoDisplayPriority.textContent = 'High';
 
                                                         return;
                                                     }
 
-                                                    if (todoDisplayPriority.value === 'high'){
-                                                        todoDisplayPriority.value = 'low';
+                                                    if (todoDisplayPriority.value === 'High'){
+                                                        todoDisplayPriority.value = 'Low';
                                                         todoDisplayPriority.textContent = 'Low';
 
                                                         return;

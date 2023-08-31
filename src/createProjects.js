@@ -44,10 +44,10 @@ function projectModule () {
         for (let index = 0; index < projectArray.length; index++) {
 
 
-            if ((!projectArray[index].title) && 
-                (!projectArray[index].desc)) {
+            if (((!projectArray[index].title) && 
+                (!projectArray[index].desc))||projectArray[index].priority === 'high'|| projectArray[index].priority === 'medium' || projectArray[index].priority === 'low') {
 
-                console.log('CLEANED UP!!!')
+                console.log('CLEANED UP PROJECTS !!!')
 
                 projectArray.splice(index,1)
 

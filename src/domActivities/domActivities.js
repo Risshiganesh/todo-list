@@ -25,16 +25,10 @@ import appendProjectObjects from "../domCreation/populateDOMProjectCollection";
 
 import appendNotesObject from "../domCreation/populateDOMNoteCollection";
 
-// Because displaying todoCollection in high priority is the default
-// let recentCollectionContainerFn = populateTodoCollection;
-
-// let recentCollectionContainerArg = 'high';
-
-
 
 let menuInDisplay = 'todos'
 
-let priorityInDisplay = 'high'
+let priorityInDisplay = 'High'
 
 
 function updateDisplay (){
@@ -400,7 +394,7 @@ function domActivitiesModule (){
                     element.classList.remove('chosen-priority')
                 });
 
-                if (projectPriority.value === 'high') {
+                if (projectPriority.value === 'High') {
                     console.log('HIGH PRIORITY CHOSEN')
 
                     highPriorityButton.classList.add('high-priority-chosen');
@@ -411,7 +405,7 @@ function domActivitiesModule (){
 
                 }
 
-                if (projectPriority.value === 'medium') {
+                if (projectPriority.value === 'Medium') {
                     console.log('MEDIUM PRIORITY CHOSEN')
 
                     highPriorityButton.classList.remove('high-priority-chosen');
@@ -424,7 +418,7 @@ function domActivitiesModule (){
 
                 }
 
-                if (projectPriority.value === 'low') {
+                if (projectPriority.value === 'Low') {
                     console.log('LOW PRIORITY CHOSEN')
 
                     highPriorityButton.classList.remove('high-priority-chosen');
@@ -483,7 +477,7 @@ function domActivitiesModule (){
 
                 
 
-                if (todoPriority.value === 'high') {
+                if (todoPriority.value === 'High') {
 
                     highPriorityButton.classList.add('high-priority-chosen');
 
@@ -493,7 +487,7 @@ function domActivitiesModule (){
 
                 }
 
-                if (todoPriority.value === 'medium') {
+                if (todoPriority.value === 'Medium') {
 
                     highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -505,7 +499,7 @@ function domActivitiesModule (){
 
                 }
 
-                if (todoPriority.value === 'low') {
+                if (todoPriority.value === 'Low') {
 
                     highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -686,9 +680,9 @@ function domActivitiesModule (){
 
         lowPriorityButton.classList.remove('low-priority-chosen');
 
-        populateTodoCollection('high');
+        populateTodoCollection('High');
 
-        priorityInDisplay = 'high';
+        priorityInDisplay = 'High';
         console.log('LOOPING')
 
     });
@@ -711,9 +705,9 @@ function domActivitiesModule (){
 
         lowPriorityButton.classList.remove('low-priority-chosen');
 
-        populateTodoCollection('medium');
+        populateTodoCollection('Medium');
 
-        priorityInDisplay = 'medium';
+        priorityInDisplay = 'Medium';
         console.log('LOOPING')
     });
 
@@ -736,9 +730,9 @@ function domActivitiesModule (){
 
         lowPriorityButton.classList.add('low-priority-chosen');
 
-        populateTodoCollection('low');
+        populateTodoCollection('Low');
 
-        priorityInDisplay = 'low';
+        priorityInDisplay = 'Low';
         console.log('LOOPING')
     });
    }
@@ -777,9 +771,9 @@ function domActivitiesModule (){
 
 
 
-        appendProjectObjects('high');
+        appendProjectObjects('High');
 
-        priorityInDisplay = 'high';
+        priorityInDisplay = 'High';
         console.log('LOOPING')
 
     });
@@ -806,9 +800,9 @@ function domActivitiesModule (){
 
 
 
-        appendProjectObjects('medium');
+        appendProjectObjects('Medium');
 
-        priorityInDisplay = 'medium';
+        priorityInDisplay = 'Medium';
         console.log('LOOPING')
     });
 
@@ -831,9 +825,9 @@ function domActivitiesModule (){
 
         lowPriorityButton.classList.add('low-priority-chosen');
 
-        appendProjectObjects('low');
+        appendProjectObjects('Low');
 
-        priorityInDisplay = 'low';
+        priorityInDisplay = 'Low';
         console.log('LOOPING')
     });
    }

@@ -107,7 +107,7 @@ function projectDOMModule (){
     displayContainer.append(collectionContainer);
 
 
-    appendProjectObjects('high');
+    appendProjectObjects('High');
 
     changeProjectPriority();
     

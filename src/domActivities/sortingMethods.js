@@ -80,9 +80,9 @@ function sortingModule (){
 
     function prioritySorter(unprocessedArray){
 
-        const priorities = ['high','medium','low'];
+        const priorities = ['High','Medium','Low'];
 
-        const objectsByPriority = {high:[],medium:[],low:[]};
+        const objectsByPriority = {High:[],Medium:[],Low:[]};
 
         for (let index = 0; index < priorities.length; index++) {
 

@@ -104,7 +104,7 @@ function allTodoDOMModule (){
 
     displayContainer.append(collectionContainer);
 
-    populateTodoCollection('high');
+    populateTodoCollection('High');
 
     changeTodoPriority();
     

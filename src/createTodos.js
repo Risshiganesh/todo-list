@@ -41,6 +41,32 @@ function todoModule (){
     getStoredTodos();
 
 
+    function cleanUpTodos (){
+
+        for (let index = 0; index < todoArray.length; index++) {
+
+
+            if (((!todoArray[index].title) && 
+                (!todoArray[index].desc))||todoArray[index].priority === 'high'|| todoArray[index].priority === 'medium' || todoArray[index].priority === 'low') {
+
+                console.log('CLEANED UP TODOS !!!')
+
+                todoArray.splice(index,1)
+
+                --index;
+
+            }
+            
+        }
+
+        localStorageUpdate();
+
+    }
+
+    // clean up empty projects
+    cleanUpTodos();
+
+
 
 
     function localStorageUpdate(){

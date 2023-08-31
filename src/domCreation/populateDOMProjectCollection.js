@@ -277,22 +277,22 @@ function appendProjectObjects(priority){
 
                                                                 // Add classes for different priorities (different colours)
 
-                                                                if (projectPriorityButton.value === 'low'){
-                                                                    projectPriorityButton.value = 'medium';
+                                                                if (projectPriorityButton.value === 'Low'){
+                                                                    projectPriorityButton.value = 'Medium';
                                                                     projectPriorityButton.textContent = 'Medium';
 
                                                                     return;
                                                                 }
 
-                                                                if (projectPriorityButton.value === 'medium'){
-                                                                    projectPriorityButton.value = 'high';
+                                                                if (projectPriorityButton.value === 'Medium'){
+                                                                    projectPriorityButton.value = 'High';
                                                                     projectPriorityButton.textContent = 'High';
 
                                                                     return;
                                                                 }
 
-                                                                if (projectPriorityButton.value === 'high'){
-                                                                    projectPriorityButton.value = 'low';
+                                                                if (projectPriorityButton.value === 'High'){
+                                                                    projectPriorityButton.value = 'Low';
                                                                     projectPriorityButton.textContent = 'Low';
 
                                                                     return;
@@ -374,7 +374,7 @@ function appendProjectObjects(priority){
 
                                                         const allProjectTodos = project.todosByPriority;
 
-                                                        const priorityArray = ['high','medium','low']
+                                                        const priorityArray = ['High','Medium','Low']
 
                                                         const dueStatusArray = ['overdue','due','upcoming','complete'];
 
@@ -643,22 +643,22 @@ function appendProjectObjects(priority){
 
                                                                                                             // Add classes for different priorities (different colours)
 
-                                                                                                            if (todoDisplayPriority.value === 'low'){
-                                                                                                                todoDisplayPriority.value = 'medium';
+                                                                                                            if (todoDisplayPriority.value === 'Low'){
+                                                                                                                todoDisplayPriority.value = 'Medium';
                                                                                                                 todoDisplayPriority.textContent = 'Medium';
 
                                                                                                                 return;
                                                                                                             }
 
-                                                                                                            if (todoDisplayPriority.value === 'medium'){
-                                                                                                                todoDisplayPriority.value = 'high';
+                                                                                                            if (todoDisplayPriority.value === 'Medium'){
+                                                                                                                todoDisplayPriority.value = 'High';
                                                                                                                 todoDisplayPriority.textContent = 'High';
 
                                                                                                                 return;
                                                                                                             }
 
-                                                                                                            if (todoDisplayPriority.value === 'high'){
-                                                                                                                todoDisplayPriority.value = 'low';
+                                                                                                            if (todoDisplayPriority.value === 'High'){
+                                                                                                                todoDisplayPriority.value = 'Low';
                                                                                                                 todoDisplayPriority.textContent = 'Low';
 
                                                                                                                 return;

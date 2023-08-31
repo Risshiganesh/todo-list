@@ -286,7 +286,7 @@ function formDomModule (){
                                 
                                 const todoPriorityButton = document.createElement('button');
 
-                                todoPriorityButton.setAttribute('value','low');
+                                todoPriorityButton.setAttribute('value','Low');
 
                                 todoPriorityButton.setAttribute('type','button');
 
@@ -302,22 +302,22 @@ function formDomModule (){
 
                                     // Add classes for different priorities (different colours)
 
-                                    if (todoPriorityButton.value === 'low'){
-                                        todoPriorityButton.value = 'medium';
+                                    if (todoPriorityButton.value === 'Low'){
+                                        todoPriorityButton.value = 'Medium';
                                         todoPriorityButton.textContent = 'Medium';
 
                                         return;
                                     }
 
-                                    if (todoPriorityButton.value === 'medium'){
-                                        todoPriorityButton.value = 'high';
+                                    if (todoPriorityButton.value === 'Medium'){
+                                        todoPriorityButton.value = 'High';
                                         todoPriorityButton.textContent = 'High';
 
                                         return;
                                     }
 
-                                    if (todoPriorityButton.value === 'high'){
-                                        todoPriorityButton.value = 'low';
+                                    if (todoPriorityButton.value === 'High'){
+                                        todoPriorityButton.value = 'Low';
                                         todoPriorityButton.textContent = 'Low';
 
                                         return;
@@ -616,7 +616,7 @@ function formDomModule (){
                                 
                                 const projectPriorityButton = document.createElement('button');
 
-                                projectPriorityButton.setAttribute('value','low');
+                                projectPriorityButton.setAttribute('value','Low');
 
                                 projectPriorityButton.setAttribute('type','button');
 
@@ -632,22 +632,22 @@ function formDomModule (){
 
                                     // Add classes for different priorities (different colours)
 
-                                    if (projectPriorityButton.value === 'low'){
-                                        projectPriorityButton.value = 'medium';
+                                    if (projectPriorityButton.value === 'Low'){
+                                        projectPriorityButton.value = 'Medium';
                                         projectPriorityButton.textContent = 'Medium';
 
                                         return;
                                     }
 
-                                    if (projectPriorityButton.value === 'medium'){
-                                        projectPriorityButton.value = 'high';
+                                    if (projectPriorityButton.value === 'Medium'){
+                                        projectPriorityButton.value = 'High';
                                         projectPriorityButton.textContent = 'High';
 
                                         return;
                                     }
 
-                                    if (projectPriorityButton.value === 'high'){
-                                        projectPriorityButton.value = 'low';
+                                    if (projectPriorityButton.value === 'High'){
+                                        projectPriorityButton.value = 'Low';
                                         projectPriorityButton.textContent = 'Low';
 
                                         return;
