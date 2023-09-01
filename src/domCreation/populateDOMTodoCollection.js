@@ -7,6 +7,8 @@ import projectObjects from '../tabObjects/allProjectsTab';
 
 import { updateTodoItem, deleteTodoItem, emptyDisplay, displayDuration } from "../domActivities/domActivities";
 
+import displayTodo from "./displayTodo";
+
 
 // POPULATE TODO COLLECTION CONTAINER
 
@@ -165,263 +167,347 @@ function appendTodoObjects(priority){
                                     // SEND TO A SEPARATE MODULE - OPENS TODO ITEM
                                     todoContainer.addEventListener('click',function(){
 
-                                        const mainContainer = document.querySelector('.main-container');
+                                        displayTodo(object);
 
-                                        const todoDisplayContainer = document.createElement('div');
+                                        // const mainContainer = document.querySelector('.main-container');
 
-                                        todoDisplayContainer.classList.add('todo-display-container');
+                                        // const todoDisplayContainer = document.createElement('div');
 
-                                        mainContainer.append(todoDisplayContainer);
+                                        // todoDisplayContainer.classList.add('todo-display-container');
 
+                                        // mainContainer.append(todoDisplayContainer);
 
-                                            const todoDisplay = document.createElement('div');
 
-                                            todoDisplay.classList.add('todo-display');
+                                        //     const todoForm = document.createElement('form');
 
-                                            todoDisplayContainer.append(todoDisplay);
+                                        //     todoDisplayContainer.append(todoForm)
 
 
+                                        //     const todoDisplay = document.createElement('div');
 
-                                                const todoDisplayTitle = document.createElement('input');
+                                        //     todoDisplay.classList.add('todo-display');
 
-                                                todoDisplayTitle.setAttribute('placeholder','Title');
+                                        //     todoForm.append(todoDisplay);
 
-                                                todoDisplayTitle.setAttribute('id','todo-display-title');
 
-                                                todoDisplayTitle.value = object.title;
 
-                                                todoDisplay.append(todoDisplayTitle);
+                                        //         const todoDisplayTitle = document.createElement('input');
 
+                                        //         todoDisplayTitle.setAttribute('placeholder','Title');
 
-                                                const todoDescTextArea = document.createElement('textarea');
+                                        //         todoDisplayTitle.setAttribute('id','todo-display-title');
 
-                                                todoDescTextArea.setAttribute('name','');
+                                        //         todoDisplayTitle.setAttribute('required','');
 
-                                                todoDescTextArea.setAttribute('id','todo-display-desc');
+                                        //         todoDisplayTitle.value = object.title;
 
-                                                todoDescTextArea.setAttribute('placeholder','Description')
+                                        //         todoDisplay.append(todoDisplayTitle);
 
-                                                todoDescTextArea.setAttribute('cols','30');
 
-                                                todoDescTextArea.setAttribute('rows','10');
+                                        //         const todoDescTextArea = document.createElement('textarea');
 
-                                                todoDescTextArea.setAttribute('required','');
+                                        //         todoDescTextArea.setAttribute('name','');
 
-                                                todoDescTextArea.value = object.desc;
+                                        //         todoDescTextArea.setAttribute('id','todo-display-desc');
 
-                                                todoDescTextArea.classList.add('todo-update');
+                                        //         todoDescTextArea.setAttribute('placeholder','Description')
 
-                                                todoDisplay.append(todoDescTextArea);
+                                        //         todoDescTextArea.setAttribute('cols','30');
 
+                                        //         todoDescTextArea.setAttribute('rows','10');
 
-                                                const todoDisplayDate = document.createElement('input');
+                                        //         todoDescTextArea.setAttribute('required','');
 
-                                                todoDisplayDate.setAttribute('type','date');
+                                        //         todoDescTextArea.value = object.desc;
 
-                                                todoDisplayDate.setAttribute('id','todo-display-date');
+                                        //         todoDescTextArea.classList.add('todo-update');
 
-                                                todoDisplayDate.value = object.dueDate;
+                                        //         todoDisplay.append(todoDescTextArea);
 
-                                                todoDisplayDate.classList.add('todo-update');
 
-                                                todoDisplay.append(todoDisplayDate);
+                                        //         const todoDisplayDate = document.createElement('input');
 
-                                                const lineBreak1 = document.createElement('br');                                               
-                                                todoDisplay.append(lineBreak1);
+                                        //         todoDisplayDate.setAttribute('type','date');
 
+                                        //         todoDisplayDate.setAttribute('id','todo-display-date');
 
-                                                const todoDisplayRemindIn = document.createElement('input');
+                                        //         todoDisplayDate.value = object.dueDate;
 
-                                                todoDisplayRemindIn.setAttribute('type','number');
+                                        //         todoDisplayDate.classList.add('todo-update');
 
-                                                todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
+                                        //         todoDisplayDate.setAttribute('required','');
 
-                                                todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
+                                        //         todoDisplay.append(todoDisplayDate);
 
-                                                todoDisplayRemindIn.value = object.remindIn;
+                                        //         // const lineBreak1 = document.createElement('br');                                               
+                                        //         // todoDisplay.append(lineBreak1);
 
-                                                todoDisplayRemindIn.classList.add('todo-update');
 
-                                                todoDisplay.append(todoDisplayRemindIn);
+                                        //         const todoDisplayRemindIn = document.createElement('input');
 
-                                                const lineBreak2 = document.createElement('br');
-                                                todoDisplay.append(lineBreak2);
+                                        //         todoDisplayRemindIn.setAttribute('type','number');
 
+                                        //         todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
 
-                                                const todoDisplayPriority = document.createElement('button');
+                                        //         todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
 
-                                                todoDisplayPriority.setAttribute('value',object.priority);
+                                        //         todoDisplayRemindIn.value = object.remindIn;
 
-                                                todoDisplayPriority.setAttribute('type','button');
+                                        //         todoDisplayRemindIn.classList.add('todo-update');
 
-                                                todoDisplayPriority.setAttribute('id','todo-display-priority');
+                                        //         todoDisplayRemindIn.setAttribute('required','');
 
-                                                todoDisplayPriority.textContent = object.priority;
+                                        //         todoDisplay.append(todoDisplayRemindIn);
 
-                                                todoDisplayPriority.classList.add('todo-update');
+                                        //         // const lineBreak2 = document.createElement('br');
+                                        //         // todoDisplay.append(lineBreak2);
 
-                                                todoDisplay.append(todoDisplayPriority);
 
-                                                todoDisplayPriority.addEventListener('click', function(){
 
-                                                    // Add classes for different priorities (different colours)
+                                        //         const projectsDropDown = document.createElement('select');
 
-                                                    if (todoDisplayPriority.value === 'Low'){
-                                                        todoDisplayPriority.value = 'Medium';
-                                                        todoDisplayPriority.textContent = 'Medium';
-
-                                                        return;
-                                                    }
-
-                                                    if (todoDisplayPriority.value === 'Medium'){
-                                                        todoDisplayPriority.value = 'High';
-                                                        todoDisplayPriority.textContent = 'High';
-
-                                                        return;
-                                                    }
-
-                                                    if (todoDisplayPriority.value === 'High'){
-                                                        todoDisplayPriority.value = 'Low';
-                                                        todoDisplayPriority.textContent = 'Low';
-
-                                                        return;
-                                                    }
-
-
-                                                });
-
-                                                const lineBreak3 = document.createElement('br');
-                                                todoDisplay.append(lineBreak3);
-
-
-                                                const projectsDropDown = document.createElement('select');
-
-                                                projectsDropDown.setAttribute('name','project-display-choices');
+                                        //         projectsDropDown.setAttribute('name','project-display-choices');
                     
-                                                projectsDropDown.setAttribute('id','project-display-choices');
+                                        //         projectsDropDown.setAttribute('id','project-display-choices');
+
+                                        //         projectsDropDown.setAttribute('required','');
                     
-                                                projectsDropDown.classList.add('form-input');
+                                        //         projectsDropDown.classList.add('form-input');
                     
-                                                todoDisplay.append(projectsDropDown);
+                                        //         todoDisplay.append(projectsDropDown);
 
 
 
 
-                                                        const unprocessedProject = projectObjects().unprocessedProjectArray
+                                        //                 const unprocessedProject = projectObjects().unprocessedProjectArray
 
-                                                        const optionsNode = document.querySelectorAll('option');
+                                        //                 const optionsNode = document.querySelectorAll('option');
                                             
-                                                        if(optionsNode){
+                                        //                 if(optionsNode){
                                             
-                                                            optionsNode.forEach(option => {
-                                                                option.remove();
-                                                            });
+                                        //                     optionsNode.forEach(option => {
+                                        //                         option.remove();
+                                        //                     });
                                             
-                                                        }
+                                        //                 }
                                             
-                                                        const option0 = document.createElement('option');
+                                        //                 const option0 = document.createElement('option');
                                             
-                                                        option0.textContent = object.project;
+                                        //                 option0.textContent = object.project;
                                             
-                                                        option0.value = object.project;
+                                        //                 option0.value = object.project;
                                             
-                                                        projectsDropDown.append(option0);
+                                        //                 projectsDropDown.append(option0);
                                             
                                             
-                                                        unprocessedProject.forEach(obj => {
+                                        //                 unprocessedProject.forEach(obj => {
                                             
-                                                            const projectOption = document.createElement('option');
+                                        //                     const projectOption = document.createElement('option');
                                             
-                                                            projectOption.textContent = obj.title;
+                                        //                     projectOption.textContent = obj.title;
                                             
-                                                            projectOption.value = obj.title;
+                                        //                     projectOption.value = obj.title;
                                             
-                                                            projectsDropDown.append(projectOption);
-                                                        });
+                                        //                     projectsDropDown.append(projectOption);
+                                        //                 });
 
 
 
-                                                const lineBreak4 = document.createElement('br');
-                                                todoDisplay.append(lineBreak4);
 
-                                                // create line break 
+                                        //         const firstButtonContainer = document.createElement('div');
 
-                                                const todoDisplayStatus = document.createElement('button');
+                                        //         firstButtonContainer.classList.add('first-button-container');
 
-                                                todoDisplayStatus.setAttribute('value',object.status);
-
-                                                todoDisplayStatus.setAttribute('type','button');
-
-                                                todoDisplayStatus.setAttribute('id','todo-display-status');
-
-                                                todoDisplayStatus.textContent = object.status;
-
-                                                todoDisplayStatus.classList.add('todo-update');
-
-                                                todoDisplay.append(todoDisplayStatus);
-
-                                                todoDisplayStatus.addEventListener('click', function(){
-
-                                                    // Add classes for different priorities (different colours)
-
-                                                    if (todoDisplayStatus.value === 'pending'){
-                                                        todoDisplayStatus.value = 'complete';
-                                                        todoDisplayStatus.textContent = 'Complete';
-
-                                                        return;
-                                                    }
-
-                                                    if (todoDisplayStatus.value === 'complete'){
-                                                        todoDisplayStatus.value = 'pending';
-                                                        todoDisplayStatus.textContent = 'Pending';
-
-                                                        return;
-                                                    }
+                                        //         todoDisplay.append(firstButtonContainer)
 
 
-                                                });
+                                        //             const priorityBtnDiv = document.createElement('div');
 
-                                                const lineBreak5 = document.createElement('br');
-                                                todoDisplay.append(lineBreak5);
+                                        //             priorityBtnDiv.classList.add('priority-button-div');
+
+                                        //             firstButtonContainer.append(priorityBtnDiv)
 
 
-                                                const todoUpdate = document.createElement('button');
+                                        //                 const priorityLabel = document.createElement('label');
 
-                                                todoUpdate.setAttribute('value','');
+                                        //                 priorityLabel.textContent = 'Priority: ';
 
-                                                todoUpdate.setAttribute('type','button');
+                                        //                 priorityLabel.setAttribute('for','todo-display-priority');
 
-                                                todoUpdate.setAttribute('id','todo-update');
+                                        //                 priorityBtnDiv.append(priorityLabel);
 
-                                                todoUpdate.textContent = 'Update';
 
-                                                todoUpdate.classList.add('todo-update');
+                                        //                 // const linebreakPriority = document.createElement('br');
+                                        //                 // priorityBtnDiv.append(linebreakPriority);
 
-                                                todoDisplay.append(todoUpdate);
+
+
+                                        //                 const todoDisplayPriority = document.createElement('button');
+
+                                        //                 todoDisplayPriority.setAttribute('value',object.priority);
+
+                                        //                 todoDisplayPriority.setAttribute('type','button');
+
+                                        //                 todoDisplayPriority.setAttribute('id','todo-display-priority');
+
+                                        //                 todoDisplayPriority.textContent = object.priority;
+
+                                        //                 // todoDisplayPriority.classList.add('todo-update');
+
+                                        //                 priorityBtnDiv.append(todoDisplayPriority);
+
+
+                                        //                 todoDisplayPriority.addEventListener('click', function(){
+
+                                        //                     // Add classes for different priorities (different colours)
+
+                                        //                     if (todoDisplayPriority.value === 'Low'){
+                                        //                         todoDisplayPriority.value = 'Medium';
+                                        //                         todoDisplayPriority.textContent = 'Medium';
+
+                                        //                         return;
+                                        //                     }
+
+                                        //                     if (todoDisplayPriority.value === 'Medium'){
+                                        //                         todoDisplayPriority.value = 'High';
+                                        //                         todoDisplayPriority.textContent = 'High';
+
+                                        //                         return;
+                                        //                     }
+
+                                        //                     if (todoDisplayPriority.value === 'High'){
+                                        //                         todoDisplayPriority.value = 'Low';
+                                        //                         todoDisplayPriority.textContent = 'Low';
+
+                                        //                         return;
+                                        //                     }
+
+
+                                        //                 });
+
+                                        //             const statusBtnDiv = document.createElement('div');
+
+                                        //             statusBtnDiv.classList.add('status-button-div');
+
+                                        //             firstButtonContainer.append(statusBtnDiv)
+
+                                        //             // const lineBreak3 = document.createElement('br');
+                                        //             // todoDisplay.append(lineBreak3);
+
+
+                                        //                 const statusLabel = document.createElement('label');
+
+                                        //                 statusLabel.textContent = 'Status: ';
+
+                                        //                 statusLabel.setAttribute('for','todo-display-status');
+
+                                        //                 statusBtnDiv.append(statusLabel);
+
+
+
+                                        //             // const lineBreak4 = document.createElement('br');
+                                        //             // todoDisplay.append(lineBreak4);
+
+                                        //             // create line break 
+
+                                        //                 const todoDisplayStatus = document.createElement('button');
+
+                                        //                 todoDisplayStatus.setAttribute('value',object.status);
+
+                                        //                 todoDisplayStatus.setAttribute('type','button');
+
+                                        //                 todoDisplayStatus.setAttribute('id','todo-display-status');
+
+                                        //                 todoDisplayStatus.textContent = object.status;
+
+                                        //                 // todoDisplayStatus.classList.add('todo-update');
+
+                                        //                 statusBtnDiv.append(todoDisplayStatus);
+
+                                        //                 todoDisplayStatus.addEventListener('click', function(){
+
+                                        //                     // Add classes for different priorities (different colours)
+
+                                        //                     if (todoDisplayStatus.value === 'pending'){
+                                        //                         todoDisplayStatus.value = 'complete';
+                                        //                         todoDisplayStatus.textContent = 'Complete';
+
+                                        //                         return;
+                                        //                     }
+
+                                        //                     if (todoDisplayStatus.value === 'complete'){
+                                        //                         todoDisplayStatus.value = 'pending';
+                                        //                         todoDisplayStatus.textContent = 'Pending';
+
+                                        //                         return;
+                                        //                     }
+
+
+                                        //                 });
+
+
 
                                                 
-                                                const lineBreak6 = document.createElement('br');
-                                                todoDisplay.append(lineBreak6);
+                                        //         const secondButtonContainer = document.createElement('div');
+
+                                        //         secondButtonContainer.classList.add('second-button-container');
+
+                                        //         todoDisplay.append(secondButtonContainer)
+                                        //         // const lineBreak5 = document.createElement('br');
+                                        //         // todoDisplay.append(lineBreak5);
 
 
-                                                const todoDelete = document.createElement('button');
+                                        //             const deleteBtnDiv = document.createElement('div');
 
-                                                todoDelete.setAttribute('value','');
+                                        //             deleteBtnDiv.classList.add('delete-button-div');
 
-                                                todoDelete.setAttribute('type','button');
-
-                                                todoDelete.setAttribute('id','todo-delete');
-
-                                                todoDelete.textContent = 'Delete';
-
-                                                todoDelete.classList.add('todo-update');
-
-                                                todoDisplay.append(todoDelete);
+                                        //             secondButtonContainer.append(deleteBtnDiv);
 
 
-                                                updateTodoItem(object);
+                                        //                 const todoDelete = document.createElement('button');
 
-                                                deleteTodoItem(object);
+                                        //                 todoDelete.setAttribute('value','');
+
+                                        //                 todoDelete.setAttribute('type','button');
+
+                                        //                 todoDelete.setAttribute('id','todo-delete');
+
+                                        //                 todoDelete.textContent = 'Delete';
+
+                                        //                 todoDelete.classList.add('todo-delete');
+
+                                        //                 deleteBtnDiv.append(todoDelete);
+
+
+                                        //                 // const lineBreak6 = document.createElement('br');
+                                        //                 // todoDisplay.append(lineBreak6);
+
+                                                    
+                                        //             const updateBtnDiv = document.createElement('div');
+
+                                        //             updateBtnDiv.classList.add('delete-button-div');
+
+                                        //             secondButtonContainer.append(updateBtnDiv);
+
+
+                                        //                 const todoUpdate = document.createElement('button');
+
+                                        //                 todoUpdate.setAttribute('value','');
+
+                                        //                 todoUpdate.setAttribute('type','submit');
+
+                                        //                 todoUpdate.setAttribute('id','todo-update');
+
+                                        //                 todoUpdate.textContent = 'Update';
+
+                                        //                 todoUpdate.classList.add('todo-update');
+
+                                        //                 updateBtnDiv.append(todoUpdate);
+
+
+                                        //         updateTodoItem(object);
+
+                                        //         deleteTodoItem(object);
 
 
                                                 

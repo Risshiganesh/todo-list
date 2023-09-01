@@ -48,11 +48,18 @@ function appendNotesObject(){
             mainContainer.append(todoDisplayContainer);
 
 
+                const todoForm = document.createElement('form');
+
+                todoDisplayContainer.append(todoForm)
+            
+
                 const todoDisplay = document.createElement('div');
 
                 todoDisplay.classList.add('todo-display');
 
-                todoDisplayContainer.append(todoDisplay);
+                todoDisplay.classList.add('note-display')
+
+                todoForm.append(todoDisplay);
 
 
 
@@ -61,6 +68,8 @@ function appendNotesObject(){
                     todoDisplayTitle.setAttribute('placeholder','Title');
 
                     todoDisplayTitle.setAttribute('id','todo-display-title');
+
+                    todoDisplayTitle.setAttribute('required','')
 
                     todoDisplayTitle.value = object.title;
 
@@ -94,24 +103,10 @@ function appendNotesObject(){
                     todoDisplay.append(lineBreak1);
 
 
-                    const todoUpdate = document.createElement('button');
-
-                    todoUpdate.setAttribute('value','');
-
-                    todoUpdate.setAttribute('type','button');
-
-                    todoUpdate.setAttribute('id','todo-update');
-
-                    todoUpdate.textContent = 'Update';
-
-                    todoUpdate.classList.add('todo-update');
-
-                    todoDisplay.append(todoUpdate);
-
-
-                    const lineBreak2 = document.createElement('br');
                     
-                    todoDisplay.append(lineBreak2);
+
+
+                    
 
 
                     const todoDelete = document.createElement('button');
@@ -127,6 +122,29 @@ function appendNotesObject(){
                     todoDelete.classList.add('todo-update');
 
                     todoDisplay.append(todoDelete);
+
+
+
+
+                    const lineBreak2 = document.createElement('br');
+                    
+                    todoDisplay.append(lineBreak2);
+
+
+
+                    const todoUpdate = document.createElement('button');
+
+                    todoUpdate.setAttribute('value','');
+
+                    todoUpdate.setAttribute('type','submit');
+
+                    todoUpdate.setAttribute('id','todo-update');
+
+                    todoUpdate.textContent = 'Update';
+
+                    todoUpdate.classList.add('todo-update');
+
+                    todoDisplay.append(todoUpdate);
 
 
                     updateNoteItem(object);

@@ -841,7 +841,7 @@ function domActivitiesModule (){
 
         const todoUpdateBtn = document.querySelector('#todo-update');
 
-        todoUpdateBtn.addEventListener('click',function(){
+        todoUpdateBtn.addEventListener('click',function(e){
 
         const newTodoTitle = document.querySelector('#todo-display-title')
         const newTodoDesc = document.querySelector('#todo-display-desc');
@@ -850,8 +850,29 @@ function domActivitiesModule (){
         const newTodoPriority = document.querySelector('#todo-display-priority');
         const newTodoStatus = document.querySelector('#todo-display-status');
         const newTodoProject = document.querySelector('#project-display-choices');
-        
-        
+
+
+        const inputArrays = [newTodoTitle.value,newTodoDesc.value,newTodoDue.value,newTodoReminder.value,newTodoPriority.value,newTodoStatus.value,newTodoProject.value]
+
+        const emptyInput = []
+
+        inputArrays.forEach(element => {
+
+            if (!element) {
+                emptyInput.push(element);
+            }
+        })
+
+
+        if (emptyInput.length > 0) {
+
+            console.log('FILTERING WORKS')
+            return;
+        }
+
+        e.preventDefault();
+    
+    
 
         let newDetails = {
             newTitle: newTodoTitle.value,
@@ -897,10 +918,37 @@ function domActivitiesModule (){
 
         const todoUpdateBtn = document.querySelector('#todo-update');
 
-        todoUpdateBtn.addEventListener('click',function(){
+
+
+
+
+        todoUpdateBtn.addEventListener('click',function(e){
 
         const newTodoTitle = document.querySelector('#todo-display-title')
         const newTodoDesc = document.querySelector('#todo-display-desc');
+
+
+
+        const inputArrays = [newTodoTitle.value,newTodoDesc.value]
+
+        const emptyInput = []
+
+        inputArrays.forEach(element => {
+
+            if (!element) {
+                emptyInput.push(element);
+            }
+        })
+
+
+        if (emptyInput.length > 0) {
+
+            console.log('FILTERING WORKS')
+            return;
+        }
+
+        e.preventDefault();
+
         
 
         let newDetails = {
@@ -947,7 +995,7 @@ function domActivitiesModule (){
 
         const projectUpdateButton = document.querySelector('#project-update');
 
-        projectUpdateButton.addEventListener('click',function(){
+        projectUpdateButton.addEventListener('click',function(e){
 
             // project-status-update
 
@@ -957,6 +1005,28 @@ function domActivitiesModule (){
         const newProjectReminder = document.querySelector('#project-reminder-update');
         const newProjectPriority = document.querySelector('#project-priority-update');
         const newProjectStatus = document.querySelector('#project-status-update');
+
+
+
+        const inputArrays = [newProjectTitle.value,newProjectDesc.value,newProjectDue.value,newProjectReminder.value,newProjectPriority.value,newProjectStatus.value]
+
+        const emptyInput = []
+
+        inputArrays.forEach(element => {
+
+            if (!element) {
+                emptyInput.push(element);
+            }
+        })
+
+
+        if (emptyInput.length > 0) {
+
+            console.log('FILTERING WORKS')
+            return;
+        }
+
+        e.preventDefault();
 
         
         
@@ -996,6 +1066,57 @@ function domActivitiesModule (){
 
 
 
+    function popUpforDelete(deleteObjFn){
+        const mainContainer = document.querySelector('.main-container');
+
+        const popUpContainer = document.createElement('div');
+        popUpContainer.classList.add('pop-up-container');
+        mainContainer.append(popUpContainer);
+
+            const popUp = document.createElement('div');
+            popUp.classList.add('pop-up');
+            popUpContainer.append(popUp);
+
+                const popUpContentDiv = document.createElement('div');
+                popUpContentDiv.classList.add('pop-up-content-div')
+                popUp.append(popUpContentDiv)
+            
+                    const popUpContent = document.createElement('div');
+                    popUpContent.textContent = 'Are you sure you want to delete this?'
+                    popUpContentDiv.append(popUpContent);
+
+                const buttonContainer = document.createElement('div');
+                buttonContainer.classList.add('pop-up-button-container');
+                popUp.append(buttonContainer);
+
+                    const yesButton = document.createElement('button');
+                    yesButton.textContent = 'Yes';
+                    yesButton.classList.add('yes-button');
+                    buttonContainer.append(yesButton);
+
+                    yesButton.addEventListener('click',function(){
+                        popUpContainer.remove();
+                        deleteObjFn()
+                        return true;
+                    })
+
+                    const noButton = document.createElement('button');
+                    noButton.textContent = 'No';
+                    noButton.classList.add('no-button');
+                    buttonContainer.append(noButton);
+
+                    noButton.addEventListener('click',function(){
+                        popUpContainer.remove();
+                        return false;
+                    })
+
+
+
+    }
+
+
+
+    
 
 
 
@@ -1009,12 +1130,18 @@ function domActivitiesModule (){
 
         todoDeleteBtn.addEventListener('click',function(){
 
-        
-        todoModule.deleteTodo(object);
 
-        updateDisplay()
+            function deleteTodo(){
 
-        todoDisplayContainer.remove();
+                todoModule.deleteTodo(object);
+
+                updateDisplay()
+
+                todoDisplayContainer.remove();
+                
+            }
+
+            popUpforDelete(deleteTodo);
 
         });
 
@@ -1027,10 +1154,7 @@ function domActivitiesModule (){
             e.stopPropagation();
         })
 
-
-
     }
-
 
 
     function deleteProjectItem (object){
@@ -1046,13 +1170,18 @@ function domActivitiesModule (){
 
         projectDeleteButton.addEventListener('click',function(){
 
+            function deleteProject (){
+
+                projectModule.deleteProject(object);
+
+                updateDisplay();
+
+                projectDisplayContainer.remove();
+
+            }
+
+            popUpforDelete(deleteProject);
         
-        projectModule.deleteProject(object);
-
-        updateDisplay();
-
-        projectDisplayContainer.remove();
-
         });
 
 
@@ -1063,8 +1192,6 @@ function domActivitiesModule (){
         projectDisplay.addEventListener('click',function(e){
             e.stopPropagation();
         })
-
-
 
     }
 

@@ -2,6 +2,8 @@ import projectObjects from "../tabObjects/allProjectsTab";
 
 import { updateProjectItem,updateTodoItem, deleteProjectItem,emptyDisplay, displayDuration } from "../domActivities/domActivities";
 
+import displayTodo from "./displayTodo";
+
 
 // POPULATE TODO COLLECTION CONTAINER
 
@@ -155,12 +157,18 @@ function appendProjectObjects(priority){
                                                     projectTodoContainer.classList.add('project-todo-container');
 
                                                     mainContainer.append(projectTodoContainer);
+                                                    
+
+                                                        const projectForm = document.createElement('form');
+
+                                                        projectTodoContainer.append(projectForm);
+
 
                                                         const projectDetails = document.createElement('div');
 
                                                         projectDetails.classList.add('project-details');
 
-                                                        projectTodoContainer.append(projectDetails);
+                                                        projectForm.append(projectDetails);
 
                                                             projectDetails.addEventListener('click',function(e){
                                                                 e.stopPropagation();
@@ -530,263 +538,250 @@ function appendProjectObjects(priority){
                                                                                                 
 
 
+                                                                                                displayTodo(object)
+
+                                                                                                // const mainContainer = document.querySelector('.main-container');
+
+                                                                                                // const todoDisplayContainer = document.createElement('div');
+
+                                                                                                // todoDisplayContainer.classList.add('todo-display-container');
+
+                                                                                                // mainContainer.append(todoDisplayContainer);
+
+
+                                                                                                //     const todoDisplay = document.createElement('div');
+
+                                                                                                //     todoDisplay.classList.add('todo-display');
+
+                                                                                                //     todoDisplayContainer.append(todoDisplay);
 
 
 
+                                                                                                //         const todoDisplayTitle = document.createElement('input');
+
+                                                                                                //         todoDisplayTitle.setAttribute('placeholder','Title');
+
+                                                                                                //         todoDisplayTitle.setAttribute('id','todo-display-title');
+
+                                                                                                //         todoDisplayTitle.value = object.title;
+
+                                                                                                //         todoDisplay.append(todoDisplayTitle);
 
 
+                                                                                                //         const todoDescTextArea = document.createElement('textarea');
+
+                                                                                                //         todoDescTextArea.setAttribute('name','');
+
+                                                                                                //         todoDescTextArea.setAttribute('id','todo-display-desc');
+
+                                                                                                //         todoDescTextArea.setAttribute('placeholder','Description')
+
+                                                                                                //         todoDescTextArea.setAttribute('cols','30');
+
+                                                                                                //         todoDescTextArea.setAttribute('rows','10');
+
+                                                                                                //         todoDescTextArea.setAttribute('required','');
+
+                                                                                                //         todoDescTextArea.value = object.desc;
+
+                                                                                                //         todoDescTextArea.classList.add('todo-update');
+
+                                                                                                //         todoDisplay.append(todoDescTextArea);
 
 
-                                                                                                const mainContainer = document.querySelector('.main-container');
+                                                                                                //         const todoDisplayDate = document.createElement('input');
 
-                                                                                                const todoDisplayContainer = document.createElement('div');
+                                                                                                //         todoDisplayDate.setAttribute('type','date');
 
-                                                                                                todoDisplayContainer.classList.add('todo-display-container');
+                                                                                                //         todoDisplayDate.setAttribute('id','todo-display-date');
 
-                                                                                                mainContainer.append(todoDisplayContainer);
+                                                                                                //         todoDisplayDate.value = object.dueDate;
 
+                                                                                                //         todoDisplayDate.classList.add('todo-update');
 
-                                                                                                    const todoDisplay = document.createElement('div');
+                                                                                                //         todoDisplay.append(todoDisplayDate);
 
-                                                                                                    todoDisplay.classList.add('todo-display');
-
-                                                                                                    todoDisplayContainer.append(todoDisplay);
-
-
-
-                                                                                                        const todoDisplayTitle = document.createElement('input');
-
-                                                                                                        todoDisplayTitle.setAttribute('placeholder','Title');
-
-                                                                                                        todoDisplayTitle.setAttribute('id','todo-display-title');
-
-                                                                                                        todoDisplayTitle.value = object.title;
-
-                                                                                                        todoDisplay.append(todoDisplayTitle);
+                                                                                                //         const lineBreak1 = document.createElement('br');                                               
+                                                                                                //         todoDisplay.append(lineBreak1);
 
 
-                                                                                                        const todoDescTextArea = document.createElement('textarea');
+                                                                                                //         const todoDisplayRemindIn = document.createElement('input');
 
-                                                                                                        todoDescTextArea.setAttribute('name','');
+                                                                                                //         todoDisplayRemindIn.setAttribute('type','number');
 
-                                                                                                        todoDescTextArea.setAttribute('id','todo-display-desc');
+                                                                                                //         todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
 
-                                                                                                        todoDescTextArea.setAttribute('placeholder','Description')
+                                                                                                //         console.log(object.dueDate);
 
-                                                                                                        todoDescTextArea.setAttribute('cols','30');
+                                                                                                //         todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
 
-                                                                                                        todoDescTextArea.setAttribute('rows','10');
+                                                                                                //         todoDisplayRemindIn.value = object.remindIn;
 
-                                                                                                        todoDescTextArea.setAttribute('required','');
+                                                                                                //         todoDisplayRemindIn.classList.add('todo-update');
 
-                                                                                                        todoDescTextArea.value = object.desc;
+                                                                                                //         todoDisplay.append(todoDisplayRemindIn);
 
-                                                                                                        todoDescTextArea.classList.add('todo-update');
-
-                                                                                                        todoDisplay.append(todoDescTextArea);
-
-
-                                                                                                        const todoDisplayDate = document.createElement('input');
-
-                                                                                                        todoDisplayDate.setAttribute('type','date');
-
-                                                                                                        todoDisplayDate.setAttribute('id','todo-display-date');
-
-                                                                                                        todoDisplayDate.value = object.dueDate;
-
-                                                                                                        todoDisplayDate.classList.add('todo-update');
-
-                                                                                                        todoDisplay.append(todoDisplayDate);
-
-                                                                                                        const lineBreak1 = document.createElement('br');                                               
-                                                                                                        todoDisplay.append(lineBreak1);
+                                                                                                //         const lineBreak2 = document.createElement('br');
+                                                                                                //         todoDisplay.append(lineBreak2);
 
 
-                                                                                                        const todoDisplayRemindIn = document.createElement('input');
+                                                                                                //         const todoDisplayPriority = document.createElement('button');
 
-                                                                                                        todoDisplayRemindIn.setAttribute('type','number');
+                                                                                                //         todoDisplayPriority.setAttribute('value',object.priority);
 
-                                                                                                        todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
+                                                                                                //         todoDisplayPriority.setAttribute('type','button');
 
-                                                                                                        console.log(object.dueDate);
+                                                                                                //         todoDisplayPriority.setAttribute('id','todo-display-priority');
 
-                                                                                                        todoDisplayRemindIn.setAttribute('placeholder','Remind in how many days?');
+                                                                                                //         todoDisplayPriority.textContent = object.priority;
 
-                                                                                                        todoDisplayRemindIn.value = object.remindIn;
+                                                                                                //         todoDisplayPriority.classList.add('todo-update');
 
-                                                                                                        todoDisplayRemindIn.classList.add('todo-update');
+                                                                                                //         todoDisplay.append(todoDisplayPriority);
 
-                                                                                                        todoDisplay.append(todoDisplayRemindIn);
-
-                                                                                                        const lineBreak2 = document.createElement('br');
-                                                                                                        todoDisplay.append(lineBreak2);
-
-
-                                                                                                        const todoDisplayPriority = document.createElement('button');
-
-                                                                                                        todoDisplayPriority.setAttribute('value',object.priority);
-
-                                                                                                        todoDisplayPriority.setAttribute('type','button');
-
-                                                                                                        todoDisplayPriority.setAttribute('id','todo-display-priority');
-
-                                                                                                        todoDisplayPriority.textContent = object.priority;
-
-                                                                                                        todoDisplayPriority.classList.add('todo-update');
-
-                                                                                                        todoDisplay.append(todoDisplayPriority);
-
-                                                                                                        todoDisplayPriority.addEventListener('click', function(){
+                                                                                                //         todoDisplayPriority.addEventListener('click', function(){
 
                                                                                                             
-                                                                                                            console.log(todoDisplayPriority.value)
+                                                                                                //             console.log(todoDisplayPriority.value)
 
-                                                                                                            // Add classes for different priorities (different colours)
+                                                                                                //             // Add classes for different priorities (different colours)
 
-                                                                                                            if (todoDisplayPriority.value === 'Low'){
-                                                                                                                todoDisplayPriority.value = 'Medium';
-                                                                                                                todoDisplayPriority.textContent = 'Medium';
+                                                                                                //             if (todoDisplayPriority.value === 'Low'){
+                                                                                                //                 todoDisplayPriority.value = 'Medium';
+                                                                                                //                 todoDisplayPriority.textContent = 'Medium';
 
-                                                                                                                return;
-                                                                                                            }
+                                                                                                //                 return;
+                                                                                                //             }
 
-                                                                                                            if (todoDisplayPriority.value === 'Medium'){
-                                                                                                                todoDisplayPriority.value = 'High';
-                                                                                                                todoDisplayPriority.textContent = 'High';
+                                                                                                //             if (todoDisplayPriority.value === 'Medium'){
+                                                                                                //                 todoDisplayPriority.value = 'High';
+                                                                                                //                 todoDisplayPriority.textContent = 'High';
 
-                                                                                                                return;
-                                                                                                            }
+                                                                                                //                 return;
+                                                                                                //             }
 
-                                                                                                            if (todoDisplayPriority.value === 'High'){
-                                                                                                                todoDisplayPriority.value = 'Low';
-                                                                                                                todoDisplayPriority.textContent = 'Low';
+                                                                                                //             if (todoDisplayPriority.value === 'High'){
+                                                                                                //                 todoDisplayPriority.value = 'Low';
+                                                                                                //                 todoDisplayPriority.textContent = 'Low';
 
-                                                                                                                return;
-                                                                                                            }
-
-
-                                                                                                        });
-
-                                                                                                        const lineBreak3 = document.createElement('br');
-                                                                                                        todoDisplay.append(lineBreak3);
+                                                                                                //                 return;
+                                                                                                //             }
 
 
-                                                                                                        const projectsDropDown = document.createElement('select');
+                                                                                                //         });
 
-                                                                                                        projectsDropDown.setAttribute('name','project-display-choices');
+                                                                                                //         const lineBreak3 = document.createElement('br');
+                                                                                                //         todoDisplay.append(lineBreak3);
+
+
+                                                                                                //         const projectsDropDown = document.createElement('select');
+
+                                                                                                //         projectsDropDown.setAttribute('name','project-display-choices');
                                                                             
-                                                                                                        projectsDropDown.setAttribute('id','project-display-choices');
+                                                                                                //         projectsDropDown.setAttribute('id','project-display-choices');
                                                                             
-                                                                                                        projectsDropDown.classList.add('form-input');
+                                                                                                //         projectsDropDown.classList.add('form-input');
                                                                             
-                                                                                                        todoDisplay.append(projectsDropDown);
+                                                                                                //         todoDisplay.append(projectsDropDown);
 
 
 
 
-                                                                                                                const unprocessedProject = projectObjects().unprocessedProjectArray
+                                                                                                //                 const unprocessedProject = projectObjects().unprocessedProjectArray
 
-                                                                                                                const optionsNode = document.querySelectorAll('option');
+                                                                                                //                 const optionsNode = document.querySelectorAll('option');
                                                                                                     
-                                                                                                                if(optionsNode){
+                                                                                                //                 if(optionsNode){
                                                                                                     
-                                                                                                                    optionsNode.forEach(option => {
-                                                                                                                        option.remove();
-                                                                                                                    });
+                                                                                                //                     optionsNode.forEach(option => {
+                                                                                                //                         option.remove();
+                                                                                                //                     });
                                                                                                     
-                                                                                                                }
+                                                                                                //                 }
                                                                                                     
-                                                                                                                const option0 = document.createElement('option');
+                                                                                                //                 const option0 = document.createElement('option');
                                                                                                     
-                                                                                                                option0.textContent = object.project;
+                                                                                                //                 option0.textContent = object.project;
                                                                                                     
-                                                                                                                option0.value = object.project;
+                                                                                                //                 option0.value = object.project;
                                                                                                     
-                                                                                                                projectsDropDown.append(option0);
+                                                                                                //                 projectsDropDown.append(option0);
                                                                                                     
                                                                                                     
-                                                                                                                unprocessedProject.forEach(obj => {
-                                                                                                                    // console.log(object.title);
+                                                                                                //                 unprocessedProject.forEach(obj => {
+                                                                                                //                     // console.log(object.title);
                                                                                                     
-                                                                                                                    const projectOption = document.createElement('option');
+                                                                                                //                     const projectOption = document.createElement('option');
                                                                                                     
-                                                                                                                    projectOption.textContent = obj.title;
+                                                                                                //                     projectOption.textContent = obj.title;
                                                                                                     
-                                                                                                                    projectOption.value = obj.title;
+                                                                                                //                     projectOption.value = obj.title;
                                                                                                     
-                                                                                                                    projectsDropDown.append(projectOption);
-                                                                                                                });
+                                                                                                //                     projectsDropDown.append(projectOption);
+                                                                                                //                 });
 
 
 
-                                                                                                        const lineBreak4 = document.createElement('br');
-                                                                                                        todoDisplay.append(lineBreak4);
+                                                                                                //         const lineBreak4 = document.createElement('br');
+                                                                                                //         todoDisplay.append(lineBreak4);
 
-                                                                                                        // create line break 
+                                                                                                //         // create line break 
 
-                                                                                                        const todoDisplayStatus = document.createElement('button');
+                                                                                                //         const todoDisplayStatus = document.createElement('button');
 
-                                                                                                        todoDisplayStatus.setAttribute('value',object.status);
+                                                                                                //         todoDisplayStatus.setAttribute('value',object.status);
 
-                                                                                                        todoDisplayStatus.setAttribute('type','button');
+                                                                                                //         todoDisplayStatus.setAttribute('type','button');
 
-                                                                                                        todoDisplayStatus.setAttribute('id','todo-display-status');
+                                                                                                //         todoDisplayStatus.setAttribute('id','todo-display-status');
 
-                                                                                                        todoDisplayStatus.textContent = object.status;
+                                                                                                //         todoDisplayStatus.textContent = object.status;
 
-                                                                                                        todoDisplayStatus.classList.add('todo-update');
+                                                                                                //         todoDisplayStatus.classList.add('todo-update');
 
-                                                                                                        todoDisplay.append(todoDisplayStatus);
+                                                                                                //         todoDisplay.append(todoDisplayStatus);
 
-                                                                                                        todoDisplayStatus.addEventListener('click', function(){
+                                                                                                //         todoDisplayStatus.addEventListener('click', function(){
 
-                                                                                                            // Add classes for different priorities (different colours)
+                                                                                                //             // Add classes for different priorities (different colours)
 
-                                                                                                            if (todoDisplayStatus.value === 'pending'){
-                                                                                                                todoDisplayStatus.value = 'complete';
-                                                                                                                todoDisplayStatus.textContent = 'Complete';
+                                                                                                //             if (todoDisplayStatus.value === 'pending'){
+                                                                                                //                 todoDisplayStatus.value = 'complete';
+                                                                                                //                 todoDisplayStatus.textContent = 'Complete';
 
-                                                                                                                return;
-                                                                                                            }
+                                                                                                //                 return;
+                                                                                                //             }
 
-                                                                                                            if (todoDisplayStatus.value === 'complete'){
-                                                                                                                todoDisplayStatus.value = 'pending';
-                                                                                                                todoDisplayStatus.textContent = 'Pending';
+                                                                                                //             if (todoDisplayStatus.value === 'complete'){
+                                                                                                //                 todoDisplayStatus.value = 'pending';
+                                                                                                //                 todoDisplayStatus.textContent = 'Pending';
 
-                                                                                                                return;
-                                                                                                            }
-
-
-                                                                                                        });
-
-                                                                                                        const lineBreak5 = document.createElement('br');
-                                                                                                        todoDisplay.append(lineBreak5);
+                                                                                                //                 return;
+                                                                                                //             }
 
 
-                                                                                                        const todoUpdate = document.createElement('button');
+                                                                                                //         });
 
-                                                                                                        todoUpdate.setAttribute('value','');
-
-                                                                                                        todoUpdate.setAttribute('type','button');
-
-                                                                                                        todoUpdate.setAttribute('id','todo-update');
-
-                                                                                                        todoUpdate.textContent = 'Update';
-
-                                                                                                        todoUpdate.classList.add('todo-update');
-
-                                                                                                        todoDisplay.append(todoUpdate);
+                                                                                                //         const lineBreak5 = document.createElement('br');
+                                                                                                //         todoDisplay.append(lineBreak5);
 
 
-                                                                                                        updateTodoItem(object);
+                                                                                                //         const todoUpdate = document.createElement('button');
+
+                                                                                                //         todoUpdate.setAttribute('value','');
+
+                                                                                                //         todoUpdate.setAttribute('type','submit');
+
+                                                                                                //         todoUpdate.setAttribute('id','todo-update');
+
+                                                                                                //         todoUpdate.textContent = 'Update';
+
+                                                                                                //         todoUpdate.classList.add('todo-update');
+
+                                                                                                //         todoDisplay.append(todoUpdate);
 
 
-
-
-
-
-
-
+                                                                                                //         updateTodoItem(object);
 
 
 
@@ -827,7 +822,7 @@ function appendProjectObjects(priority){
 
                                                         projectUpdateButton.setAttribute('value','');
 
-                                                        projectUpdateButton.setAttribute('type','button');
+                                                        projectUpdateButton.setAttribute('type','submit');
 
                                                         projectUpdateButton.setAttribute('id','project-update');
 
@@ -861,69 +856,6 @@ function appendProjectObjects(priority){
 
                                                         deleteProjectItem(project)
 
-
-
-
-
-                                                    // function updateProjectItem (project){
-
-
-                                                    //     const projectDisplayContainer = document.querySelector('.project-todo-container');
-                                                
-                                                    //     const projectDisplay = document.querySelector('.project-details');
-                                                
-                                                    //     const projectUpdateButton = document.querySelector('#project-update');
-                                                
-                                                    //     projectUpdateButton.addEventListener('click',function(){
-
-                                                    //         // project-status-update
-                                                
-                                                    //     const newProjectTitle = document.querySelector('#project-title-update')
-                                                    //     const newProjectDesc = document.querySelector('#project-desc-update');
-                                                    //     const newProjectDue = document.querySelector('#project-date-update');
-                                                    //     const newProjectReminder = document.querySelector('#project-reminder-update');
-                                                    //     const newProjectPriority = document.querySelector('#project-priority-update');
-                                                    //     const newProjectStatus = document.querySelector('#project-status-update');
-
-                                                    //     console.log(newProjectReminder);
-                                                        
-                                                        
-                                                
-                                                    //     let newDetails = {
-                                                    //         // update this
-                                                    //         newTitle: newProjectTitle.value,
-                                                    //         newDesc: newProjectDesc.value,
-                                                    //         newDue: newProjectDue.value,
-                                                    //         newReminder: newProjectReminder.value,
-                                                    //         newPriority: newProjectPriority.value,
-                                                    //         newStatus: newProjectStatus.value,
-                                                    //     }
-
-                                                    //     // create a project update function
-                                                        
-                                                    //     // todoModule.updateTodo(project,newDetails);
-
-                                                    //     projectModule.updateProject(project,newDetails);
-                                                
-                                                    //     // recentCollectionContainerFn(recentCollectionContainerArg);
-                                                
-                                                    //     projectDisplayContainer.remove();
-                                                
-                                                    //     });
-                                                
-                                                
-                                                        
-                                                    //     projectDisplayContainer.addEventListener('click',function(){
-                                                    //         projectDisplayContainer.remove();
-                                                    //     })
-                                                
-                                                    //     projectDisplay.addEventListener('click',function(e){
-                                                    //         e.stopPropagation();
-                                                    //     })
-                                                
-                                                
-                                                
-                                                    // }
 
                                                    
 
