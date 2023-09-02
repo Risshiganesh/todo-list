@@ -270,15 +270,15 @@ function displayTodo(object){
 
                         // Add classes for different priorities (different colours)
 
-                        if (todoDisplayStatus.value === 'pending'){
-                            todoDisplayStatus.value = 'complete';
+                        if (todoDisplayStatus.value === 'Pending'){
+                            todoDisplayStatus.value = 'Complete';
                             todoDisplayStatus.textContent = 'Complete';
 
                             return;
                         }
 
-                        if (todoDisplayStatus.value === 'complete'){
-                            todoDisplayStatus.value = 'pending';
+                        if (todoDisplayStatus.value === 'Complete'){
+                            todoDisplayStatus.value = 'Pending';
                             todoDisplayStatus.textContent = 'Pending';
 
                             return;

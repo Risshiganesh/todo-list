@@ -395,36 +395,46 @@ function domActivitiesModule (){
 
         if(requiredInputFilled){
 
-            e.preventDefault();
+            // e.preventDefault();
 
-            
-            hideForm();
+            // hideForm();
 
             // create todo with form
-
 
             const resetArray = [projectTitle,projectDesc,projectDate,projectReminder,todoTitle,todoDesc,todoDate,todoReminder];
 
             const tabContainer = document.querySelector('.tab-container');
 
-            tabContainer.querySelectorAll('*').forEach(element => {
-                element.classList.remove('menu-tab-active')
-            });
+            // tabContainer.querySelectorAll('*').forEach(element => {
+            //     element.classList.remove('menu-tab-active')
+            // });
 
 
             if(newProjectRadio.checked){
                 console.log('why are you running?')
-                
-                projectModule.createProject(projectTitle.value,projectDesc.value,projectDate.value,projectPriority.value,projectReminder.value,`pending`);
 
+                if (projectReminder.value < 0 || projectReminder.value > 30) {
+                    
+                    return;
+                }
 
-                todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectTitle.value);
+                e.preventDefault();
 
+                hideForm();
 
-                resetArray.forEach(input => {
-                    input.value = '';
+                tabContainer.querySelectorAll('*').forEach(element => {
+                    element.classList.remove('menu-tab-active')
                 });
+    
 
+                
+                projectModule.createProject(projectTitle.value,projectDesc.value,projectDate.value,projectPriority.value,projectReminder.value,`Pending`);
+
+
+                todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`Pending`,projectTitle.value);
+
+
+               
                 //everytime submit button is clicked fresh dropdown is created 
                 formDomModule.existingProjectOptions();
 
@@ -435,6 +445,12 @@ function domActivitiesModule (){
                 menuInDisplay = 'projects';
 
                 priorityInDisplay = projectPriority.value;
+
+
+                resetArray.forEach(input => {
+                    input.value = '';
+                });
+
 
                 updateDisplay();
 
@@ -450,17 +466,23 @@ function domActivitiesModule (){
             todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectsChoices.value);
 
 
-            resetArray.forEach(input => {
-
-                input.value = '';
-            });
-
             //everytime submit button is clicked fresh dropdown is created 
             formDomModule.existingProjectOptions();
 
             if (selectTodo.checked) {
 
-                
+                if (todoReminder.value < 0 || todoReminder.value > 30) {
+                    
+                    return;
+                }
+
+                e.preventDefault();
+
+                hideForm();
+
+                tabContainer.querySelectorAll('*').forEach(element => {
+                    element.classList.remove('menu-tab-active')
+                });
 
                 createTodoDOM();
 
@@ -480,6 +502,15 @@ function domActivitiesModule (){
 
             if (selectNote.checked) {
 
+                e.preventDefault();
+
+                hideForm();
+
+                tabContainer.querySelectorAll('*').forEach(element => {
+                    element.classList.remove('menu-tab-active')
+                });
+
+
                 createNotesDOM();
 
                 allNotesTab.classList.add('menu-tab-active');
@@ -489,6 +520,12 @@ function domActivitiesModule (){
                 updateDisplay();
                
             }
+
+
+            resetArray.forEach(input => {
+
+                input.value = '';
+            });
 
 
         }
@@ -830,7 +867,7 @@ function domActivitiesModule (){
         })
 
 
-        if (emptyInput.length > 0) {
+        if (emptyInput.length > 0 || newTodoReminder.value < 0 || newTodoReminder.value > 30) {
 
             console.log('FILTERING WORKS')
             return;
@@ -1039,7 +1076,7 @@ function domActivitiesModule (){
         })
 
 
-        if (emptyInput.length > 0) {
+        if (emptyInput.length > 0 || newProjectReminder.value < 0 || newProjectReminder.value > 30) {
 
             console.log('FILTERING WORKS')
             return;

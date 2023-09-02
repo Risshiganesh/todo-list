@@ -29,6 +29,10 @@ function displayProject (project){
             const projectDisplay = document.createElement('div');
             projectDisplay.classList.add('project-display');
             projectTodoContainer.append(projectDisplay)
+
+            projectDisplay.addEventListener('click',function(e){
+                e.stopPropagation();
+            })
         
 
             const projectForm = document.createElement('form');
@@ -62,9 +66,9 @@ function displayProject (project){
 
 
 
-                const projectDetailsLineBreak1 = document.createElement('br');
+                // const projectDetailsLineBreak1 = document.createElement('br');
 
-                projectDetails.append(projectDetailsLineBreak1);
+                // projectDetails.append(projectDetailsLineBreak1);
 
 
 
@@ -88,9 +92,9 @@ function displayProject (project){
 
 
 
-                const projectDetailsLineBreak2 = document.createElement('br');
+                // const projectDetailsLineBreak2 = document.createElement('br');
 
-                projectDetails.append(projectDetailsLineBreak2);
+                // projectDetails.append(projectDetailsLineBreak2);
 
 
 
@@ -110,9 +114,9 @@ function displayProject (project){
 
 
 
-                const projectDetailsLineBreak3 = document.createElement('br');
+                // const projectDetailsLineBreak3 = document.createElement('br');
 
-                projectDetails.append(projectDetailsLineBreak3);
+                // projectDetails.append(projectDetailsLineBreak3);
 
 
 
@@ -139,9 +143,26 @@ function displayProject (project){
                 
 
 
-                const projectDetailsLineBreak4 = document.createElement('br');
+                // const projectDetailsLineBreak4 = document.createElement('br');
 
-                projectDetails.append(projectDetailsLineBreak4);
+                // projectDetails.append(projectDetailsLineBreak4);
+
+                const projectButtonsOne = document.createElement('div');
+                projectButtonsOne.classList.add('project-buttons-one');
+                projectDetails.append(projectButtonsOne)
+
+
+                const priorityBtnDiv = document.createElement('div');
+                priorityBtnDiv.classList.add('priority-button-div');
+                projectButtonsOne.append(priorityBtnDiv)
+
+
+                const priorityLabel = document.createElement('label');
+                priorityLabel.textContent = 'Priority:'
+                priorityLabel.setAttribute('for','project-priority-update')
+                priorityBtnDiv.append(priorityLabel)
+                
+    
 
 
 
@@ -155,7 +176,7 @@ function displayProject (project){
 
                 projectPriorityButton.textContent = project.priority;
 
-                projectDetails.append(projectPriorityButton);
+                priorityBtnDiv.append(projectPriorityButton);
 
                 projectPriorityButton.addEventListener('click', function(){
 
@@ -187,11 +208,20 @@ function displayProject (project){
 
 
 
-                const projectDetailsLineBreak5 = document.createElement('br');
+                // const projectDetailsLineBreak5 = document.createElement('br');
 
-                projectDetails.append(projectDetailsLineBreak5);
+                // projectDetails.append(projectDetailsLineBreak5);
 
 
+                const statusBtnDiv = document.createElement('div');
+                statusBtnDiv.classList.add('status-button-div');
+                projectButtonsOne.append(statusBtnDiv)
+
+
+                const statusLabel = document.createElement('label');
+                statusLabel.textContent = 'Status:'
+                statusLabel.setAttribute('for','project-status-update')
+                statusBtnDiv.append(statusLabel)
 
 
 
@@ -207,21 +237,21 @@ function displayProject (project){
 
                 projectDisplayStatus.classList.add('todo-update');
 
-                projectDetails.append(projectDisplayStatus);
+                statusBtnDiv.append(projectDisplayStatus);
 
                 projectDisplayStatus.addEventListener('click', function(){
 
                     // Add classes for different priorities (different colours)
 
-                    if (projectDisplayStatus.value === 'pending'){
-                        projectDisplayStatus.value = 'complete';
+                    if (projectDisplayStatus.value === 'Pending'){
+                        projectDisplayStatus.value = 'Complete';
                         projectDisplayStatus.textContent = 'Complete';
 
                         return;
                     }
 
-                    if (projectDisplayStatus.value === 'complete'){
-                        projectDisplayStatus.value = 'pending';
+                    if (projectDisplayStatus.value === 'Complete'){
+                        projectDisplayStatus.value = 'Pending';
                         projectDisplayStatus.textContent = 'Pending';
 
                         return;
@@ -250,13 +280,35 @@ function displayProject (project){
             })
 
 
-           
-
-
             // Container that displays all todos in a project
             displayTodosInProject(project);
 
             // clickedProject = project;
+
+
+            const projectButtonsTwo = document.createElement('div');
+            projectButtonsTwo.classList.add('project-buttons-two');
+            projectDetails.append(projectButtonsTwo);
+    
+
+
+
+
+
+            const projectDelete = document.createElement('button');
+
+            projectDelete.setAttribute('value','');
+
+            projectDelete.setAttribute('type','button');
+
+            projectDelete.setAttribute('id','project-delete');
+
+            projectDelete.textContent = 'Delete';
+
+            projectButtonsTwo.append(projectDelete);
+
+
+            
 
         
             const projectUpdateButton = document.createElement('button');
@@ -271,26 +323,16 @@ function displayProject (project){
 
             projectUpdateButton.classList.add('project-update');
 
-            projectDetails.append(projectUpdateButton);
+            projectButtonsTwo.append(projectUpdateButton);
 
 
 
-            const projectDetailsLineBreak6 = document.createElement('br');
+            // const projectDetailsLineBreak6 = document.createElement('br');
 
-            projectDetails.append(projectDetailsLineBreak6);
+            // projectDetails.append(projectDetailsLineBreak6);
 
 
-            const projectDelete = document.createElement('button');
-
-            projectDelete.setAttribute('value','');
-
-            projectDelete.setAttribute('type','button');
-
-            projectDelete.setAttribute('id','project-delete');
-
-            projectDelete.textContent = 'Delete';
-
-            projectDetails.append(projectDelete);
+            
 
 
             updateProjectItem(project);

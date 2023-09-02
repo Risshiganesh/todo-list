@@ -16,6 +16,11 @@ body{
 }
 
 
+textarea {
+    resize: none;
+}
+
+
 
 
 .main-container{
@@ -62,6 +67,16 @@ body{
     height: 100%;
     /* border: 3px solid red; */
     padding: 10px;
+}
+
+.tab-container > div:hover{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    cursor: pointer;
 }
 
 .all-todos-tab,
@@ -135,6 +150,7 @@ body{
     font-size: 40px;
     text-align: center;
     color: rgba(255, 255, 255, 0.432);
+    cursor: pointer;
 
 
     background: rgba( 0, 0, 0, 0.25 );
@@ -154,6 +170,14 @@ body{
 
 .hamburger-menu > img {
     width: 50px;
+}
+
+.hamburger-menu > img:hover {
+    width: 60px;
+}
+
+.hamburger-menu > img:active {
+    width: 60px;
 }
 
 .display-container {
@@ -207,6 +231,12 @@ body{
 
 }
 
+.priority-buttons > button:hover {
+
+    border: 1px solid rgba(255, 255, 255, 0.459);
+
+}
+
 
 .high-priority,
 .medium-priority,
@@ -228,6 +258,7 @@ body{
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     color: rgba(255, 255, 255, 0.753);
+    cursor: pointer;
 }
 
 .chosen-priority{
@@ -500,7 +531,7 @@ body{
     
     background-color: purple;
     width: 300px;
-    height: 550px;
+    /* height: 550px; */
     border-radius: 10px;
     padding: 10px;
     display: grid;
@@ -521,8 +552,8 @@ body{
     width: 100%;
     padding: 0px 10px 0px 10px;
     text-align: center;
-    border-radius: 10px;
-    font-size: 20px;
+    border-radius: 5px;
+    font-size: 16px;
 
     background: rgba( 2, 2, 2, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -537,7 +568,7 @@ body{
     appearance: none;
     width: 100%;
     padding: 10px 10px 0px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 15px;
 
     background: rgba( 2, 2, 2, 0.25 );
@@ -554,7 +585,7 @@ body{
     appearance: none;
     width: 100%;
     padding: 5px 10px 5px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     /* align-items: center; */
@@ -572,7 +603,7 @@ body{
     appearance: none;
     width: 100%;
     padding: 5px 10px 5px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     /* align-items: center; */
@@ -623,6 +654,11 @@ body{
 .first-button-container > div {
     display: grid;
     justify-items: center;
+    gap: 5px;
+}
+
+.first-button-container > div > label{
+    font-size: 13px;
 }
 
 
@@ -631,17 +667,58 @@ body{
     justify-self: center;
     width: 100px;
     height: 30px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
     border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    cursor: pointer;
+}
+
+#todo-display-priority:hover,
+#todo-display-status:hover{
+    border: 1px solid rgba(255, 255, 255, 0.589);
 }
 
 
 #todo-update,
 #todo-delete {
+    appearance: none;
 
     width: 100px;
     height: 30px;
     border-radius: 5px;
 
+    /* background: rgba( 255, 255, 255, 0.25 ); */
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    cursor: pointer;
+
+   
+
+}
+
+
+#todo-delete{
+    background-color: rgba(255, 0, 0, 0.644);
+}
+
+#todo-delete:hover{
+    background-color: rgba(255, 0, 0, 0.863);
+}
+
+#todo-update{
+    background-color: rgba(115, 255, 0, 0.651);
+}
+
+#todo-update:hover{
+    background-color: rgba(115, 255, 0, 0.897);
 }
 
 
@@ -710,8 +787,9 @@ body{
     backdrop-filter: blur( 6.5px );
     -webkit-backdrop-filter: blur( 6.5px );
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0);
+
     display: grid;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     
 }
 
@@ -758,8 +836,8 @@ body{
     position: fixed;
     width: 100%;
     height: 100%;
-    border: 2px solid dodgerblue;
-    background-color: rgba(218, 112, 214, 0.582);
+    /* border: 2px solid dodgerblue; */
+    background-color: rgba(122, 122, 122, 0.582);
     display: grid;
     justify-items: center;
     align-items: center;
@@ -769,35 +847,216 @@ body{
 .project-display {
 
     width: 350px;
-    background-color: rgba(255, 99, 71, 0.445);
+    background-color: rgba(165, 0, 102, 0.705);
+    border-radius: 10px;
+
+
+
+    /* border: 1px solid rgba(255, 255, 255, 0); */
+    
+    /* height: 750px; */
+    /* background-color: darkgreen; */
+    padding: 10px;
+    border-radius: 10px;
+    /* overflow: auto; */
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 }
 
 .project-details{
 
-    border: 3px solid darkorange;
     width: 100%;
-    height: 750px;
-    /* background-color: darkgreen; */
-    padding: 10px;
-    border-radius: 10px;
-    /* overflow: auto; */
+    display: grid;
+    gap: 10px;
+}
+
+#project-title-update{
+    appearance: none;
+    width: 100%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+
+
+    padding: 5px;
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: grid;
 }
 
 #project-desc-update {
+    appearance: none;
     width: 100%;
+
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+
+    padding: 5px;
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+#project-date-update{
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+
+    padding: 5px;
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+
+#project-reminder-update{
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+
+    padding: 5px;
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.project-buttons-one,
+.project-buttons-two{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    gap: 5px;
+    
+}
+
+.project-buttons-one > div {
+    display: grid;
+    text-align: center;
+    gap: 5px;
+}
+
+.project-buttons-one > div > label {
+    font-size: 12px;
+    /* text-decoration: underline; */
+}
+
+
+.project-buttons-one > div > button,
+.project-buttons-two > button{
+    appearance: none;
+   border-radius: 5px;
+
+
+   padding: 5px;
+   background: rgba( 255, 255, 255, 0.25 );
+   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+   backdrop-filter: blur( 6.5px );
+   -webkit-backdrop-filter: blur( 6.5px );
+   /* border-radius: 10px; */
+   border: 1px solid rgba(255, 255, 255, 0);
+   color: white;
+
+}
+
+#project-priority-update,
+#project-status-update{
+    color: white;
+    cursor: pointer;
+}
+
+#project-priority-update:hover,
+#project-status-update:hover{
+    border: 1px solid rgba(255, 255, 255, 0.589);
 }
 
 .project-todos{
 
-    border: 3px solid cyan;
+  
     width: 100%;
-    height: 500px;
+    height: 400px;
     background-color: slateblue;
     overflow: auto;
+    font-family: Arial, Helvetica, sans-serif;
     /* display: grid; */
     /* grid-template-rows: 30px 1fr; */
 
+
+    padding: 7px;
+    background: rgba(255, 0, 140, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    /* border-radius: 10px; */
+    border-radius: 5px;
+    /* border: 1px solid rgba(255, 255, 255, 0); */
+    /* border: 1px solid rgba(255, 1, 119, 0.76); */
+
+}
+
+#project-delete{
+    background-color: rgba(255, 0, 0, 0.644);
+    cursor: pointer;
+}
+
+#project-update{
+    background-color: rgba(115, 255, 0, 0.651);
+    cursor: pointer;
+}
+
+
+#project-delete:hover{
+    background-color: rgba(255, 0, 0, 0.877);
+}
+
+#project-update:hover{
+    background-color: rgba(115, 255, 0, 0.877);
+}
+
+.priority-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.todo-project-status-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    /* border: 1px solid rgba(255, 1, 119, 0.76); */
+    border-radius: 10px;
+    padding: 5px;
+
+
+    /* background: rgba(129, 129, 129, 0.25); */
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    /* backdrop-filter: blur( 6.5px ); */
+    /* -webkit-backdrop-filter: blur( 6.5px ); */
+    border-radius: 10px;
 }
 
 
@@ -807,7 +1066,7 @@ body{
     height: 220px;
 
     padding: 15px;
-    background: rgba( 255, 255, 255, 0.25 );
+    background: rgba(83, 83, 83, 0.25);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 6.5px );
     -webkit-backdrop-filter: blur( 6.5px );
@@ -818,10 +1077,18 @@ body{
 
 .todo-status-container{
 
-    border: 2px solid fuchsia;
+    /* border: 2px solid fuchsia; */
     overflow: auto;
+    border-radius: 10px;
     /* height: 100%; */
     /* height: 350px; */
+    /* grid-auto-flow: column; */
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    /* backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px ); */
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 }
 
@@ -831,14 +1098,30 @@ body{
 .complete-todos{
 
     display: grid;
-    border: 4px solid gold;
+    /* border: 4px solid gold; */
     /* height: 320px; */
-    width: 100%;
+    /* width: 100%;
     background-color: rgb(56, 56, 255);
     align-items: start;
-    justify-items: center;
+    justify-items: center; */
     
     /* overflow: auto; */
+
+
+
+
+    display: grid;
+    /* border: 4px solid gold; */
+    width: 100%;
+    /* background-color: indigo; */
+    align-items: center;
+    justify-items: start;
+    
+    overflow: auto;
+
+    justify-items: center;
+
+    padding: 5px 20px 5px 20px;
 
 }
 
@@ -850,11 +1133,32 @@ body{
     /* height: 400px; */
     grid-auto-flow: row; /*This was what i wanted to do*/
     color: white;
+    grid-auto-flow: column;
+
+    gap: 5px;
     
-    border: 4px solid brown;
+    /* border: 4px solid brown; */
 
 }
 
+.yes-button,
+.no-button{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+}
+
+.yes-button{
+    background-color: rgba(115, 255, 0, 0.651);
+}
+
+.no-button{
+    background-color: rgba(255, 0, 0, 0.644);
+}
 
 
 
@@ -892,13 +1196,21 @@ body{
 }
 
 .note-display {
-    background-color: pink;
+    background-color: rgba(51, 0, 71, 0.651);
     width: 350px;
     height: 400px;
     border-radius: 10px;
     padding: 10px;
     display: grid;
     grid-template-rows: 40px 1fr 40px;
+    gap: 5px;
+
+
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .note-title {
@@ -909,6 +1221,7 @@ body{
     text-overflow: ellipsis;
     /* text-align: center; */
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .note-desc {
@@ -918,6 +1231,7 @@ body{
     font-size: 15px;
     overflow: hidden;
     word-wrap: break-word;
+    border-radius: 5px;
 
 }
 
@@ -972,6 +1286,12 @@ border-right: none;
     color: white;
 }
 
+
+
+.form-button:hover{
+    background: rgba(82, 82, 82, 0.349);
+}
+
 /* TODO CREATION FORM */
 
 
@@ -989,6 +1309,7 @@ border-right: none;
     padding-bottom: 100px;
     display: none;
     z-index: 2;
+    left: 0px;
 
 }
 
@@ -998,18 +1319,33 @@ border-right: none;
 
 .todo-creation-form {
     /* position: fixed; */
-    width: 400px;
+    width: 300px;
     /* height: 700px; */
-    background-color: maroon;
+    /* background-color: maroon; */
     padding: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     display: grid;
     justify-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+
+    background: rgba(0, 0, 0, 0.473);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     
 }
 
 .todo-creation-form > form {
     width: 100%;
+}
+
+#todo-date,
+#project-date{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -1019,37 +1355,174 @@ fieldset {
     width: 100%;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 13px;
+   
+}
+
+legend {
+    margin-bottom: 13px;
+}
+
+
+
+.input-collection{
+    display: grid;
+    gap: 5px;
+    color: white;
 }
 
 .input-container {
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    gap: 5px;
 }
 
+.radio-input-container {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    accent-color: teal;
+    padding: 5px 0px 5px 0px;
+}
+
+.radio-input-container > div {
+    
+    /* grid-template-rows: 1fr; */
+    /* padding: 5px 0px 5px 0px; */
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    justify-items: end;
+    gap: 5px;
+    
+   
+}
+
+
+
+.radio-input-container > div > label {
+    
+    justify-self: start;
+   
+}
+
+
+
+
 .input-container > input {
+    appearance: none;
     width: 100%;
+    height: 25px;
+    color: white;
+    padding: 0px 5px 0px 5px;
+
+
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .input-container > textarea {
+    appearance: none;
     width: 100%;
+
+    /* height: 25px; */
+    color: white;
+    padding: 5px 5px 0px 5px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.todo-creation-title {
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.project-creation-title {
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 5px;
+}
+
+#todo-priority,
+#project-priority {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 25px;
+    color: white;
+    cursor: pointer;
+}
+#todo-priority:hover,
+#project-priority:hover{
+    border: 1px solid rgba(255, 255, 255, 0.753);
 }
 
 .create-new-todo{
-    border: 3px solid forestgreen;
+    /* border: 3px solid forestgreen; */
     display: none;
 }
 
 .select-existing-project{
-    border: 3px solid skyblue;
+    /* border: 3px solid skyblue; */
     display: none;
 }
 
 .create-new-project{
-    border: 3px solid crimson;
+    /* border: 3px solid crimson; */
     display: none;
+}
+
+#project-choices {
+    background: rgba(0, 105, 96, 0.795);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 25px;
+    color: white;
+    text-align: center;
 }
 
 .display-form-items{
     display: grid;
+    gap: 5px;
+}
+
+#form-submit{
+    appearance: none;
+    background-color: rgba(0, 255, 21, 0.541);
+
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+#form-submit:hover{
+    background-color: rgba(0, 255, 21, 0.753);
 }
 
 
@@ -1062,6 +1535,15 @@ fieldset {
         display: grid;
         align-items: center;
         justify-items: center;
+    }
+
+    .hamburger-menu:active{
+
+
+        background: rgba(0, 0, 0, 0.514);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 6.5px );
+        -webkit-backdrop-filter: blur( 6.5px );
     }
 
     .main-container {
@@ -1114,6 +1596,10 @@ fieldset {
         /* border: none; */
         /* background: rgba(0, 0, 0, 0.473); */
         background: rgba(0, 0, 0, 0.322);
+    }
+
+    .project-todo-container{
+        left: 0px;
     }
 
 

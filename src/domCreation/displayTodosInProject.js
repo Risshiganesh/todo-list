@@ -19,7 +19,7 @@ function displayTodosInProject (project){
 
     const dueStatusArray = ['overdue','due','upcoming','complete'];
 
-    const titleArray = ['OVERDUE','DUE SOON','UPCOMING','COMPLETED'];
+    const titleArray = ['Overdue','Due soon','Upcoming','Completed'];
 
     const classArray = ['overdue-todos','due-soon-todos','upcoming-todos','complete-todos'];
 
@@ -39,7 +39,9 @@ function displayTodosInProject (project){
 
                 const priorityTitle = document.createElement('div');
 
-                priorityTitle.textContent = priority.toUpperCase() +` PRIORITY`;
+                priorityTitle.textContent = priority +` priority`;
+
+                priorityTitle.classList.add('priority-title');
 
                 projectTodos.append(priorityTitle);
     
@@ -79,6 +81,8 @@ function displayTodosInProject (project){
                                 const todoTitleDiv = document.createElement('div');
                     
                                 todoTitleDiv.textContent = titleArray[index];
+
+                                todoTitleDiv.classList.add('todo-project-status-title');
                     
                                 statusContainer.append(todoTitleDiv);
                     
@@ -135,13 +139,13 @@ function displayTodosInProject (project){
                                             todoContainer.append(todoDateDiv);
     
     
-                                            const todoDurationLeftDiv = document.createElement('div');
+                                            // const todoDurationLeftDiv = document.createElement('div');
     
-                                            todoDurationLeftDiv.classList.add('todo-dur-left-div');
+                                            // todoDurationLeftDiv.classList.add('todo-dur-left-div');
     
-                                            todoDurationLeftDiv.textContent = `${object.durationLeft.dayLeft} days, ${object.durationLeft.monthsLeft} months and ${object.durationLeft.yearsLeft} years left`;
+                                            // todoDurationLeftDiv.textContent = `${object.durationLeft.dayLeft} days, ${object.durationLeft.monthsLeft} months and ${object.durationLeft.yearsLeft} years left`;
     
-                                            todoContainer.append(todoDurationLeftDiv);
+                                            // todoContainer.append(todoDurationLeftDiv);
     
     
                                             const todoProjectDiv = document.createElement('div');
@@ -153,13 +157,13 @@ function displayTodosInProject (project){
                                             todoContainer.append(todoProjectDiv);
     
     
-                                            const todoPrioritytDiv = document.createElement('div');
+                                            // const todoPrioritytDiv = document.createElement('div');
     
-                                            todoPrioritytDiv.classList.add('todo-priority-div');
+                                            // todoPrioritytDiv.classList.add('todo-priority-div');
     
-                                            todoPrioritytDiv.textContent = object.priority;
+                                            // todoPrioritytDiv.textContent = object.priority;
     
-                                            todoContainer.append(todoPrioritytDiv);
+                                            // todoContainer.append(todoPrioritytDiv);
 
 
 

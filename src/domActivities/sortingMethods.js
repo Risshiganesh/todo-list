@@ -129,7 +129,7 @@ function sortingModule (){
             }
             
             // Complete
-            if(object.status === 'complete'){
+            if(object.status === 'Complete'){
                 
 
                 dueSortedArray.complete.push(object);

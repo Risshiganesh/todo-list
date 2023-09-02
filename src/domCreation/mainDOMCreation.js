@@ -170,7 +170,7 @@ function mainDomModule (){
 
             const footerLink = document.createElement('a');
 
-            footerLink.setAttribute('href','');
+            footerLink.setAttribute('href','https://github.com/Risshiganesh/todo-list');
 
             footerLink.textContent = 'Made by Risshiganesh Villalan';
 

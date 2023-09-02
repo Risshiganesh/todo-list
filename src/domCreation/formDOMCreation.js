@@ -53,9 +53,20 @@ function formDomModule (){
 
                     const legend = document.createElement('legend');
 
-                    legend.textContent = 'Create an entry'
+                    // legend.textContent = 'Create an entry'
 
                     fieldset.append(legend);
+
+
+                    const todoCreationTitle = document.createElement('div');
+                    todoCreationTitle.classList.add('todo-creation-title');
+                    todoCreationTitle.textContent = 'Create a new entry'
+                    fieldset.append(todoCreationTitle);
+
+
+                        const inputCollection = document.createElement('div');
+                        inputCollection.classList.add('input-collection');
+                        fieldset.append(inputCollection);
 
 
 
@@ -63,7 +74,7 @@ function formDomModule (){
 
                         inputContainer1.classList.add('input-container');
 
-                        fieldset.append(inputContainer1);
+                        inputCollection.append(inputContainer1);
 
                             const todoTitleLabel = document.createElement('label');
 
@@ -74,9 +85,9 @@ function formDomModule (){
                             inputContainer1.append(todoTitleLabel);
 
 
-                            const todoTitleLineBreak = document.createElement('br');
+                            // const todoTitleLineBreak = document.createElement('br');
 
-                            inputContainer1.append(todoTitleLineBreak);
+                            // inputContainer1.append(todoTitleLineBreak);
 
                             
                             const todoTitleInput = document.createElement('input');
@@ -98,7 +109,7 @@ function formDomModule (){
 
                         inputContainer2.classList.add('input-container');
 
-                        fieldset.append(inputContainer2);
+                        inputCollection.append(inputContainer2);
 
                             const todoDescLabel = document.createElement('label');
 
@@ -109,9 +120,9 @@ function formDomModule (){
                             inputContainer2.append(todoDescLabel);
 
 
-                            const todoDescLineBreak = document.createElement('br');
+                            // const todoDescLineBreak = document.createElement('br');
 
-                            inputContainer2.append(todoDescLineBreak);
+                            // inputContainer2.append(todoDescLineBreak);
 
                             
                             const todoDescTextArea = document.createElement('textarea');
@@ -135,62 +146,73 @@ function formDomModule (){
 
                         inputContainer3.classList.add('radio-input-container');
 
-                        fieldset.append(inputContainer3);
-
-                            const isNoteRadio = document.createElement('input');
-
-                            isNoteRadio.setAttribute('type','radio');
-
-                            isNoteRadio.setAttribute('id','is-note');
-
-                            isNoteRadio.setAttribute('name','entry-type');
-
-                            isNoteRadio.setAttribute('checked','');
-
-                            isNoteRadio.classList.add('form-input');
-
-                            inputContainer3.append(isNoteRadio);
-
-                            
-
-                            const noteRadioLabel = document.createElement('label');
-
-                            noteRadioLabel.setAttribute('for','is-note');
-
-                            noteRadioLabel.textContent = 'Note';
-
-                            inputContainer3.append(noteRadioLabel);
+                        inputCollection.append(inputContainer3);
 
 
+                            const noteRadioDiv = document.createElement('div');
+                            noteRadioDiv.classList.add('note-radio-div');
+                            inputContainer3.append(noteRadioDiv)
 
-                            const isTodoRadio = document.createElement('input');
 
-                            isTodoRadio.setAttribute('type','radio');
+                                const isNoteRadio = document.createElement('input');
 
-                            isTodoRadio.setAttribute('id','is-todo');
+                                isNoteRadio.setAttribute('type','radio');
 
-                            isTodoRadio.setAttribute('name','entry-type');
+                                isNoteRadio.setAttribute('id','is-note');
 
-                            isTodoRadio.classList.add('form-input');
+                                isNoteRadio.setAttribute('name','entry-type');
 
-                            inputContainer3.append(isTodoRadio);
+                                isNoteRadio.setAttribute('checked','');
+
+                                isNoteRadio.classList.add('form-input');
+
+                                noteRadioDiv.append(isNoteRadio);
+
+                                
+
+                                const noteRadioLabel = document.createElement('label');
+
+                                noteRadioLabel.setAttribute('for','is-note');
+
+                                noteRadioLabel.textContent = 'Note';
+
+                                noteRadioDiv.append(noteRadioLabel);
+
+
+                            const todoRadioDiv = document.createElement('div');
+                            todoRadioDiv.classList.add('todo-radio-div');
+                            inputContainer3.append(todoRadioDiv)
 
 
 
-                            const todoRadioLabel = document.createElement('label');
+                                const isTodoRadio = document.createElement('input');
 
-                            todoRadioLabel.setAttribute('for','is-todo');
+                                isTodoRadio.setAttribute('type','radio');
 
-                            todoRadioLabel.textContent = 'To-do';
+                                isTodoRadio.setAttribute('id','is-todo');
 
-                            inputContainer3.append(todoRadioLabel);
+                                isTodoRadio.setAttribute('name','entry-type');
+
+                                isTodoRadio.classList.add('form-input');
+
+                                todoRadioDiv.append(isTodoRadio);
+
+
+
+                                const todoRadioLabel = document.createElement('label');
+
+                                todoRadioLabel.setAttribute('for','is-todo');
+
+                                todoRadioLabel.textContent = 'To-do';
+
+                                todoRadioDiv.append(todoRadioLabel);
 
 
                         const createNewTodo = document.createElement('div');
 
                         createNewTodo.classList.add('create-new-todo');
 
-                        fieldset.append(createNewTodo);
+                        inputCollection.append(createNewTodo);
 
 
 
@@ -212,9 +234,9 @@ function formDomModule (){
                                 inputContainer4.append(todoDateLabel);
 
 
-                                const todoDateLineBreak = document.createElement('br');
+                                // const todoDateLineBreak = document.createElement('br');
 
-                                inputContainer4.append(todoDateLineBreak);
+                                // inputContainer4.append(todoDateLineBreak);
 
                                 
                                 const todoDateInput = document.createElement('input');
@@ -246,9 +268,9 @@ function formDomModule (){
                                 inputContainer5.append(todoRemindInLabel);
 
 
-                                const todoRemindInLineBreak = document.createElement('br');
+                                // const todoRemindInLineBreak = document.createElement('br');
 
-                                inputContainer5.append(todoRemindInLineBreak);
+                                // inputContainer5.append(todoRemindInLineBreak);
 
                                 
                                 const todoRemindInInput = document.createElement('input');
@@ -283,9 +305,9 @@ function formDomModule (){
                                 inputContainer6.append(todoPriorityLabel);
 
 
-                                const todoPriorityLineBreak = document.createElement('br');
+                                // const todoPriorityLineBreak = document.createElement('br');
 
-                                inputContainer6.append(todoPriorityLineBreak);
+                                // inputContainer6.append(todoPriorityLineBreak);
 
                                 
                                 const todoPriorityButton = document.createElement('button');
@@ -337,54 +359,67 @@ function formDomModule (){
 
                             createNewTodo.append(inputContainer7);
 
-
-                                const existingProjectRadio = document.createElement('input');
-
-                                existingProjectRadio.setAttribute('type','radio');
-
-                                existingProjectRadio.setAttribute('id','existing-project');
-
-                                // existingProjectRadio.setAttribute('required','');
-
-                                existingProjectRadio.setAttribute('name','project');
-
-                                existingProjectRadio.classList.add('form-input');
-
-                                inputContainer7.append(existingProjectRadio);
-
                                 
-
-                                const existingProjectRadioLabel = document.createElement('label');
-
-                                existingProjectRadioLabel.setAttribute('for','existing-project');
-
-                                existingProjectRadioLabel.textContent = 'Existing project';
-
-                                inputContainer7.append(existingProjectRadioLabel);
+                                const existingProjectDiv  = document.createElement('div');
+                                existingProjectDiv.classList.add('existing-project-div');
+                                inputContainer7.append(existingProjectDiv)
 
 
 
-                                const newProjectRadio = document.createElement('input');
-
-                                newProjectRadio.setAttribute('type','radio');
-
-                                newProjectRadio.setAttribute('id','new-project');
-
-                                newProjectRadio.setAttribute('name','project');
-
-                                newProjectRadio.classList.add('form-input');
-
-                                inputContainer7.append(newProjectRadio);
 
 
+                                    const existingProjectRadio = document.createElement('input');
 
-                                const newProjectRadioLabel = document.createElement('label');
+                                    existingProjectRadio.setAttribute('type','radio');
 
-                                newProjectRadioLabel.setAttribute('for','new-project');
+                                    existingProjectRadio.setAttribute('id','existing-project');
 
-                                newProjectRadioLabel.textContent = 'New Project';
+                                    // existingProjectRadio.setAttribute('required','');
 
-                                inputContainer7.append(newProjectRadioLabel);
+                                    existingProjectRadio.setAttribute('name','project');
+
+                                    existingProjectRadio.classList.add('form-input');
+
+                                    existingProjectDiv.append(existingProjectRadio);
+
+                                    
+
+                                    const existingProjectRadioLabel = document.createElement('label');
+
+                                    existingProjectRadioLabel.setAttribute('for','existing-project');
+
+                                    existingProjectRadioLabel.textContent = 'Existing project';
+
+                                    existingProjectDiv.append(existingProjectRadioLabel);
+
+
+
+                                const newProjectDiv = document.createElement('div');
+                                newProjectDiv.classList.add('new-project-div');
+                                inputContainer7.append(newProjectDiv)
+
+
+                                    const newProjectRadio = document.createElement('input');
+
+                                    newProjectRadio.setAttribute('type','radio');
+
+                                    newProjectRadio.setAttribute('id','new-project');
+
+                                    newProjectRadio.setAttribute('name','project');
+
+                                    newProjectRadio.classList.add('form-input');
+
+                                    newProjectDiv.append(newProjectRadio);
+
+
+
+                                    const newProjectRadioLabel = document.createElement('label');
+
+                                    newProjectRadioLabel.setAttribute('for','new-project');
+
+                                    newProjectRadioLabel.textContent = 'New Project';
+
+                                    newProjectDiv.append(newProjectRadioLabel);
 
 
 
@@ -395,7 +430,7 @@ function formDomModule (){
 
                         selectExistingProject.classList.add('select-existing-project');
 
-                        fieldset.append(selectExistingProject);
+                        inputCollection.append(selectExistingProject);
 
 
                             const inputContainer8 = document.createElement('div');
@@ -454,7 +489,12 @@ function formDomModule (){
 
                         createNewProject.classList.add('create-new-project');
 
-                        fieldset.append(createNewProject);
+                        inputCollection.append(createNewProject);
+
+                            const projectCreationTitle = document.createElement('div');
+                            projectCreationTitle.classList.add('project-creation-title');
+                            projectCreationTitle.textContent = 'Create a new project'
+                            createNewProject.append(projectCreationTitle);
 
 
                             const inputContainer9 = document.createElement('div');
@@ -472,9 +512,9 @@ function formDomModule (){
                                 inputContainer9.append(projectTitleLabel);
 
 
-                                const projectTitleLineBreak = document.createElement('br');
+                                // const projectTitleLineBreak = document.createElement('br');
 
-                                inputContainer9.append(projectTitleLineBreak);
+                                // inputContainer9.append(projectTitleLineBreak);
 
                                 
                                 const projectTitleInput = document.createElement('input');
@@ -505,9 +545,9 @@ function formDomModule (){
                                 inputContainer10.append(projectDescLabel);
 
 
-                                const projectDescLineBreak = document.createElement('br');
+                                // const projectDescLineBreak = document.createElement('br');
 
-                                inputContainer10.append(projectDescLineBreak);
+                                // inputContainer10.append(projectDescLineBreak);
 
                                 
                                 const projectDescTextArea = document.createElement('textarea');
@@ -546,9 +586,9 @@ function formDomModule (){
                                 inputContainer11.append(projectDateLabel);
 
 
-                                const projectDateLineBreak = document.createElement('br');
+                                // const projectDateLineBreak = document.createElement('br');
 
-                                inputContainer11.append(projectDateLineBreak);
+                                // inputContainer11.append(projectDateLineBreak);
 
                                 
                                 const projectDateInput = document.createElement('input');
@@ -580,9 +620,9 @@ function formDomModule (){
                                 inputContainer12.append(projectRemindInLabel);
 
 
-                                const projectRemindInLineBreak = document.createElement('br');
+                                // const projectRemindInLineBreak = document.createElement('br');
 
-                                inputContainer12.append(projectRemindInLineBreak);
+                                // inputContainer12.append(projectRemindInLineBreak);
 
                                 
                                 const projectRemindInInput = document.createElement('input');
@@ -617,9 +657,9 @@ function formDomModule (){
                                 inputContainer13.append(projectPriorityLabel);
 
 
-                                const projectPriorityLineBreak = document.createElement('br');
+                                // const projectPriorityLineBreak = document.createElement('br');
 
-                                inputContainer13.append(projectPriorityLineBreak);
+                                // inputContainer13.append(projectPriorityLineBreak);
 
                                 
                                 const projectPriorityButton = document.createElement('button');
@@ -673,7 +713,7 @@ function formDomModule (){
 
                         submitButton.textContent = 'Submit';
 
-                        fieldset.append(submitButton);
+                        inputCollection.append(submitButton);
 
 
 
