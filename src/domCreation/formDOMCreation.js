@@ -133,7 +133,7 @@ function formDomModule (){
 
                         const inputContainer3 = document.createElement('div');
 
-                        inputContainer3.classList.add('input-container');
+                        inputContainer3.classList.add('radio-input-container');
 
                         fieldset.append(inputContainer3);
 
@@ -255,6 +255,10 @@ function formDomModule (){
 
                                 todoRemindInInput.setAttribute('type','number');
 
+                                todoRemindInInput.setAttribute('min','0');
+
+                                todoRemindInInput.setAttribute('max','30');
+
                                 todoRemindInInput.setAttribute('id','todo-remind-in');
 
                                 todoRemindInInput.classList.add('form-input');
@@ -329,7 +333,7 @@ function formDomModule (){
 
                             const inputContainer7 = document.createElement('div');
 
-                            inputContainer7.classList.add('input-container');
+                            inputContainer7.classList.add('radio-input-container');
 
                             createNewTodo.append(inputContainer7);
 
@@ -584,6 +588,10 @@ function formDomModule (){
                                 const projectRemindInInput = document.createElement('input');
 
                                 projectRemindInInput.setAttribute('type','number');
+
+                                projectRemindInInput.setAttribute('min','0');
+
+                                projectRemindInInput.setAttribute('max','30');
 
                                 projectRemindInInput.setAttribute('id','project-remind-in');
 

@@ -99,14 +99,16 @@ function appendNotesObject(){
 
                     
 
-                    const lineBreak1 = document.createElement('br');
-                    todoDisplay.append(lineBreak1);
+                    // const lineBreak1 = document.createElement('br');
+                    // todoDisplay.append(lineBreak1);
 
 
                     
 
 
-                    
+                    const buttonContainer = document.createElement('div');
+                    buttonContainer.classList.add('note-button-container');
+                    todoDisplay.append(buttonContainer)
 
 
                     const todoDelete = document.createElement('button');
@@ -121,14 +123,14 @@ function appendNotesObject(){
 
                     todoDelete.classList.add('todo-update');
 
-                    todoDisplay.append(todoDelete);
+                    buttonContainer.append(todoDelete);
 
 
 
 
-                    const lineBreak2 = document.createElement('br');
+                    // const lineBreak2 = document.createElement('br');
                     
-                    todoDisplay.append(lineBreak2);
+                    // todoDisplay.append(lineBreak2);
 
 
 
@@ -144,7 +146,7 @@ function appendNotesObject(){
 
                     todoUpdate.classList.add('todo-update');
 
-                    todoDisplay.append(todoUpdate);
+                    buttonContainer.append(todoUpdate);
 
 
                     updateNoteItem(object);

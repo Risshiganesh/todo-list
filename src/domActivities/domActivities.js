@@ -25,6 +25,10 @@ import appendProjectObjects from "../domCreation/populateDOMProjectCollection";
 
 import appendNotesObject from "../domCreation/populateDOMNoteCollection";
 
+import { clickedProject } from "../domCreation/populateDOMProjectCollection";
+
+import displayProject from "../domCreation/displayProject";
+
 
 let menuInDisplay = 'todos'
 
@@ -55,6 +59,57 @@ function updateDisplay (){
         appendNotesObject();
 
     }
+
+
+    if (menuInDisplay === 'todos' || menuInDisplay === 'projects') {
+
+        const highPriorityButton = document.querySelector('.high-priority');
+        const mediumPriorityButton = document.querySelector('.medium-priority');
+        const lowPriorityButton = document.querySelector('.low-priority');
+
+
+
+        if (priorityInDisplay === 'High') {
+            console.log('HIGH PRIORITY CHOSEN')
+
+            highPriorityButton.classList.add('high-priority-chosen');
+
+            mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+            lowPriorityButton.classList.remove('low-priority-chosen');
+
+        }
+
+        if (priorityInDisplay === 'Medium') {
+            console.log('MEDIUM PRIORITY CHOSEN')
+
+            highPriorityButton.classList.remove('high-priority-chosen');
+
+            mediumPriorityButton.classList.add('medium-priority-chosen');
+
+            lowPriorityButton.classList.remove('low-priority-chosen');
+
+
+
+        }
+
+        if (priorityInDisplay=== 'Low') {
+            console.log('LOW PRIORITY CHOSEN')
+
+            highPriorityButton.classList.remove('high-priority-chosen');
+
+            mediumPriorityButton.classList.remove('medium-priority-chosen');
+
+            lowPriorityButton.classList.add('low-priority-chosen');
+
+
+        }
+
+    }
+
+
+
+    
 }
 
 
@@ -365,11 +420,6 @@ function domActivitiesModule (){
 
                 todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectTitle.value);
 
-                todoObject();
-
-                projectObject();
-
-                notesObject();
 
                 resetArray.forEach(input => {
                     input.value = '';
@@ -378,58 +428,17 @@ function domActivitiesModule (){
                 //everytime submit button is clicked fresh dropdown is created 
                 formDomModule.existingProjectOptions();
 
-                createProjectDOM()
-
-                appendProjectObjects(projectPriority.value);
+                createProjectDOM();
 
                 allProjectsTab.classList.add('menu-tab-active');
 
-                const highPriorityButton = document.querySelector('.high-priority');
-                const mediumPriorityButton = document.querySelector('.medium-priority');
-                const lowPriorityButton = document.querySelector('.low-priority');
+                menuInDisplay = 'projects';
 
-                const priorityButtons = document.querySelector('.priority-buttons');
-        
-                priorityButtons.querySelectorAll('*').forEach(element => {
-                    element.classList.remove('chosen-priority')
-                });
+                priorityInDisplay = projectPriority.value;
 
-                if (projectPriority.value === 'High') {
-                    console.log('HIGH PRIORITY CHOSEN')
+                updateDisplay();
 
-                    highPriorityButton.classList.add('high-priority-chosen');
-
-                    mediumPriorityButton.classList.remove('medium-priority-chosen');
-
-                    lowPriorityButton.classList.remove('low-priority-chosen');
-
-                }
-
-                if (projectPriority.value === 'Medium') {
-                    console.log('MEDIUM PRIORITY CHOSEN')
-
-                    highPriorityButton.classList.remove('high-priority-chosen');
-
-                    mediumPriorityButton.classList.add('medium-priority-chosen');
-
-                    lowPriorityButton.classList.remove('low-priority-chosen');
-
-
-
-                }
-
-                if (projectPriority.value === 'Low') {
-                    console.log('LOW PRIORITY CHOSEN')
-
-                    highPriorityButton.classList.remove('high-priority-chosen');
-
-                    mediumPriorityButton.classList.remove('medium-priority-chosen');
-
-                    lowPriorityButton.classList.add('low-priority-chosen');
-
-
-                }
-
+ 
 
 
                 return;
@@ -440,11 +449,6 @@ function domActivitiesModule (){
 
             todoModule.createTodo(todoTitle.value,todoDesc.value,todoDate.value,Number(todoReminder.value),todoPriority.value,`pending`,projectsChoices.value);
 
-            // todoObject();
-
-            // projectObject();
-
-            // notesObject();
 
             resetArray.forEach(input => {
 
@@ -459,69 +463,31 @@ function domActivitiesModule (){
                 
 
                 createTodoDOM();
-                populateTodoCollection(todoPriority.value);
 
                 allTodosTab.classList.add('menu-tab-active');
 
+                menuInDisplay = 'todos';
 
-                // turn this to a function
-                const highPriorityButton = document.querySelector('.high-priority');
-                const mediumPriorityButton = document.querySelector('.medium-priority');
-                const lowPriorityButton = document.querySelector('.low-priority');
+                priorityInDisplay = todoPriority.value;
 
-                // const priorityButtons = document.querySelector('.priority-buttons');
-  
-                // priorityButtons.querySelectorAll('*').forEach(element => {
-                //     element.classList.remove('chosen-priority')
-                // });
-
-                
-
-                if (todoPriority.value === 'High') {
-
-                    highPriorityButton.classList.add('high-priority-chosen');
-
-                    mediumPriorityButton.classList.remove('medium-priority-chosen');
-
-                    lowPriorityButton.classList.remove('low-priority-chosen');
-
-                }
-
-                if (todoPriority.value === 'Medium') {
-
-                    highPriorityButton.classList.remove('high-priority-chosen');
-
-                    mediumPriorityButton.classList.add('medium-priority-chosen');
-
-                    lowPriorityButton.classList.remove('low-priority-chosen');
+                updateDisplay();
 
 
-
-                }
-
-                if (todoPriority.value === 'Low') {
-
-                    highPriorityButton.classList.remove('high-priority-chosen');
-
-                    mediumPriorityButton.classList.remove('medium-priority-chosen');
-
-                    lowPriorityButton.classList.add('low-priority-chosen');
-
-
-                }
                 
             }
 
             
 
-
             if (selectNote.checked) {
 
                 createNotesDOM();
-                appendNotesObject()
 
                 allNotesTab.classList.add('menu-tab-active');
 
+                menuInDisplay = 'notes';
+
+                updateDisplay();
+               
             }
 
 
@@ -886,7 +852,58 @@ function domActivitiesModule (){
         
         todoModule.updateTodo(object,newDetails);
 
-        updateDisplay();
+        
+
+        // this runs even in a normal todo update
+
+        if (menuInDisplay === 'projects') {
+            
+            if (clickedProject) {
+
+                console.log('TODO PROJECT UPDATE')
+    
+                const getLatestProjectObject = projectObject().unprocessedProjectArray;
+    
+                console.log(getLatestProjectObject)
+    
+                let latestProject = '';
+    
+                getLatestProjectObject.forEach(project => {
+    
+                    // console.log(project);
+    
+                    // console.log(clickedProject);
+    
+                    if (project.title === clickedProject.title && 
+                        project.desc === clickedProject.desc && 
+                        project.dueDate === clickedProject.dueDate && 
+                        project.remindIn === clickedProject.remindIn && 
+                        project.priority === clickedProject.priority && 
+                        project.status === clickedProject.status) {
+                        
+                        latestProject = project;
+    
+                    }
+                });
+    
+                displayProject(latestProject)
+    
+                console.log('PROJECT UPDATED?????');
+          
+            }
+
+        }
+
+
+        // NEED TO FIX THIS
+
+        if (menuInDisplay === 'todos') {
+            
+            priorityInDisplay = newTodoPriority.value;
+
+            updateDisplay();
+        }
+
 
         todoDisplayContainer.remove();
 
@@ -957,6 +974,8 @@ function domActivitiesModule (){
         }
         
         todoModule.updateTodo(object,newDetails);
+
+        menuInDisplay = 'notes'
 
         updateDisplay();
 
@@ -1044,7 +1063,11 @@ function domActivitiesModule (){
 
         projectModule.updateProject(project,newDetails);
 
-        updateDisplay()
+        menuInDisplay = 'projects'
+
+        priorityInDisplay = newProjectPriority.value;
+
+        updateDisplay();
 
         projectDisplayContainer.remove();
 

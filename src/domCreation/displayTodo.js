@@ -23,6 +23,8 @@ function displayTodo(object){
 
         todoDisplay.classList.add('todo-display');
 
+        todoDisplay.classList.add('main-todo-display')
+
         todoForm.append(todoDisplay);
 
 
@@ -82,6 +84,10 @@ function displayTodo(object){
             const todoDisplayRemindIn = document.createElement('input');
 
             todoDisplayRemindIn.setAttribute('type','number');
+
+            todoDisplayRemindIn.setAttribute('min','0');
+
+            todoDisplayRemindIn.setAttribute('max','30');
 
             todoDisplayRemindIn.setAttribute('id','todo-display-remind-in');
 
