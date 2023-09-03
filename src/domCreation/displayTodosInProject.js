@@ -54,7 +54,7 @@ function displayTodosInProject (project){
     
                     const specifiedObjByPriority = allProjectTodos[key];
 
-                    // console.log(specifiedObjByPriority);
+ 
     
                     for (const prop in specifiedObjByPriority) {
     
@@ -69,7 +69,6 @@ function displayTodosInProject (project){
     
                             }
 
-                            console.log('runs')
     
     
                             const statusContainer = document.createElement('div');

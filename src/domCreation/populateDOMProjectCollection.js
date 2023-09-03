@@ -27,7 +27,7 @@ function appendProjectObjects(priority){
 
 
     const allProjectObject = projectObjects().projectsByPriority;
-    // console.log(allProjectObject);
+
 
     const dueStatusArray = ['overdue','due','upcoming','complete'];
 
@@ -137,10 +137,7 @@ function appendProjectObjects(priority){
 
                                                 displayProject(project);
 
-                                                clickedProject = project;
-                                                // console.log('BOOM BOOM!');
-
-                                                // console.log(project.todosByPriority);                                           
+                                                clickedProject = project;                                         
 
                                                 // const mainContainer = document.querySelector('.main-container');
 
@@ -421,7 +418,7 @@ function appendProjectObjects(priority){
 
                                                 //     projectTodoContainer.addEventListener('click', function(){
                                                 //         projectTodoContainer.remove();
-                                                //         console.log('works!')
+
                                                     // });
 
 

@@ -47,7 +47,7 @@ function projectModule () {
             if (((!projectArray[index].title) && 
                 (!projectArray[index].desc))||projectArray[index].priority === 'high'|| projectArray[index].priority === 'medium' || projectArray[index].priority === 'low') {
 
-                console.log('CLEANED UP PROJECTS !!!')
+
 
                 projectArray.splice(index,1)
 
@@ -67,7 +67,7 @@ function projectModule () {
 
     function localStorageUpdate(){
 
-        console.log('SET LOCAL STORAGE');
+
 
         localStorage.setItem('storedProjects',JSON.stringify(projectArray));
 
@@ -143,7 +143,7 @@ function projectModule () {
                 project.priority === oldDetails.priority && 
                 project.status === oldDetails.status) {
 
-                    console.log('CHANGE WORKS!')
+
 
 
                 project.title = newDetails.newTitle;

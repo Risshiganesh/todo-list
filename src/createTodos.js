@@ -49,7 +49,7 @@ function todoModule (){
             if (((!todoArray[index].title) && 
                 (!todoArray[index].desc))||todoArray[index].priority === 'high'|| todoArray[index].priority === 'medium' || todoArray[index].priority === 'low') {
 
-                console.log('CLEANED UP TODOS !!!')
+
 
                 todoArray.splice(index,1)
 
@@ -71,7 +71,7 @@ function todoModule (){
 
     function localStorageUpdate(){
 
-        console.log('SET LOCAL STORAGE');
+
 
         localStorage.setItem('storedTodos',JSON.stringify(todoArray));
 
@@ -123,8 +123,7 @@ function todoModule (){
 
     // localStorageUpdate();
     // localStorageUpdate();
-    // console.log('GET LOCAL STORAGE');
-    // console.log(JSON.parse(localStorage.getItem('todoArray')))
+
     // localStorage.removeItem('storedTodos');
     
     // oldDetails
@@ -202,7 +201,7 @@ function todoModule (){
 
             if (todoArray[index].project === project.title) {
 
-                console.log('TODO DELETED')
+
 
                 todoArray.splice(index,1)
 

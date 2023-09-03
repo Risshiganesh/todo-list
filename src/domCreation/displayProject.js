@@ -5,9 +5,7 @@ import { updateProjectItem,updateTodoItem, deleteProjectItem,emptyDisplay, displ
 import displayTodosInProject from "./displayTodosInProject";
 
 function displayProject (project){
-    console.log('BOOM BOOM!');
-
-    console.log(project.todosByPriority);                                           
+                                      
 
     const mainContainer = document.querySelector('.main-container');
 
@@ -347,7 +345,6 @@ function displayProject (project){
 
         projectTodoContainer.addEventListener('click', function(){
             projectTodoContainer.remove();
-            console.log('works!')
         });
 
 

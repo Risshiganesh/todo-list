@@ -166,7 +166,6 @@ function sortingModule (){
         });
 
 
-        // console.log(dueSortedArray);
 
             
         return dueSortedArray;    

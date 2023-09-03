@@ -53,9 +53,6 @@ function projectsTab (){
 
 
 
-    console.log('PROJECTS TAB');
-
-    console.log(projectsByPriority);
 
 
     return {projectsByPriority,unprocessedProjectArray};

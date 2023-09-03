@@ -25,7 +25,7 @@ function formDomModule (){
 
         formButtonContainer.append(formButton);
 
-        // console.log('main dOm');
+
     
 
 
@@ -769,7 +769,7 @@ function formDomModule (){
 
 
                                 unprocessedProject.forEach(object => {
-                                    // console.log(object.title);
+  
 
                                     const projectOption = document.createElement('option');
 
@@ -813,7 +813,7 @@ function formDomModule (){
 
 
                         //     unprocessedProject.forEach(object => {
-                        //         // console.log(object.title);
+
 
                         //         const projectOption = document.createElement('option');
 

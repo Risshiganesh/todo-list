@@ -13,14 +13,13 @@ function allTodosTab (){
     }
 
 
-    console.log(sortedTodoArray);
 
     return sortedTodoArray;
 
 
 }
 
-console.log('TODO TAB');
+
 allTodosTab();
 
 export default allTodosTab;
