@@ -4,6 +4,12 @@ import hamburgerIcon from "../assets/menu-icon.png";
 
 function mainDomModule (){
 
+    // const body = document.querySelector('body');
+
+    // const mainContainer = document.createElement('div');
+    // mainContainer.classList.add('main-container');
+    // body.append(mainContainer)
+
     const mainContainer = document.querySelector('.main-container');
 
     
@@ -153,6 +159,9 @@ function mainDomModule (){
         tabActiveSwitch();
 
 
+    const displayContainer = document.createElement('div');
+    displayContainer.classList.add('display-container');
+    mainContainer.append(displayContainer);
 
 
     // FOOTER

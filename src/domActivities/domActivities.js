@@ -38,7 +38,7 @@ let priorityInDisplay = 'High'
 function updateDisplay (){
 
     if(menuInDisplay === 'todos'){
-        console.log('TODOS DISPLAY UPDATED');
+
 
         populateTodoCollection(priorityInDisplay);
 
@@ -46,7 +46,7 @@ function updateDisplay (){
 
     if(menuInDisplay === 'projects'){
 
-        console.log('TODOS PROJECTS UPDATED');
+
 
         appendProjectObjects(priorityInDisplay);
 
@@ -54,7 +54,7 @@ function updateDisplay (){
 
     if (menuInDisplay === 'notes') {
 
-        console.log('TODOS NOTES UPDATED');
+
         
         appendNotesObject();
 
@@ -70,7 +70,7 @@ function updateDisplay (){
 
 
         if (priorityInDisplay === 'High') {
-            console.log('HIGH PRIORITY CHOSEN')
+
 
             highPriorityButton.classList.add('high-priority-chosen');
 
@@ -81,7 +81,7 @@ function updateDisplay (){
         }
 
         if (priorityInDisplay === 'Medium') {
-            console.log('MEDIUM PRIORITY CHOSEN')
+
 
             highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -94,7 +94,7 @@ function updateDisplay (){
         }
 
         if (priorityInDisplay=== 'Low') {
-            console.log('LOW PRIORITY CHOSEN')
+
 
             highPriorityButton.classList.remove('high-priority-chosen');
 
@@ -411,7 +411,7 @@ function domActivitiesModule (){
 
 
             if(newProjectRadio.checked){
-                console.log('why are you running?')
+
 
                 if (projectReminder.value < 0 || projectReminder.value > 30) {
                     
@@ -584,12 +584,12 @@ function domActivitiesModule (){
 
 
         if (selectNewProject.checked){
-            console.log('NEW PROJECT')
+
             checkedNewProject();
         }
 
         if(selectExistingProject.checked){
-            console.log('EXISTING PROJECT')
+
             checkedExistingProject();
         }
 
@@ -613,7 +613,7 @@ function domActivitiesModule (){
 
         
 
-        console.log('TO DO LIST');
+
 
         menuInDisplay = 'todos';
 
@@ -625,7 +625,7 @@ function domActivitiesModule (){
 
     allProjectsTab.addEventListener('click',function(){
 
-        console.log('PROJECTS TAB');
+
 
         menuInDisplay = 'projects';
 
@@ -638,7 +638,7 @@ function domActivitiesModule (){
 
     allNotesTab.addEventListener('click',function(){
 
-        console.log('NOTES LIST');
+
 
         menuInDisplay = 'notes';
 
@@ -686,7 +686,7 @@ function domActivitiesModule (){
         populateTodoCollection('High');
 
         priorityInDisplay = 'High';
-        console.log('LOOPING')
+
 
     });
 
@@ -711,7 +711,7 @@ function domActivitiesModule (){
         populateTodoCollection('Medium');
 
         priorityInDisplay = 'Medium';
-        console.log('LOOPING')
+
     });
 
 
@@ -736,7 +736,7 @@ function domActivitiesModule (){
         populateTodoCollection('Low');
 
         priorityInDisplay = 'Low';
-        console.log('LOOPING')
+
     });
    }
 
@@ -777,7 +777,7 @@ function domActivitiesModule (){
         appendProjectObjects('High');
 
         priorityInDisplay = 'High';
-        console.log('LOOPING')
+
 
     });
 
@@ -806,7 +806,7 @@ function domActivitiesModule (){
         appendProjectObjects('Medium');
 
         priorityInDisplay = 'Medium';
-        console.log('LOOPING')
+
     });
 
 
@@ -831,7 +831,7 @@ function domActivitiesModule (){
         appendProjectObjects('Low');
 
         priorityInDisplay = 'Low';
-        console.log('LOOPING')
+
     });
    }
 
@@ -869,7 +869,7 @@ function domActivitiesModule (){
 
         if (emptyInput.length > 0 || newTodoReminder.value < 0 || newTodoReminder.value > 30) {
 
-            console.log('FILTERING WORKS')
+
             return;
         }
 
@@ -897,19 +897,16 @@ function domActivitiesModule (){
             
             if (clickedProject) {
 
-                console.log('TODO PROJECT UPDATE')
+
     
                 const getLatestProjectObject = projectObject().unprocessedProjectArray;
     
-                console.log(getLatestProjectObject)
+
     
                 let latestProject = '';
     
                 getLatestProjectObject.forEach(project => {
     
-                    // console.log(project);
-    
-                    // console.log(clickedProject);
     
                     if (project.title === clickedProject.title && 
                         project.desc === clickedProject.desc && 
@@ -925,7 +922,7 @@ function domActivitiesModule (){
     
                 displayProject(latestProject)
     
-                console.log('PROJECT UPDATED?????');
+
           
             }
 
@@ -997,7 +994,6 @@ function domActivitiesModule (){
 
         if (emptyInput.length > 0) {
 
-            console.log('FILTERING WORKS')
             return;
         }
 
@@ -1078,7 +1074,6 @@ function domActivitiesModule (){
 
         if (emptyInput.length > 0 || newProjectReminder.value < 0 || newProjectReminder.value > 30) {
 
-            console.log('FILTERING WORKS')
             return;
         }
 
