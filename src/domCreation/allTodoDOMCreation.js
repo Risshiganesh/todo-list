@@ -52,7 +52,7 @@ function allTodoDOMModule (){
 
             const todoParagraph = document.createElement('p');
 
-            todoParagraph.textContent = 'Your collection of todos are displayed here';
+            todoParagraph.textContent = 'Your collection of to-dos are displayed here';
 
             tabTitle.append(todoParagraph);
 

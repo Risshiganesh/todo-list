@@ -54,7 +54,7 @@ function projectDOMModule (){
 
             const projectParagraph = document.createElement('p');
 
-            projectParagraph.textContent = 'Your collection of Projects are displayed here';
+            projectParagraph.textContent = 'Your collection of projects are displayed here';
 
             tabTitle.append(projectParagraph);
 

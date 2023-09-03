@@ -52,7 +52,7 @@ function allNoteDOMModule (){
 
             const todoParagraph = document.createElement('p');
 
-            todoParagraph.textContent = 'Your collection of Notes are displayed here';
+            todoParagraph.textContent = 'Your collection of notes are displayed here';
 
             tabTitle.append(todoParagraph);
 
